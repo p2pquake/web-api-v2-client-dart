@@ -7,7 +7,7 @@
 // ignore_for_file: always_put_required_named_parameters_first
 // ignore_for_file: lines_longer_than_80_chars
 
-part of openapi.api;
+part of p2pquake_v2_api.api;
 
 class JMAQuakeAllOfPoints {
   /// Returns a new [JMAQuakeAllOfPoints] instance.
@@ -25,9 +25,7 @@ class JMAQuakeAllOfPoints {
       pref = json['pref'];
       addr = json['addr'];
       isArea = json['isArea'];
-      scale = json['scale'] == null ?
-        null :
-        json['scale'].toDouble();
+      scale = json['scale'] == null ? null : json['scale'].toDouble();
     }
   }
 
@@ -41,24 +39,25 @@ class JMAQuakeAllOfPoints {
   bool isArea;
 
   /// 震度
-  JMAQuakeAllOfPointsScaleEnum scale = JMAQuakeAllOfPointsScaleEnum._();
+  JMAQuakeAllOfPointsScaleEnum scale =
+      null; // JMAQuakeAllOfPointsScaleEnum._();
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is JMAQuakeAllOfPoints &&
-     other.pref == pref &&
-     other.addr == addr &&
-     other.isArea == isArea &&
-     other.scale == scale;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is JMAQuakeAllOfPoints &&
+          other.pref == pref &&
+          other.addr == addr &&
+          other.isArea == isArea &&
+          other.scale == scale;
 
   @override
   int get hashCode =>
-    pref.hashCode +
-    addr.hashCode +
-    isArea.hashCode +
-    scale.hashCode;
+      pref.hashCode + addr.hashCode + isArea.hashCode + scale.hashCode;
 
   @override
-  String toString() => 'JMAQuakeAllOfPoints[pref=$pref, addr=$addr, isArea=$isArea, scale=$scale]';
+  String toString() =>
+      'JMAQuakeAllOfPoints[pref=$pref, addr=$addr, isArea=$isArea, scale=$scale]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -77,25 +76,40 @@ class JMAQuakeAllOfPoints {
     return json;
   }
 
-  static List<JMAQuakeAllOfPoints> listFromJson(List<dynamic> json, {bool emptyIsNull, bool growable,}) =>
-    json == null || json.isEmpty
-      ? true == emptyIsNull ? null : <JMAQuakeAllOfPoints>[]
-      : json.map((v) => JMAQuakeAllOfPoints.fromJson(v)).toList(growable: true == growable);
+  static List<JMAQuakeAllOfPoints> listFromJson(
+    List<dynamic> json, {
+    bool emptyIsNull,
+    bool growable,
+  }) =>
+      json == null || json.isEmpty
+          ? true == emptyIsNull
+              ? null
+              : <JMAQuakeAllOfPoints>[]
+          : json
+              .map((v) => JMAQuakeAllOfPoints.fromJson(v))
+              .toList(growable: true == growable);
 
-  static Map<String, JMAQuakeAllOfPoints> mapFromJson(Map<String, dynamic> json) {
+  static Map<String, JMAQuakeAllOfPoints> mapFromJson(
+      Map<String, dynamic> json) {
     final map = <String, JMAQuakeAllOfPoints>{};
     if (json != null && json.isNotEmpty) {
-      json.forEach((String key, dynamic v) => map[key] = JMAQuakeAllOfPoints.fromJson(v));
+      json.forEach((String key, dynamic v) =>
+          map[key] = JMAQuakeAllOfPoints.fromJson(v));
     }
     return map;
   }
 
   // maps a json object with a list of JMAQuakeAllOfPoints-objects as value to a dart map
-  static Map<String, List<JMAQuakeAllOfPoints>> mapListFromJson(Map<String, dynamic> json, {bool emptyIsNull, bool growable,}) {
+  static Map<String, List<JMAQuakeAllOfPoints>> mapListFromJson(
+    Map<String, dynamic> json, {
+    bool emptyIsNull,
+    bool growable,
+  }) {
     final map = <String, List<JMAQuakeAllOfPoints>>{};
     if (json != null && json.isNotEmpty) {
       json.forEach((String key, dynamic v) {
-        map[key] = JMAQuakeAllOfPoints.listFromJson(v, emptyIsNull: emptyIsNull, growable: growable);
+        map[key] = JMAQuakeAllOfPoints.listFromJson(v,
+            emptyIsNull: emptyIsNull, growable: growable);
       });
     }
     return map;
@@ -111,7 +125,8 @@ class JMAQuakeAllOfPointsScaleEnum {
   final String value;
 
   @override
-  bool operator ==(Object other) => identical(this, other) ||
+  bool operator ==(Object other) =>
+      identical(this, other) ||
       other is JMAQuakeAllOfPointsScaleEnum && other.value == value ||
       other is String && other == value;
 
@@ -123,40 +138,46 @@ class JMAQuakeAllOfPointsScaleEnum {
 
   String toJson() => value;
 
-  static const null_ = JMAQuakeAllOfPointsScaleEnum._('null');
-  static const null_ = JMAQuakeAllOfPointsScaleEnum._('null');
-  static const null_ = JMAQuakeAllOfPointsScaleEnum._('null');
-  static const null_ = JMAQuakeAllOfPointsScaleEnum._('null');
-  static const null_ = JMAQuakeAllOfPointsScaleEnum._('null');
-  static const null_ = JMAQuakeAllOfPointsScaleEnum._('null');
-  static const null_ = JMAQuakeAllOfPointsScaleEnum._('null');
-  static const null_ = JMAQuakeAllOfPointsScaleEnum._('null');
-  static const null_ = JMAQuakeAllOfPointsScaleEnum._('null');
-  static const null_ = JMAQuakeAllOfPointsScaleEnum._('null');
+  static const scale10 = JMAQuakeAllOfPointsScaleEnum._(null);
+  static const scale20 = JMAQuakeAllOfPointsScaleEnum._(null);
+  static const scale30 = JMAQuakeAllOfPointsScaleEnum._(null);
+  static const scale40 = JMAQuakeAllOfPointsScaleEnum._(null);
+  static const scale45 = JMAQuakeAllOfPointsScaleEnum._(null);
+  static const scale50 = JMAQuakeAllOfPointsScaleEnum._(null);
+  static const scale55 = JMAQuakeAllOfPointsScaleEnum._(null);
+  static const scale60 = JMAQuakeAllOfPointsScaleEnum._(null);
+  static const scale70 = JMAQuakeAllOfPointsScaleEnum._(null);
+  static const scale46 = JMAQuakeAllOfPointsScaleEnum._(null);
 
   /// List of all possible values in this [enum][JMAQuakeAllOfPointsScaleEnum].
   static const values = <JMAQuakeAllOfPointsScaleEnum>[
-    null_,
-    null_,
-    null_,
-    null_,
-    null_,
-    null_,
-    null_,
-    null_,
-    null_,
-    null_,
+    scale10,
+    scale20,
+    scale30,
+    scale40,
+    scale45,
+    scale50,
+    scale55,
+    scale60,
+    scale70,
+    scale46,
   ];
 
   static JMAQuakeAllOfPointsScaleEnum fromJson(num value) =>
-    JMAQuakeAllOfPointsScaleEnumTypeTransformer().decode(value);
+      JMAQuakeAllOfPointsScaleEnumTypeTransformer().decode(value);
 
-  static List<JMAQuakeAllOfPointsScaleEnum> listFromJson(List<dynamic> json, {bool emptyIsNull, bool growable,}) =>
-    json == null || json.isEmpty
-      ? true == emptyIsNull ? null : <JMAQuakeAllOfPointsScaleEnum>[]
-      : json
-          .map((value) => JMAQuakeAllOfPointsScaleEnum.fromJson(value))
-          .toList(growable: true == growable);
+  static List<JMAQuakeAllOfPointsScaleEnum> listFromJson(
+    List<dynamic> json, {
+    bool emptyIsNull,
+    bool growable,
+  }) =>
+      json == null || json.isEmpty
+          ? true == emptyIsNull
+              ? null
+              : <JMAQuakeAllOfPointsScaleEnum>[]
+          : json
+              .map((value) => JMAQuakeAllOfPointsScaleEnum.fromJson(value))
+              .toList(growable: true == growable);
 }
 
 /// Transformation class that can [encode] an instance of [JMAQuakeAllOfPointsScaleEnum] to num,
@@ -164,7 +185,8 @@ class JMAQuakeAllOfPointsScaleEnum {
 class JMAQuakeAllOfPointsScaleEnumTypeTransformer {
   const JMAQuakeAllOfPointsScaleEnumTypeTransformer._();
 
-  factory JMAQuakeAllOfPointsScaleEnumTypeTransformer() => _instance ??= JMAQuakeAllOfPointsScaleEnumTypeTransformer._();
+  factory JMAQuakeAllOfPointsScaleEnumTypeTransformer() =>
+      _instance ??= JMAQuakeAllOfPointsScaleEnumTypeTransformer._();
 
   String encode(JMAQuakeAllOfPointsScaleEnum data) => data.value;
 
@@ -178,16 +200,26 @@ class JMAQuakeAllOfPointsScaleEnumTypeTransformer {
   /// and users are still using an old app with the old code.
   JMAQuakeAllOfPointsScaleEnum decode(dynamic data, {bool allowNull}) {
     switch (data) {
-      case 'null': return JMAQuakeAllOfPointsScaleEnum.null_;
-      case 'null': return JMAQuakeAllOfPointsScaleEnum.null_;
-      case 'null': return JMAQuakeAllOfPointsScaleEnum.null_;
-      case 'null': return JMAQuakeAllOfPointsScaleEnum.null_;
-      case 'null': return JMAQuakeAllOfPointsScaleEnum.null_;
-      case 'null': return JMAQuakeAllOfPointsScaleEnum.null_;
-      case 'null': return JMAQuakeAllOfPointsScaleEnum.null_;
-      case 'null': return JMAQuakeAllOfPointsScaleEnum.null_;
-      case 'null': return JMAQuakeAllOfPointsScaleEnum.null_;
-      case 'null': return JMAQuakeAllOfPointsScaleEnum.null_;
+      case 10:
+        return JMAQuakeAllOfPointsScaleEnum.scale10;
+      case 20:
+        return JMAQuakeAllOfPointsScaleEnum.scale20;
+      case 30:
+        return JMAQuakeAllOfPointsScaleEnum.scale30;
+      case 40:
+        return JMAQuakeAllOfPointsScaleEnum.scale40;
+      case 45:
+        return JMAQuakeAllOfPointsScaleEnum.scale45;
+      case 50:
+        return JMAQuakeAllOfPointsScaleEnum.scale50;
+      case 55:
+        return JMAQuakeAllOfPointsScaleEnum.scale55;
+      case 60:
+        return JMAQuakeAllOfPointsScaleEnum.scale60;
+      case 70:
+        return JMAQuakeAllOfPointsScaleEnum.scale70;
+      case 46:
+        return JMAQuakeAllOfPointsScaleEnum.scale46;
       default:
         if (allowNull == false) {
           throw ArgumentError('Unknown enum value to decode: $data');
@@ -199,4 +231,3 @@ class JMAQuakeAllOfPointsScaleEnumTypeTransformer {
   /// Singleton [JMAQuakeAllOfPointsScaleEnumTypeTransformer] instance.
   static JMAQuakeAllOfPointsScaleEnumTypeTransformer _instance;
 }
-

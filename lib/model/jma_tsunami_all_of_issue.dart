@@ -7,7 +7,7 @@
 // ignore_for_file: always_put_required_named_parameters_first
 // ignore_for_file: lines_longer_than_80_chars
 
-part of openapi.api;
+part of p2pquake_v2_api.api;
 
 class JMATsunamiAllOfIssue {
   /// Returns a new [JMATsunamiAllOfIssue] instance.
@@ -37,19 +37,19 @@ class JMATsunamiAllOfIssue {
   String type;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is JMATsunamiAllOfIssue &&
-     other.source_ == source_ &&
-     other.time == time &&
-     other.type == type;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is JMATsunamiAllOfIssue &&
+          other.source_ == source_ &&
+          other.time == time &&
+          other.type == type;
 
   @override
-  int get hashCode =>
-    source_.hashCode +
-    time.hashCode +
-    type.hashCode;
+  int get hashCode => source_.hashCode + time.hashCode + type.hashCode;
 
   @override
-  String toString() => 'JMATsunamiAllOfIssue[source_=$source_, time=$time, type=$type]';
+  String toString() =>
+      'JMATsunamiAllOfIssue[source_=$source_, time=$time, type=$type]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -65,28 +65,42 @@ class JMATsunamiAllOfIssue {
     return json;
   }
 
-  static List<JMATsunamiAllOfIssue> listFromJson(List<dynamic> json, {bool emptyIsNull, bool growable,}) =>
-    json == null || json.isEmpty
-      ? true == emptyIsNull ? null : <JMATsunamiAllOfIssue>[]
-      : json.map((v) => JMATsunamiAllOfIssue.fromJson(v)).toList(growable: true == growable);
+  static List<JMATsunamiAllOfIssue> listFromJson(
+    List<dynamic> json, {
+    bool emptyIsNull,
+    bool growable,
+  }) =>
+      json == null || json.isEmpty
+          ? true == emptyIsNull
+              ? null
+              : <JMATsunamiAllOfIssue>[]
+          : json
+              .map((v) => JMATsunamiAllOfIssue.fromJson(v))
+              .toList(growable: true == growable);
 
-  static Map<String, JMATsunamiAllOfIssue> mapFromJson(Map<String, dynamic> json) {
+  static Map<String, JMATsunamiAllOfIssue> mapFromJson(
+      Map<String, dynamic> json) {
     final map = <String, JMATsunamiAllOfIssue>{};
     if (json != null && json.isNotEmpty) {
-      json.forEach((String key, dynamic v) => map[key] = JMATsunamiAllOfIssue.fromJson(v));
+      json.forEach((String key, dynamic v) =>
+          map[key] = JMATsunamiAllOfIssue.fromJson(v));
     }
     return map;
   }
 
   // maps a json object with a list of JMATsunamiAllOfIssue-objects as value to a dart map
-  static Map<String, List<JMATsunamiAllOfIssue>> mapListFromJson(Map<String, dynamic> json, {bool emptyIsNull, bool growable,}) {
+  static Map<String, List<JMATsunamiAllOfIssue>> mapListFromJson(
+    Map<String, dynamic> json, {
+    bool emptyIsNull,
+    bool growable,
+  }) {
     final map = <String, List<JMATsunamiAllOfIssue>>{};
     if (json != null && json.isNotEmpty) {
       json.forEach((String key, dynamic v) {
-        map[key] = JMATsunamiAllOfIssue.listFromJson(v, emptyIsNull: emptyIsNull, growable: growable);
+        map[key] = JMATsunamiAllOfIssue.listFromJson(v,
+            emptyIsNull: emptyIsNull, growable: growable);
       });
     }
     return map;
   }
 }
-

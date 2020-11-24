@@ -7,7 +7,7 @@
 // ignore_for_file: always_put_required_named_parameters_first
 // ignore_for_file: lines_longer_than_80_chars
 
-part of openapi.api;
+part of p2pquake_v2_api.api;
 
 class JMAQuakeAllOfEarthquakeHypocenter {
   /// Returns a new [JMAQuakeAllOfEarthquakeHypocenter] instance.
@@ -24,16 +24,12 @@ class JMAQuakeAllOfEarthquakeHypocenter {
   JMAQuakeAllOfEarthquakeHypocenter.fromJson(Map<String, dynamic> json) {
     if (json != null) {
       name = json['name'];
-      latitude = json['latitude'] == null ?
-        null :
-        json['latitude'].toDouble();
-      longitude = json['longitude'] == null ?
-        null :
-        json['longitude'].toDouble();
+      latitude = json['latitude'] == null ? null : json['latitude'].toDouble();
+      longitude =
+          json['longitude'] == null ? null : json['longitude'].toDouble();
       depth = json['depth'];
-      magnitude = json['magnitude'] == null ?
-        null :
-        json['magnitude'].toDouble();
+      magnitude =
+          json['magnitude'] == null ? null : json['magnitude'].toDouble();
     }
   }
 
@@ -53,23 +49,26 @@ class JMAQuakeAllOfEarthquakeHypocenter {
   num magnitude;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is JMAQuakeAllOfEarthquakeHypocenter &&
-     other.name == name &&
-     other.latitude == latitude &&
-     other.longitude == longitude &&
-     other.depth == depth &&
-     other.magnitude == magnitude;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is JMAQuakeAllOfEarthquakeHypocenter &&
+          other.name == name &&
+          other.latitude == latitude &&
+          other.longitude == longitude &&
+          other.depth == depth &&
+          other.magnitude == magnitude;
 
   @override
   int get hashCode =>
-    name.hashCode +
-    latitude.hashCode +
-    longitude.hashCode +
-    depth.hashCode +
-    magnitude.hashCode;
+      name.hashCode +
+      latitude.hashCode +
+      longitude.hashCode +
+      depth.hashCode +
+      magnitude.hashCode;
 
   @override
-  String toString() => 'JMAQuakeAllOfEarthquakeHypocenter[name=$name, latitude=$latitude, longitude=$longitude, depth=$depth, magnitude=$magnitude]';
+  String toString() =>
+      'JMAQuakeAllOfEarthquakeHypocenter[name=$name, latitude=$latitude, longitude=$longitude, depth=$depth, magnitude=$magnitude]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -91,28 +90,42 @@ class JMAQuakeAllOfEarthquakeHypocenter {
     return json;
   }
 
-  static List<JMAQuakeAllOfEarthquakeHypocenter> listFromJson(List<dynamic> json, {bool emptyIsNull, bool growable,}) =>
-    json == null || json.isEmpty
-      ? true == emptyIsNull ? null : <JMAQuakeAllOfEarthquakeHypocenter>[]
-      : json.map((v) => JMAQuakeAllOfEarthquakeHypocenter.fromJson(v)).toList(growable: true == growable);
+  static List<JMAQuakeAllOfEarthquakeHypocenter> listFromJson(
+    List<dynamic> json, {
+    bool emptyIsNull,
+    bool growable,
+  }) =>
+      json == null || json.isEmpty
+          ? true == emptyIsNull
+              ? null
+              : <JMAQuakeAllOfEarthquakeHypocenter>[]
+          : json
+              .map((v) => JMAQuakeAllOfEarthquakeHypocenter.fromJson(v))
+              .toList(growable: true == growable);
 
-  static Map<String, JMAQuakeAllOfEarthquakeHypocenter> mapFromJson(Map<String, dynamic> json) {
+  static Map<String, JMAQuakeAllOfEarthquakeHypocenter> mapFromJson(
+      Map<String, dynamic> json) {
     final map = <String, JMAQuakeAllOfEarthquakeHypocenter>{};
     if (json != null && json.isNotEmpty) {
-      json.forEach((String key, dynamic v) => map[key] = JMAQuakeAllOfEarthquakeHypocenter.fromJson(v));
+      json.forEach((String key, dynamic v) =>
+          map[key] = JMAQuakeAllOfEarthquakeHypocenter.fromJson(v));
     }
     return map;
   }
 
   // maps a json object with a list of JMAQuakeAllOfEarthquakeHypocenter-objects as value to a dart map
-  static Map<String, List<JMAQuakeAllOfEarthquakeHypocenter>> mapListFromJson(Map<String, dynamic> json, {bool emptyIsNull, bool growable,}) {
+  static Map<String, List<JMAQuakeAllOfEarthquakeHypocenter>> mapListFromJson(
+    Map<String, dynamic> json, {
+    bool emptyIsNull,
+    bool growable,
+  }) {
     final map = <String, List<JMAQuakeAllOfEarthquakeHypocenter>>{};
     if (json != null && json.isNotEmpty) {
       json.forEach((String key, dynamic v) {
-        map[key] = JMAQuakeAllOfEarthquakeHypocenter.listFromJson(v, emptyIsNull: emptyIsNull, growable: growable);
+        map[key] = JMAQuakeAllOfEarthquakeHypocenter.listFromJson(v,
+            emptyIsNull: emptyIsNull, growable: growable);
       });
     }
     return map;
   }
 }
-

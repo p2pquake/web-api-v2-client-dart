@@ -7,7 +7,7 @@
 // ignore_for_file: always_put_required_named_parameters_first
 // ignore_for_file: lines_longer_than_80_chars
 
-part of openapi.api;
+part of p2pquake_v2_api.api;
 
 class UserquakeAllOf {
   /// Returns a new [UserquakeAllOf] instance.
@@ -32,14 +32,12 @@ class UserquakeAllOf {
   int area;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is UserquakeAllOf &&
-     other.code == code &&
-     other.area == area;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is UserquakeAllOf && other.code == code && other.area == area;
 
   @override
-  int get hashCode =>
-    (code?.hashCode ?? 0) +
-    area.hashCode;
+  int get hashCode => (code?.hashCode ?? 0) + area.hashCode;
 
   @override
   String toString() => 'UserquakeAllOf[code=$code, area=$area]';
@@ -55,28 +53,41 @@ class UserquakeAllOf {
     return json;
   }
 
-  static List<UserquakeAllOf> listFromJson(List<dynamic> json, {bool emptyIsNull, bool growable,}) =>
-    json == null || json.isEmpty
-      ? true == emptyIsNull ? null : <UserquakeAllOf>[]
-      : json.map((v) => UserquakeAllOf.fromJson(v)).toList(growable: true == growable);
+  static List<UserquakeAllOf> listFromJson(
+    List<dynamic> json, {
+    bool emptyIsNull,
+    bool growable,
+  }) =>
+      json == null || json.isEmpty
+          ? true == emptyIsNull
+              ? null
+              : <UserquakeAllOf>[]
+          : json
+              .map((v) => UserquakeAllOf.fromJson(v))
+              .toList(growable: true == growable);
 
   static Map<String, UserquakeAllOf> mapFromJson(Map<String, dynamic> json) {
     final map = <String, UserquakeAllOf>{};
     if (json != null && json.isNotEmpty) {
-      json.forEach((String key, dynamic v) => map[key] = UserquakeAllOf.fromJson(v));
+      json.forEach(
+          (String key, dynamic v) => map[key] = UserquakeAllOf.fromJson(v));
     }
     return map;
   }
 
   // maps a json object with a list of UserquakeAllOf-objects as value to a dart map
-  static Map<String, List<UserquakeAllOf>> mapListFromJson(Map<String, dynamic> json, {bool emptyIsNull, bool growable,}) {
+  static Map<String, List<UserquakeAllOf>> mapListFromJson(
+    Map<String, dynamic> json, {
+    bool emptyIsNull,
+    bool growable,
+  }) {
     final map = <String, List<UserquakeAllOf>>{};
     if (json != null && json.isNotEmpty) {
       json.forEach((String key, dynamic v) {
-        map[key] = UserquakeAllOf.listFromJson(v, emptyIsNull: emptyIsNull, growable: growable);
+        map[key] = UserquakeAllOf.listFromJson(v,
+            emptyIsNull: emptyIsNull, growable: growable);
       });
     }
     return map;
   }
 }
-

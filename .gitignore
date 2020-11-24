@@ -20,6 +20,9 @@ build/
 *.js.map
 *.info.json
 
+# Directory created by VSCode
+.vscode/
+
 # Directory created by dartdoc
 doc/api/
 

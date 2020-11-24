@@ -7,7 +7,7 @@
 // ignore_for_file: always_put_required_named_parameters_first
 // ignore_for_file: lines_longer_than_80_chars
 
-part of openapi.api;
+part of p2pquake_v2_api.api;
 
 class AreapeersAllOfAreas {
   /// Returns a new [AreapeersAllOfAreas] instance.
@@ -32,14 +32,12 @@ class AreapeersAllOfAreas {
   int peer;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is AreapeersAllOfAreas &&
-     other.id == id &&
-     other.peer == peer;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is AreapeersAllOfAreas && other.id == id && other.peer == peer;
 
   @override
-  int get hashCode =>
-    id.hashCode +
-    peer.hashCode;
+  int get hashCode => id.hashCode + peer.hashCode;
 
   @override
   String toString() => 'AreapeersAllOfAreas[id=$id, peer=$peer]';
@@ -55,28 +53,42 @@ class AreapeersAllOfAreas {
     return json;
   }
 
-  static List<AreapeersAllOfAreas> listFromJson(List<dynamic> json, {bool emptyIsNull, bool growable,}) =>
-    json == null || json.isEmpty
-      ? true == emptyIsNull ? null : <AreapeersAllOfAreas>[]
-      : json.map((v) => AreapeersAllOfAreas.fromJson(v)).toList(growable: true == growable);
+  static List<AreapeersAllOfAreas> listFromJson(
+    List<dynamic> json, {
+    bool emptyIsNull,
+    bool growable,
+  }) =>
+      json == null || json.isEmpty
+          ? true == emptyIsNull
+              ? null
+              : <AreapeersAllOfAreas>[]
+          : json
+              .map((v) => AreapeersAllOfAreas.fromJson(v))
+              .toList(growable: true == growable);
 
-  static Map<String, AreapeersAllOfAreas> mapFromJson(Map<String, dynamic> json) {
+  static Map<String, AreapeersAllOfAreas> mapFromJson(
+      Map<String, dynamic> json) {
     final map = <String, AreapeersAllOfAreas>{};
     if (json != null && json.isNotEmpty) {
-      json.forEach((String key, dynamic v) => map[key] = AreapeersAllOfAreas.fromJson(v));
+      json.forEach((String key, dynamic v) =>
+          map[key] = AreapeersAllOfAreas.fromJson(v));
     }
     return map;
   }
 
   // maps a json object with a list of AreapeersAllOfAreas-objects as value to a dart map
-  static Map<String, List<AreapeersAllOfAreas>> mapListFromJson(Map<String, dynamic> json, {bool emptyIsNull, bool growable,}) {
+  static Map<String, List<AreapeersAllOfAreas>> mapListFromJson(
+    Map<String, dynamic> json, {
+    bool emptyIsNull,
+    bool growable,
+  }) {
     final map = <String, List<AreapeersAllOfAreas>>{};
     if (json != null && json.isNotEmpty) {
       json.forEach((String key, dynamic v) {
-        map[key] = AreapeersAllOfAreas.listFromJson(v, emptyIsNull: emptyIsNull, growable: growable);
+        map[key] = AreapeersAllOfAreas.listFromJson(v,
+            emptyIsNull: emptyIsNull, growable: growable);
       });
     }
     return map;
   }
 }
-

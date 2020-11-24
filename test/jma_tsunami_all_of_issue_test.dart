@@ -1,4 +1,4 @@
-import 'package:net.p2pquake.api.v2/api.dart';
+import 'package:p2pquake_api_v2/api.dart';
 import 'package:test/test.dart';
 
 // tests for JMATsunamiAllOfIssue
@@ -23,8 +23,5 @@ void main() {
     test('to test the property `type`', () async {
       // TODO
     });
-
-
   });
-
 }

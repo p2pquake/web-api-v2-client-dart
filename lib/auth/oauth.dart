@@ -7,7 +7,7 @@
 // ignore_for_file: always_put_required_named_parameters_first
 // ignore_for_file: lines_longer_than_80_chars
 
-part of openapi.api;
+part of p2pquake_v2_api.api;
 
 class OAuth implements Authentication {
   OAuth({this.accessToken});
@@ -15,7 +15,8 @@ class OAuth implements Authentication {
   String accessToken;
 
   @override
-  void applyToParams(List<QueryParam> queryParams, Map<String, String> headerParams) {
+  void applyToParams(
+      List<QueryParam> queryParams, Map<String, String> headerParams) {
     if (accessToken != null) {
       headerParams['Authorization'] = 'Bearer $accessToken';
     }

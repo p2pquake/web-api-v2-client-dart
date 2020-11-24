@@ -7,7 +7,7 @@
 // ignore_for_file: always_put_required_named_parameters_first
 // ignore_for_file: lines_longer_than_80_chars
 
-part of openapi.api;
+part of p2pquake_v2_api.api;
 
 class BasicData {
   /// Returns a new [BasicData] instance.
@@ -30,23 +30,22 @@ class BasicData {
   /// 情報を一意に識別するID
   String id;
 
-  
+  /// 情報の種類を表すコード
   int code;
 
   /// 受信日時。形式は `2006/01/02 15:04:05.999` です。
   String time;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is BasicData &&
-     other.id == id &&
-     other.code == code &&
-     other.time == time;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is BasicData &&
+          other.id == id &&
+          other.code == code &&
+          other.time == time;
 
   @override
-  int get hashCode =>
-    id.hashCode +
-    code.hashCode +
-    time.hashCode;
+  int get hashCode => id.hashCode + code.hashCode + time.hashCode;
 
   @override
   String toString() => 'BasicData[id=$id, code=$code, time=$time]';
@@ -65,10 +64,18 @@ class BasicData {
     return json;
   }
 
-  static List<BasicData> listFromJson(List<dynamic> json, {bool emptyIsNull, bool growable,}) =>
-    json == null || json.isEmpty
-      ? true == emptyIsNull ? null : <BasicData>[]
-      : json.map((v) => BasicData.fromJson(v)).toList(growable: true == growable);
+  static List<BasicData> listFromJson(
+    List<dynamic> json, {
+    bool emptyIsNull,
+    bool growable,
+  }) =>
+      json == null || json.isEmpty
+          ? true == emptyIsNull
+              ? null
+              : <BasicData>[]
+          : json
+              .map((v) => BasicData.fromJson(v))
+              .toList(growable: true == growable);
 
   static Map<String, BasicData> mapFromJson(Map<String, dynamic> json) {
     final map = <String, BasicData>{};
@@ -79,14 +86,18 @@ class BasicData {
   }
 
   // maps a json object with a list of BasicData-objects as value to a dart map
-  static Map<String, List<BasicData>> mapListFromJson(Map<String, dynamic> json, {bool emptyIsNull, bool growable,}) {
+  static Map<String, List<BasicData>> mapListFromJson(
+    Map<String, dynamic> json, {
+    bool emptyIsNull,
+    bool growable,
+  }) {
     final map = <String, List<BasicData>>{};
     if (json != null && json.isNotEmpty) {
       json.forEach((String key, dynamic v) {
-        map[key] = BasicData.listFromJson(v, emptyIsNull: emptyIsNull, growable: growable);
+        map[key] = BasicData.listFromJson(v,
+            emptyIsNull: emptyIsNull, growable: growable);
       });
     }
     return map;
   }
 }
-

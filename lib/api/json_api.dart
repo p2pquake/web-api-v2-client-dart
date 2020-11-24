@@ -7,17 +7,16 @@
 // ignore_for_file: always_put_required_named_parameters_first
 // ignore_for_file: lines_longer_than_80_chars
 
-part of openapi.api;
+part of p2pquake_v2_api.api;
 
-
-class JSONAPIApi {
-  JSONAPIApi([ApiClient apiClient]) : apiClient = apiClient ?? defaultApiClient;
+class JsonApi {
+  JsonApi([ApiClient apiClient]) : apiClient = apiClient ?? defaultApiClient;
 
   final ApiClient apiClient;
 
   /// 地震情報リスト
   ///
-  /// 地震情報を返却します。デフォルトは新しい順に最大10件です。 データは2015年1月10日から提供しています。 
+  /// 地震情報を返却します。デフォルトは新しい順に最大10件です。 データは2015年1月10日から提供しています。
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -53,9 +52,20 @@ class JSONAPIApi {
   /// * [int] maxScale:
   ///   最大震度の上限。値は10(震度1)、20(震度2)、30(震度3)、40(震度4)、45(震度5弱)、50(震度5強)、55(震度6弱)、60(震度6強)、70(震度7)です。
   ///
-  /// * [List<Object>] prefectures[]:
+  /// * [List<Object>] prefectures:
   ///   各都道府県の最低震度。 \"兵庫県,10\" のように指定します。
-  Future<Response> jmaQuakeGetWithHttpInfo({ int limit, int offset, int order, String sinceDate, String untilDate, String quakeType, num minMagnitude, num maxMagnitude, int minScale, int maxScale, List<Object> prefectures[] }) async {
+  Future<Response> jmaQuakeGetWithHttpInfo(
+      {int limit,
+      int offset,
+      int order,
+      String sinceDate,
+      String untilDate,
+      String quakeType,
+      num minMagnitude,
+      num maxMagnitude,
+      int minScale,
+      int maxScale,
+      List<Object> prefectures}) async {
     // Verify required params are set.
 
     final path = '/jma/quake'.replaceAll('{format}', 'json');
@@ -67,54 +77,63 @@ class JSONAPIApi {
     final formParams = <String, String>{};
 
     if (limit != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'limit', limit));
+      queryParams
+          .addAll(_convertParametersForCollectionFormat('', 'limit', limit));
     }
     if (offset != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'offset', offset));
+      queryParams
+          .addAll(_convertParametersForCollectionFormat('', 'offset', offset));
     }
     if (order != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'order', order));
+      queryParams
+          .addAll(_convertParametersForCollectionFormat('', 'order', order));
     }
     if (sinceDate != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'since_date', sinceDate));
+      queryParams.addAll(
+          _convertParametersForCollectionFormat('', 'since_date', sinceDate));
     }
     if (untilDate != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'until_date', untilDate));
+      queryParams.addAll(
+          _convertParametersForCollectionFormat('', 'until_date', untilDate));
     }
     if (quakeType != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'quake_type', quakeType));
+      queryParams.addAll(
+          _convertParametersForCollectionFormat('', 'quake_type', quakeType));
     }
     if (minMagnitude != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'min_magnitude', minMagnitude));
+      queryParams.addAll(_convertParametersForCollectionFormat(
+          '', 'min_magnitude', minMagnitude));
     }
     if (maxMagnitude != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'max_magnitude', maxMagnitude));
+      queryParams.addAll(_convertParametersForCollectionFormat(
+          '', 'max_magnitude', maxMagnitude));
     }
     if (minScale != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'min_scale', minScale));
+      queryParams.addAll(
+          _convertParametersForCollectionFormat('', 'min_scale', minScale));
     }
     if (maxScale != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'max_scale', maxScale));
+      queryParams.addAll(
+          _convertParametersForCollectionFormat('', 'max_scale', maxScale));
     }
-    if (prefectures[] != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('multi', 'prefectures[]', prefectures[]));
+    if (prefectures != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat(
+          'multi', 'prefectures[]', prefectures));
     }
 
     final contentTypes = <String>[];
-    final nullableContentType = contentTypes.isNotEmpty ? contentTypes[0] : null;
+    final nullableContentType =
+        contentTypes.isNotEmpty ? contentTypes[0] : null;
     final authNames = <String>[];
 
-    if (
-      nullableContentType != null &&
-      nullableContentType.toLowerCase().startsWith('multipart/form-data')
-    ) {
+    if (nullableContentType != null &&
+        nullableContentType.toLowerCase().startsWith('multipart/form-data')) {
       bool hasFields = false;
       final mp = MultipartRequest(null, null);
       if (hasFields) {
         postBody = mp;
       }
-    } else {
-    }
+    } else {}
 
     return await apiClient.invokeAPI(
       path,
@@ -130,7 +149,7 @@ class JSONAPIApi {
 
   /// 地震情報リスト
   ///
-  /// 地震情報を返却します。デフォルトは新しい順に最大10件です。 データは2015年1月10日から提供しています。 
+  /// 地震情報を返却します。デフォルトは新しい順に最大10件です。 データは2015年1月10日から提供しています。
   ///
   /// Parameters:
   ///
@@ -166,8 +185,30 @@ class JSONAPIApi {
   ///
   /// * [List<Object>] prefectures[]:
   ///   各都道府県の最低震度。 \"兵庫県,10\" のように指定します。
-  Future<List<JMAQuake>> jmaQuakeGet({ int limit, int offset, int order, String sinceDate, String untilDate, String quakeType, num minMagnitude, num maxMagnitude, int minScale, int maxScale, List<Object> prefectures[] }) async {
-    final response = await jmaQuakeGetWithHttpInfo( limit: limit, offset: offset, order: order, sinceDate: sinceDate, untilDate: untilDate, quakeType: quakeType, minMagnitude: minMagnitude, maxMagnitude: maxMagnitude, minScale: minScale, maxScale: maxScale, prefectures[]: prefectures[] );
+  Future<List<JMAQuake>> jmaQuakeGet(
+      {int limit,
+      int offset,
+      int order,
+      String sinceDate,
+      String untilDate,
+      String quakeType,
+      num minMagnitude,
+      num maxMagnitude,
+      int minScale,
+      int maxScale,
+      List<Object> prefectures}) async {
+    final response = await jmaQuakeGetWithHttpInfo(
+        limit: limit,
+        offset: offset,
+        order: order,
+        sinceDate: sinceDate,
+        untilDate: untilDate,
+        quakeType: quakeType,
+        minMagnitude: minMagnitude,
+        maxMagnitude: maxMagnitude,
+        minScale: minScale,
+        maxScale: maxScale,
+        prefectures: prefectures);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, _decodeBodyBytes(response));
     }
@@ -175,9 +216,10 @@ class JSONAPIApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body != null && response.statusCode != HttpStatus.noContent) {
-      return (apiClient.deserialize(_decodeBodyBytes(response), 'List<JMAQuake>') as List)
-        .map((item) => item as JMAQuake)
-        .toList(growable: false);
+      return (apiClient.deserialize(
+              _decodeBodyBytes(response), 'List<JMAQuake>') as List)
+          .map((item) => item as JMAQuake)
+          .toList(growable: false);
     }
     return null;
   }
@@ -193,11 +235,12 @@ class JSONAPIApi {
   Future<Response> jmaQuakeIdGetWithHttpInfo(String id) async {
     // Verify required params are set.
     if (id == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: id');
+      throw ApiException(HttpStatus.badRequest, 'Missing required param: id');
     }
 
-    final path = '/jma/quake/{id}'.replaceAll('{format}', 'json')
-      .replaceAll('{' + 'id' + '}', id.toString());
+    final path = '/jma/quake/{id}'
+        .replaceAll('{format}', 'json')
+        .replaceAll('{' + 'id' + '}', id.toString());
 
     Object postBody;
 
@@ -205,22 +248,19 @@ class JSONAPIApi {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-
     final contentTypes = <String>[];
-    final nullableContentType = contentTypes.isNotEmpty ? contentTypes[0] : null;
+    final nullableContentType =
+        contentTypes.isNotEmpty ? contentTypes[0] : null;
     final authNames = <String>[];
 
-    if (
-      nullableContentType != null &&
-      nullableContentType.toLowerCase().startsWith('multipart/form-data')
-    ) {
+    if (nullableContentType != null &&
+        nullableContentType.toLowerCase().startsWith('multipart/form-data')) {
       bool hasFields = false;
       final mp = MultipartRequest(null, null);
       if (hasFields) {
         postBody = mp;
       }
-    } else {
-    }
+    } else {}
 
     return await apiClient.invokeAPI(
       path,
@@ -249,14 +289,15 @@ class JSONAPIApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body != null && response.statusCode != HttpStatus.noContent) {
-      return apiClient.deserialize(_decodeBodyBytes(response), 'JMAQuake') as JMAQuake;
+      return apiClient.deserialize(_decodeBodyBytes(response), 'JMAQuake')
+          as JMAQuake;
     }
     return null;
   }
 
   /// 津波予報リスト
   ///
-  /// 津波予報を返却します。デフォルトは新しい順に最大10件です。 データは2016年11月22日から提供しています。 
+  /// 津波予報を返却します。デフォルトは新しい順に最大10件です。 データは2016年11月22日から提供しています。
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -276,7 +317,12 @@ class JSONAPIApi {
   ///
   /// * [String] untilDate:
   ///   指定日かそれ以前 (yyyyMMdd形式)
-  Future<Response> jmaTsunamiGetWithHttpInfo({ int limit, int offset, int order, String sinceDate, String untilDate }) async {
+  Future<Response> jmaTsunamiGetWithHttpInfo(
+      {int limit,
+      int offset,
+      int order,
+      String sinceDate,
+      String untilDate}) async {
     // Verify required params are set.
 
     final path = '/jma/tsunami'.replaceAll('{format}', 'json');
@@ -288,36 +334,39 @@ class JSONAPIApi {
     final formParams = <String, String>{};
 
     if (limit != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'limit', limit));
+      queryParams
+          .addAll(_convertParametersForCollectionFormat('', 'limit', limit));
     }
     if (offset != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'offset', offset));
+      queryParams
+          .addAll(_convertParametersForCollectionFormat('', 'offset', offset));
     }
     if (order != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'order', order));
+      queryParams
+          .addAll(_convertParametersForCollectionFormat('', 'order', order));
     }
     if (sinceDate != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'since_date', sinceDate));
+      queryParams.addAll(
+          _convertParametersForCollectionFormat('', 'since_date', sinceDate));
     }
     if (untilDate != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'until_date', untilDate));
+      queryParams.addAll(
+          _convertParametersForCollectionFormat('', 'until_date', untilDate));
     }
 
     final contentTypes = <String>[];
-    final nullableContentType = contentTypes.isNotEmpty ? contentTypes[0] : null;
+    final nullableContentType =
+        contentTypes.isNotEmpty ? contentTypes[0] : null;
     final authNames = <String>[];
 
-    if (
-      nullableContentType != null &&
-      nullableContentType.toLowerCase().startsWith('multipart/form-data')
-    ) {
+    if (nullableContentType != null &&
+        nullableContentType.toLowerCase().startsWith('multipart/form-data')) {
       bool hasFields = false;
       final mp = MultipartRequest(null, null);
       if (hasFields) {
         postBody = mp;
       }
-    } else {
-    }
+    } else {}
 
     return await apiClient.invokeAPI(
       path,
@@ -333,7 +382,7 @@ class JSONAPIApi {
 
   /// 津波予報リスト
   ///
-  /// 津波予報を返却します。デフォルトは新しい順に最大10件です。 データは2016年11月22日から提供しています。 
+  /// 津波予報を返却します。デフォルトは新しい順に最大10件です。 データは2016年11月22日から提供しています。
   ///
   /// Parameters:
   ///
@@ -351,8 +400,18 @@ class JSONAPIApi {
   ///
   /// * [String] untilDate:
   ///   指定日かそれ以前 (yyyyMMdd形式)
-  Future<List<JMATsunami>> jmaTsunamiGet({ int limit, int offset, int order, String sinceDate, String untilDate }) async {
-    final response = await jmaTsunamiGetWithHttpInfo( limit: limit, offset: offset, order: order, sinceDate: sinceDate, untilDate: untilDate );
+  Future<List<JMATsunami>> jmaTsunamiGet(
+      {int limit,
+      int offset,
+      int order,
+      String sinceDate,
+      String untilDate}) async {
+    final response = await jmaTsunamiGetWithHttpInfo(
+        limit: limit,
+        offset: offset,
+        order: order,
+        sinceDate: sinceDate,
+        untilDate: untilDate);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, _decodeBodyBytes(response));
     }
@@ -360,9 +419,10 @@ class JSONAPIApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body != null && response.statusCode != HttpStatus.noContent) {
-      return (apiClient.deserialize(_decodeBodyBytes(response), 'List<JMATsunami>') as List)
-        .map((item) => item as JMATsunami)
-        .toList(growable: false);
+      return (apiClient.deserialize(
+              _decodeBodyBytes(response), 'List<JMATsunami>') as List)
+          .map((item) => item as JMATsunami)
+          .toList(growable: false);
     }
     return null;
   }
@@ -378,11 +438,12 @@ class JSONAPIApi {
   Future<Response> jmaTsunamiIdGetWithHttpInfo(String id) async {
     // Verify required params are set.
     if (id == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: id');
+      throw ApiException(HttpStatus.badRequest, 'Missing required param: id');
     }
 
-    final path = '/jma/tsunami/{id}'.replaceAll('{format}', 'json')
-      .replaceAll('{' + 'id' + '}', id.toString());
+    final path = '/jma/tsunami/{id}'
+        .replaceAll('{format}', 'json')
+        .replaceAll('{' + 'id' + '}', id.toString());
 
     Object postBody;
 
@@ -390,22 +451,19 @@ class JSONAPIApi {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-
     final contentTypes = <String>[];
-    final nullableContentType = contentTypes.isNotEmpty ? contentTypes[0] : null;
+    final nullableContentType =
+        contentTypes.isNotEmpty ? contentTypes[0] : null;
     final authNames = <String>[];
 
-    if (
-      nullableContentType != null &&
-      nullableContentType.toLowerCase().startsWith('multipart/form-data')
-    ) {
+    if (nullableContentType != null &&
+        nullableContentType.toLowerCase().startsWith('multipart/form-data')) {
       bool hasFields = false;
       final mp = MultipartRequest(null, null);
       if (hasFields) {
         postBody = mp;
       }
-    } else {
-    }
+    } else {}
 
     return await apiClient.invokeAPI(
       path,
@@ -434,7 +492,8 @@ class JSONAPIApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body != null && response.statusCode != HttpStatus.noContent) {
-      return apiClient.deserialize(_decodeBodyBytes(response), 'JMATsunami') as JMATsunami;
+      return apiClient.deserialize(_decodeBodyBytes(response), 'JMATsunami')
+          as JMATsunami;
     }
     return null;
   }

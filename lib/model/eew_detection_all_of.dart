@@ -7,7 +7,7 @@
 // ignore_for_file: always_put_required_named_parameters_first
 // ignore_for_file: lines_longer_than_80_chars
 
-part of openapi.api;
+part of p2pquake_v2_api.api;
 
 class EEWDetectionAllOf {
   /// Returns a new [EEWDetectionAllOf] instance.
@@ -26,20 +26,18 @@ class EEWDetectionAllOf {
   }
 
   /// 情報コード。常に554です。
-  Object code;
+  int code;
 
   /// 検出種類
-  EEWDetectionAllOfTypeEnum type = EEWDetectionAllOfTypeEnum._();
+  EEWDetectionAllOfTypeEnum type = EEWDetectionAllOfTypeEnum.full;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is EEWDetectionAllOf &&
-     other.code == code &&
-     other.type == type;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is EEWDetectionAllOf && other.code == code && other.type == type;
 
   @override
-  int get hashCode =>
-    (code?.hashCode ?? 0) +
-    type.hashCode;
+  int get hashCode => (code?.hashCode ?? 0) + type.hashCode;
 
   @override
   String toString() => 'EEWDetectionAllOf[code=$code, type=$type]';
@@ -55,25 +53,39 @@ class EEWDetectionAllOf {
     return json;
   }
 
-  static List<EEWDetectionAllOf> listFromJson(List<dynamic> json, {bool emptyIsNull, bool growable,}) =>
-    json == null || json.isEmpty
-      ? true == emptyIsNull ? null : <EEWDetectionAllOf>[]
-      : json.map((v) => EEWDetectionAllOf.fromJson(v)).toList(growable: true == growable);
+  static List<EEWDetectionAllOf> listFromJson(
+    List<dynamic> json, {
+    bool emptyIsNull,
+    bool growable,
+  }) =>
+      json == null || json.isEmpty
+          ? true == emptyIsNull
+              ? null
+              : <EEWDetectionAllOf>[]
+          : json
+              .map((v) => EEWDetectionAllOf.fromJson(v))
+              .toList(growable: true == growable);
 
   static Map<String, EEWDetectionAllOf> mapFromJson(Map<String, dynamic> json) {
     final map = <String, EEWDetectionAllOf>{};
     if (json != null && json.isNotEmpty) {
-      json.forEach((String key, dynamic v) => map[key] = EEWDetectionAllOf.fromJson(v));
+      json.forEach(
+          (String key, dynamic v) => map[key] = EEWDetectionAllOf.fromJson(v));
     }
     return map;
   }
 
   // maps a json object with a list of EEWDetectionAllOf-objects as value to a dart map
-  static Map<String, List<EEWDetectionAllOf>> mapListFromJson(Map<String, dynamic> json, {bool emptyIsNull, bool growable,}) {
+  static Map<String, List<EEWDetectionAllOf>> mapListFromJson(
+    Map<String, dynamic> json, {
+    bool emptyIsNull,
+    bool growable,
+  }) {
     final map = <String, List<EEWDetectionAllOf>>{};
     if (json != null && json.isNotEmpty) {
       json.forEach((String key, dynamic v) {
-        map[key] = EEWDetectionAllOf.listFromJson(v, emptyIsNull: emptyIsNull, growable: growable);
+        map[key] = EEWDetectionAllOf.listFromJson(v,
+            emptyIsNull: emptyIsNull, growable: growable);
       });
     }
     return map;
@@ -89,7 +101,8 @@ class EEWDetectionAllOfTypeEnum {
   final String value;
 
   @override
-  bool operator ==(Object other) => identical(this, other) ||
+  bool operator ==(Object other) =>
+      identical(this, other) ||
       other is EEWDetectionAllOfTypeEnum && other.value == value ||
       other is String && other == value;
 
@@ -101,24 +114,30 @@ class EEWDetectionAllOfTypeEnum {
 
   String toJson() => value;
 
-  static const full_ = EEWDetectionAllOfTypeEnum._('Full (チャイム＋音声)');
-  static const chime_ = EEWDetectionAllOfTypeEnum._('Chime (チャイム (未実装))');
+  static const full = EEWDetectionAllOfTypeEnum._('Full');
+  static const chime = EEWDetectionAllOfTypeEnum._('Chime');
 
   /// List of all possible values in this [enum][EEWDetectionAllOfTypeEnum].
   static const values = <EEWDetectionAllOfTypeEnum>[
-    full_,
-    chime_,
+    full,
+    chime,
   ];
 
   static EEWDetectionAllOfTypeEnum fromJson(String value) =>
-    EEWDetectionAllOfTypeEnumTypeTransformer().decode(value);
+      EEWDetectionAllOfTypeEnumTypeTransformer().decode(value);
 
-  static List<EEWDetectionAllOfTypeEnum> listFromJson(List<dynamic> json, {bool emptyIsNull, bool growable,}) =>
-    json == null || json.isEmpty
-      ? true == emptyIsNull ? null : <EEWDetectionAllOfTypeEnum>[]
-      : json
-          .map((value) => EEWDetectionAllOfTypeEnum.fromJson(value))
-          .toList(growable: true == growable);
+  static List<EEWDetectionAllOfTypeEnum> listFromJson(
+    List<dynamic> json, {
+    bool emptyIsNull,
+    bool growable,
+  }) =>
+      json == null || json.isEmpty
+          ? true == emptyIsNull
+              ? null
+              : <EEWDetectionAllOfTypeEnum>[]
+          : json
+              .map((value) => EEWDetectionAllOfTypeEnum.fromJson(value))
+              .toList(growable: true == growable);
 }
 
 /// Transformation class that can [encode] an instance of [EEWDetectionAllOfTypeEnum] to String,
@@ -126,7 +145,8 @@ class EEWDetectionAllOfTypeEnum {
 class EEWDetectionAllOfTypeEnumTypeTransformer {
   const EEWDetectionAllOfTypeEnumTypeTransformer._();
 
-  factory EEWDetectionAllOfTypeEnumTypeTransformer() => _instance ??= EEWDetectionAllOfTypeEnumTypeTransformer._();
+  factory EEWDetectionAllOfTypeEnumTypeTransformer() =>
+      _instance ??= EEWDetectionAllOfTypeEnumTypeTransformer._();
 
   String encode(EEWDetectionAllOfTypeEnum data) => data.value;
 
@@ -140,8 +160,10 @@ class EEWDetectionAllOfTypeEnumTypeTransformer {
   /// and users are still using an old app with the old code.
   EEWDetectionAllOfTypeEnum decode(dynamic data, {bool allowNull}) {
     switch (data) {
-      case 'Full (チャイム＋音声)': return EEWDetectionAllOfTypeEnum.full_;
-      case 'Chime (チャイム (未実装))': return EEWDetectionAllOfTypeEnum.chime_;
+      case 'Full':
+        return EEWDetectionAllOfTypeEnum.full;
+      case 'Chime':
+        return EEWDetectionAllOfTypeEnum.chime;
       default:
         if (allowNull == false) {
           throw ArgumentError('Unknown enum value to decode: $data');
@@ -153,4 +175,3 @@ class EEWDetectionAllOfTypeEnumTypeTransformer {
   /// Singleton [EEWDetectionAllOfTypeEnumTypeTransformer] instance.
   static EEWDetectionAllOfTypeEnumTypeTransformer _instance;
 }
-

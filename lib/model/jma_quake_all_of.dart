@@ -7,7 +7,7 @@
 // ignore_for_file: always_put_required_named_parameters_first
 // ignore_for_file: lines_longer_than_80_chars
 
-part of openapi.api;
+part of p2pquake_v2_api.api;
 
 class JMAQuakeAllOf {
   /// Returns a new [JMAQuakeAllOf] instance.
@@ -32,31 +32,32 @@ class JMAQuakeAllOf {
   /// 情報コード。常に551です。
   Object code;
 
-  
   JMAQuakeAllOfIssue issue;
 
-  
   JMAQuakeAllOfEarthquake earthquake;
 
   /// 震度観測点の情報
   List<JMAQuakeAllOfPoints> points;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is JMAQuakeAllOf &&
-     other.code == code &&
-     other.issue == issue &&
-     other.earthquake == earthquake &&
-     other.points == points;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is JMAQuakeAllOf &&
+          other.code == code &&
+          other.issue == issue &&
+          other.earthquake == earthquake &&
+          other.points == points;
 
   @override
   int get hashCode =>
-    (code?.hashCode ?? 0) +
-    issue.hashCode +
-    earthquake.hashCode +
-    points.hashCode;
+      (code?.hashCode ?? 0) +
+      issue.hashCode +
+      earthquake.hashCode +
+      points.hashCode;
 
   @override
-  String toString() => 'JMAQuakeAllOf[code=$code, issue=$issue, earthquake=$earthquake, points=$points]';
+  String toString() =>
+      'JMAQuakeAllOf[code=$code, issue=$issue, earthquake=$earthquake, points=$points]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -75,28 +76,41 @@ class JMAQuakeAllOf {
     return json;
   }
 
-  static List<JMAQuakeAllOf> listFromJson(List<dynamic> json, {bool emptyIsNull, bool growable,}) =>
-    json == null || json.isEmpty
-      ? true == emptyIsNull ? null : <JMAQuakeAllOf>[]
-      : json.map((v) => JMAQuakeAllOf.fromJson(v)).toList(growable: true == growable);
+  static List<JMAQuakeAllOf> listFromJson(
+    List<dynamic> json, {
+    bool emptyIsNull,
+    bool growable,
+  }) =>
+      json == null || json.isEmpty
+          ? true == emptyIsNull
+              ? null
+              : <JMAQuakeAllOf>[]
+          : json
+              .map((v) => JMAQuakeAllOf.fromJson(v))
+              .toList(growable: true == growable);
 
   static Map<String, JMAQuakeAllOf> mapFromJson(Map<String, dynamic> json) {
     final map = <String, JMAQuakeAllOf>{};
     if (json != null && json.isNotEmpty) {
-      json.forEach((String key, dynamic v) => map[key] = JMAQuakeAllOf.fromJson(v));
+      json.forEach(
+          (String key, dynamic v) => map[key] = JMAQuakeAllOf.fromJson(v));
     }
     return map;
   }
 
   // maps a json object with a list of JMAQuakeAllOf-objects as value to a dart map
-  static Map<String, List<JMAQuakeAllOf>> mapListFromJson(Map<String, dynamic> json, {bool emptyIsNull, bool growable,}) {
+  static Map<String, List<JMAQuakeAllOf>> mapListFromJson(
+    Map<String, dynamic> json, {
+    bool emptyIsNull,
+    bool growable,
+  }) {
     final map = <String, List<JMAQuakeAllOf>>{};
     if (json != null && json.isNotEmpty) {
       json.forEach((String key, dynamic v) {
-        map[key] = JMAQuakeAllOf.listFromJson(v, emptyIsNull: emptyIsNull, growable: growable);
+        map[key] = JMAQuakeAllOf.listFromJson(v,
+            emptyIsNull: emptyIsNull, growable: growable);
       });
     }
     return map;
   }
 }
-

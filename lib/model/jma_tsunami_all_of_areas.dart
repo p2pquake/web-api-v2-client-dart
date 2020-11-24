@@ -7,7 +7,7 @@
 // ignore_for_file: always_put_required_named_parameters_first
 // ignore_for_file: lines_longer_than_80_chars
 
-part of openapi.api;
+part of p2pquake_v2_api.api;
 
 class JMATsunamiAllOfAreas {
   /// Returns a new [JMATsunamiAllOfAreas] instance.
@@ -37,19 +37,19 @@ class JMATsunamiAllOfAreas {
   String name;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is JMATsunamiAllOfAreas &&
-     other.grade == grade &&
-     other.immediate == immediate &&
-     other.name == name;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is JMATsunamiAllOfAreas &&
+          other.grade == grade &&
+          other.immediate == immediate &&
+          other.name == name;
 
   @override
-  int get hashCode =>
-    grade.hashCode +
-    immediate.hashCode +
-    name.hashCode;
+  int get hashCode => grade.hashCode + immediate.hashCode + name.hashCode;
 
   @override
-  String toString() => 'JMATsunamiAllOfAreas[grade=$grade, immediate=$immediate, name=$name]';
+  String toString() =>
+      'JMATsunamiAllOfAreas[grade=$grade, immediate=$immediate, name=$name]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -65,25 +65,40 @@ class JMATsunamiAllOfAreas {
     return json;
   }
 
-  static List<JMATsunamiAllOfAreas> listFromJson(List<dynamic> json, {bool emptyIsNull, bool growable,}) =>
-    json == null || json.isEmpty
-      ? true == emptyIsNull ? null : <JMATsunamiAllOfAreas>[]
-      : json.map((v) => JMATsunamiAllOfAreas.fromJson(v)).toList(growable: true == growable);
+  static List<JMATsunamiAllOfAreas> listFromJson(
+    List<dynamic> json, {
+    bool emptyIsNull,
+    bool growable,
+  }) =>
+      json == null || json.isEmpty
+          ? true == emptyIsNull
+              ? null
+              : <JMATsunamiAllOfAreas>[]
+          : json
+              .map((v) => JMATsunamiAllOfAreas.fromJson(v))
+              .toList(growable: true == growable);
 
-  static Map<String, JMATsunamiAllOfAreas> mapFromJson(Map<String, dynamic> json) {
+  static Map<String, JMATsunamiAllOfAreas> mapFromJson(
+      Map<String, dynamic> json) {
     final map = <String, JMATsunamiAllOfAreas>{};
     if (json != null && json.isNotEmpty) {
-      json.forEach((String key, dynamic v) => map[key] = JMATsunamiAllOfAreas.fromJson(v));
+      json.forEach((String key, dynamic v) =>
+          map[key] = JMATsunamiAllOfAreas.fromJson(v));
     }
     return map;
   }
 
   // maps a json object with a list of JMATsunamiAllOfAreas-objects as value to a dart map
-  static Map<String, List<JMATsunamiAllOfAreas>> mapListFromJson(Map<String, dynamic> json, {bool emptyIsNull, bool growable,}) {
+  static Map<String, List<JMATsunamiAllOfAreas>> mapListFromJson(
+    Map<String, dynamic> json, {
+    bool emptyIsNull,
+    bool growable,
+  }) {
     final map = <String, List<JMATsunamiAllOfAreas>>{};
     if (json != null && json.isNotEmpty) {
       json.forEach((String key, dynamic v) {
-        map[key] = JMATsunamiAllOfAreas.listFromJson(v, emptyIsNull: emptyIsNull, growable: growable);
+        map[key] = JMATsunamiAllOfAreas.listFromJson(v,
+            emptyIsNull: emptyIsNull, growable: growable);
       });
     }
     return map;
@@ -99,7 +114,8 @@ class JMATsunamiAllOfAreasGradeEnum {
   final String value;
 
   @override
-  bool operator ==(Object other) => identical(this, other) ||
+  bool operator ==(Object other) =>
+      identical(this, other) ||
       other is JMATsunamiAllOfAreasGradeEnum && other.value == value ||
       other is String && other == value;
 
@@ -111,7 +127,8 @@ class JMATsunamiAllOfAreasGradeEnum {
 
   String toJson() => value;
 
-  static const majorwarning_ = JMATsunamiAllOfAreasGradeEnum._('MajorWarning (大津波警報)');
+  static const majorwarning_ =
+      JMATsunamiAllOfAreasGradeEnum._('MajorWarning (大津波警報)');
   static const warning_ = JMATsunamiAllOfAreasGradeEnum._('Warning (津波警報)');
   static const watch_ = JMATsunamiAllOfAreasGradeEnum._('Watch (津波注意報)');
   static const unknown_ = JMATsunamiAllOfAreasGradeEnum._('Unknown (不明)');
@@ -125,14 +142,20 @@ class JMATsunamiAllOfAreasGradeEnum {
   ];
 
   static JMATsunamiAllOfAreasGradeEnum fromJson(String value) =>
-    JMATsunamiAllOfAreasGradeEnumTypeTransformer().decode(value);
+      JMATsunamiAllOfAreasGradeEnumTypeTransformer().decode(value);
 
-  static List<JMATsunamiAllOfAreasGradeEnum> listFromJson(List<dynamic> json, {bool emptyIsNull, bool growable,}) =>
-    json == null || json.isEmpty
-      ? true == emptyIsNull ? null : <JMATsunamiAllOfAreasGradeEnum>[]
-      : json
-          .map((value) => JMATsunamiAllOfAreasGradeEnum.fromJson(value))
-          .toList(growable: true == growable);
+  static List<JMATsunamiAllOfAreasGradeEnum> listFromJson(
+    List<dynamic> json, {
+    bool emptyIsNull,
+    bool growable,
+  }) =>
+      json == null || json.isEmpty
+          ? true == emptyIsNull
+              ? null
+              : <JMATsunamiAllOfAreasGradeEnum>[]
+          : json
+              .map((value) => JMATsunamiAllOfAreasGradeEnum.fromJson(value))
+              .toList(growable: true == growable);
 }
 
 /// Transformation class that can [encode] an instance of [JMATsunamiAllOfAreasGradeEnum] to String,
@@ -140,7 +163,8 @@ class JMATsunamiAllOfAreasGradeEnum {
 class JMATsunamiAllOfAreasGradeEnumTypeTransformer {
   const JMATsunamiAllOfAreasGradeEnumTypeTransformer._();
 
-  factory JMATsunamiAllOfAreasGradeEnumTypeTransformer() => _instance ??= JMATsunamiAllOfAreasGradeEnumTypeTransformer._();
+  factory JMATsunamiAllOfAreasGradeEnumTypeTransformer() =>
+      _instance ??= JMATsunamiAllOfAreasGradeEnumTypeTransformer._();
 
   String encode(JMATsunamiAllOfAreasGradeEnum data) => data.value;
 
@@ -154,10 +178,14 @@ class JMATsunamiAllOfAreasGradeEnumTypeTransformer {
   /// and users are still using an old app with the old code.
   JMATsunamiAllOfAreasGradeEnum decode(dynamic data, {bool allowNull}) {
     switch (data) {
-      case 'MajorWarning (大津波警報)': return JMATsunamiAllOfAreasGradeEnum.majorwarning_;
-      case 'Warning (津波警報)': return JMATsunamiAllOfAreasGradeEnum.warning_;
-      case 'Watch (津波注意報)': return JMATsunamiAllOfAreasGradeEnum.watch_;
-      case 'Unknown (不明)': return JMATsunamiAllOfAreasGradeEnum.unknown_;
+      case 'MajorWarning (大津波警報)':
+        return JMATsunamiAllOfAreasGradeEnum.majorwarning_;
+      case 'Warning (津波警報)':
+        return JMATsunamiAllOfAreasGradeEnum.warning_;
+      case 'Watch (津波注意報)':
+        return JMATsunamiAllOfAreasGradeEnum.watch_;
+      case 'Unknown (不明)':
+        return JMATsunamiAllOfAreasGradeEnum.unknown_;
       default:
         if (allowNull == false) {
           throw ArgumentError('Unknown enum value to decode: $data');
@@ -169,4 +197,3 @@ class JMATsunamiAllOfAreasGradeEnumTypeTransformer {
   /// Singleton [JMATsunamiAllOfAreasGradeEnumTypeTransformer] instance.
   static JMATsunamiAllOfAreasGradeEnumTypeTransformer _instance;
 }
-

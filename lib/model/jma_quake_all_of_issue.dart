@@ -7,7 +7,7 @@
 // ignore_for_file: always_put_required_named_parameters_first
 // ignore_for_file: lines_longer_than_80_chars
 
-part of openapi.api;
+part of p2pquake_v2_api.api;
 
 class JMAQuakeAllOfIssue {
   /// Returns a new [JMAQuakeAllOfIssue] instance.
@@ -36,27 +36,27 @@ class JMAQuakeAllOfIssue {
   String time;
 
   /// 発表種類
-  JMAQuakeAllOfIssueTypeEnum type = JMAQuakeAllOfIssueTypeEnum._();
+  JMAQuakeAllOfIssueTypeEnum type = JMAQuakeAllOfIssueTypeEnum.other;
 
   /// 訂正の有無
   JMAQuakeAllOfIssueCorrectEnum correct;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is JMAQuakeAllOfIssue &&
-     other.source_ == source_ &&
-     other.time == time &&
-     other.type == type &&
-     other.correct == correct;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is JMAQuakeAllOfIssue &&
+          other.source_ == source_ &&
+          other.time == time &&
+          other.type == type &&
+          other.correct == correct;
 
   @override
   int get hashCode =>
-    source_.hashCode +
-    time.hashCode +
-    type.hashCode +
-    correct.hashCode;
+      source_.hashCode + time.hashCode + type.hashCode + correct.hashCode;
 
   @override
-  String toString() => 'JMAQuakeAllOfIssue[source_=$source_, time=$time, type=$type, correct=$correct]';
+  String toString() =>
+      'JMAQuakeAllOfIssue[source_=$source_, time=$time, type=$type, correct=$correct]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -75,25 +75,40 @@ class JMAQuakeAllOfIssue {
     return json;
   }
 
-  static List<JMAQuakeAllOfIssue> listFromJson(List<dynamic> json, {bool emptyIsNull, bool growable,}) =>
-    json == null || json.isEmpty
-      ? true == emptyIsNull ? null : <JMAQuakeAllOfIssue>[]
-      : json.map((v) => JMAQuakeAllOfIssue.fromJson(v)).toList(growable: true == growable);
+  static List<JMAQuakeAllOfIssue> listFromJson(
+    List<dynamic> json, {
+    bool emptyIsNull,
+    bool growable,
+  }) =>
+      json == null || json.isEmpty
+          ? true == emptyIsNull
+              ? null
+              : <JMAQuakeAllOfIssue>[]
+          : json
+              .map((v) => JMAQuakeAllOfIssue.fromJson(v))
+              .toList(growable: true == growable);
 
-  static Map<String, JMAQuakeAllOfIssue> mapFromJson(Map<String, dynamic> json) {
+  static Map<String, JMAQuakeAllOfIssue> mapFromJson(
+      Map<String, dynamic> json) {
     final map = <String, JMAQuakeAllOfIssue>{};
     if (json != null && json.isNotEmpty) {
-      json.forEach((String key, dynamic v) => map[key] = JMAQuakeAllOfIssue.fromJson(v));
+      json.forEach(
+          (String key, dynamic v) => map[key] = JMAQuakeAllOfIssue.fromJson(v));
     }
     return map;
   }
 
   // maps a json object with a list of JMAQuakeAllOfIssue-objects as value to a dart map
-  static Map<String, List<JMAQuakeAllOfIssue>> mapListFromJson(Map<String, dynamic> json, {bool emptyIsNull, bool growable,}) {
+  static Map<String, List<JMAQuakeAllOfIssue>> mapListFromJson(
+    Map<String, dynamic> json, {
+    bool emptyIsNull,
+    bool growable,
+  }) {
     final map = <String, List<JMAQuakeAllOfIssue>>{};
     if (json != null && json.isNotEmpty) {
       json.forEach((String key, dynamic v) {
-        map[key] = JMAQuakeAllOfIssue.listFromJson(v, emptyIsNull: emptyIsNull, growable: growable);
+        map[key] = JMAQuakeAllOfIssue.listFromJson(v,
+            emptyIsNull: emptyIsNull, growable: growable);
       });
     }
     return map;
@@ -109,7 +124,8 @@ class JMAQuakeAllOfIssueTypeEnum {
   final String value;
 
   @override
-  bool operator ==(Object other) => identical(this, other) ||
+  bool operator ==(Object other) =>
+      identical(this, other) ||
       other is JMAQuakeAllOfIssueTypeEnum && other.value == value ||
       other is String && other == value;
 
@@ -121,32 +137,39 @@ class JMAQuakeAllOfIssueTypeEnum {
 
   String toJson() => value;
 
-  static const scaleprompt_ = JMAQuakeAllOfIssueTypeEnum._('ScalePrompt(震度速報)');
-  static const destination_ = JMAQuakeAllOfIssueTypeEnum._('Destination(震源に関する情報)');
-  static const scaleanddestination_ = JMAQuakeAllOfIssueTypeEnum._('ScaleAndDestination(震度・震源に関する情報)');
-  static const detailscale_ = JMAQuakeAllOfIssueTypeEnum._('DetailScale(各地の震度に関する情報)');
-  static const foreign_ = JMAQuakeAllOfIssueTypeEnum._('Foreign(遠地地震に関する情報)');
-  static const other_ = JMAQuakeAllOfIssueTypeEnum._('Other(その他の情報)');
+  static const scalePrompt = JMAQuakeAllOfIssueTypeEnum._('ScalePrompt');
+  static const destination = JMAQuakeAllOfIssueTypeEnum._('Destination');
+  static const scaleAndDestination =
+      JMAQuakeAllOfIssueTypeEnum._('ScaleAndDestination');
+  static const detailScale = JMAQuakeAllOfIssueTypeEnum._('DetailScale');
+  static const foreign = JMAQuakeAllOfIssueTypeEnum._('Foreign');
+  static const other = JMAQuakeAllOfIssueTypeEnum._('Other');
 
   /// List of all possible values in this [enum][JMAQuakeAllOfIssueTypeEnum].
   static const values = <JMAQuakeAllOfIssueTypeEnum>[
-    scaleprompt_,
-    destination_,
-    scaleanddestination_,
-    detailscale_,
-    foreign_,
-    other_,
+    scalePrompt,
+    destination,
+    scaleAndDestination,
+    detailScale,
+    foreign,
+    other,
   ];
 
   static JMAQuakeAllOfIssueTypeEnum fromJson(String value) =>
-    JMAQuakeAllOfIssueTypeEnumTypeTransformer().decode(value);
+      JMAQuakeAllOfIssueTypeEnumTypeTransformer().decode(value);
 
-  static List<JMAQuakeAllOfIssueTypeEnum> listFromJson(List<dynamic> json, {bool emptyIsNull, bool growable,}) =>
-    json == null || json.isEmpty
-      ? true == emptyIsNull ? null : <JMAQuakeAllOfIssueTypeEnum>[]
-      : json
-          .map((value) => JMAQuakeAllOfIssueTypeEnum.fromJson(value))
-          .toList(growable: true == growable);
+  static List<JMAQuakeAllOfIssueTypeEnum> listFromJson(
+    List<dynamic> json, {
+    bool emptyIsNull,
+    bool growable,
+  }) =>
+      json == null || json.isEmpty
+          ? true == emptyIsNull
+              ? null
+              : <JMAQuakeAllOfIssueTypeEnum>[]
+          : json
+              .map((value) => JMAQuakeAllOfIssueTypeEnum.fromJson(value))
+              .toList(growable: true == growable);
 }
 
 /// Transformation class that can [encode] an instance of [JMAQuakeAllOfIssueTypeEnum] to String,
@@ -154,7 +177,8 @@ class JMAQuakeAllOfIssueTypeEnum {
 class JMAQuakeAllOfIssueTypeEnumTypeTransformer {
   const JMAQuakeAllOfIssueTypeEnumTypeTransformer._();
 
-  factory JMAQuakeAllOfIssueTypeEnumTypeTransformer() => _instance ??= JMAQuakeAllOfIssueTypeEnumTypeTransformer._();
+  factory JMAQuakeAllOfIssueTypeEnumTypeTransformer() =>
+      _instance ??= JMAQuakeAllOfIssueTypeEnumTypeTransformer._();
 
   String encode(JMAQuakeAllOfIssueTypeEnum data) => data.value;
 
@@ -168,12 +192,18 @@ class JMAQuakeAllOfIssueTypeEnumTypeTransformer {
   /// and users are still using an old app with the old code.
   JMAQuakeAllOfIssueTypeEnum decode(dynamic data, {bool allowNull}) {
     switch (data) {
-      case 'ScalePrompt(震度速報)': return JMAQuakeAllOfIssueTypeEnum.scaleprompt_;
-      case 'Destination(震源に関する情報)': return JMAQuakeAllOfIssueTypeEnum.destination_;
-      case 'ScaleAndDestination(震度・震源に関する情報)': return JMAQuakeAllOfIssueTypeEnum.scaleanddestination_;
-      case 'DetailScale(各地の震度に関する情報)': return JMAQuakeAllOfIssueTypeEnum.detailscale_;
-      case 'Foreign(遠地地震に関する情報)': return JMAQuakeAllOfIssueTypeEnum.foreign_;
-      case 'Other(その他の情報)': return JMAQuakeAllOfIssueTypeEnum.other_;
+      case 'ScalePrompt':
+        return JMAQuakeAllOfIssueTypeEnum.scalePrompt;
+      case 'Destination':
+        return JMAQuakeAllOfIssueTypeEnum.destination;
+      case 'ScaleAndDestination':
+        return JMAQuakeAllOfIssueTypeEnum.scaleAndDestination;
+      case 'DetailScale':
+        return JMAQuakeAllOfIssueTypeEnum.detailScale;
+      case 'Foreign':
+        return JMAQuakeAllOfIssueTypeEnum.foreign;
+      case 'Other':
+        return JMAQuakeAllOfIssueTypeEnum.other;
       default:
         if (allowNull == false) {
           throw ArgumentError('Unknown enum value to decode: $data');
@@ -195,7 +225,8 @@ class JMAQuakeAllOfIssueCorrectEnum {
   final String value;
 
   @override
-  bool operator ==(Object other) => identical(this, other) ||
+  bool operator ==(Object other) =>
+      identical(this, other) ||
       other is JMAQuakeAllOfIssueCorrectEnum && other.value == value ||
       other is String && other == value;
 
@@ -207,30 +238,38 @@ class JMAQuakeAllOfIssueCorrectEnum {
 
   String toJson() => value;
 
-  static const none_ = JMAQuakeAllOfIssueCorrectEnum._('None(なし)');
-  static const unknown_ = JMAQuakeAllOfIssueCorrectEnum._('Unknown(不明)');
-  static const scaleonly_ = JMAQuakeAllOfIssueCorrectEnum._('ScaleOnly(震度)');
-  static const destinationonly_ = JMAQuakeAllOfIssueCorrectEnum._('DestinationOnly(震源)');
-  static const scaleanddestination_ = JMAQuakeAllOfIssueCorrectEnum._('ScaleAndDestination(震度・震源)');
+  static const none = JMAQuakeAllOfIssueCorrectEnum._('None');
+  static const unknown = JMAQuakeAllOfIssueCorrectEnum._('Unknown');
+  static const scaleOnly = JMAQuakeAllOfIssueCorrectEnum._('ScaleOnly');
+  static const destinationOnly =
+      JMAQuakeAllOfIssueCorrectEnum._('DestinationOnly');
+  static const scaleAndDestination =
+      JMAQuakeAllOfIssueCorrectEnum._('ScaleAndDestination');
 
   /// List of all possible values in this [enum][JMAQuakeAllOfIssueCorrectEnum].
   static const values = <JMAQuakeAllOfIssueCorrectEnum>[
-    none_,
-    unknown_,
-    scaleonly_,
-    destinationonly_,
-    scaleanddestination_,
+    none,
+    unknown,
+    scaleOnly,
+    destinationOnly,
+    scaleAndDestination,
   ];
 
   static JMAQuakeAllOfIssueCorrectEnum fromJson(String value) =>
-    JMAQuakeAllOfIssueCorrectEnumTypeTransformer().decode(value);
+      JMAQuakeAllOfIssueCorrectEnumTypeTransformer().decode(value);
 
-  static List<JMAQuakeAllOfIssueCorrectEnum> listFromJson(List<dynamic> json, {bool emptyIsNull, bool growable,}) =>
-    json == null || json.isEmpty
-      ? true == emptyIsNull ? null : <JMAQuakeAllOfIssueCorrectEnum>[]
-      : json
-          .map((value) => JMAQuakeAllOfIssueCorrectEnum.fromJson(value))
-          .toList(growable: true == growable);
+  static List<JMAQuakeAllOfIssueCorrectEnum> listFromJson(
+    List<dynamic> json, {
+    bool emptyIsNull,
+    bool growable,
+  }) =>
+      json == null || json.isEmpty
+          ? true == emptyIsNull
+              ? null
+              : <JMAQuakeAllOfIssueCorrectEnum>[]
+          : json
+              .map((value) => JMAQuakeAllOfIssueCorrectEnum.fromJson(value))
+              .toList(growable: true == growable);
 }
 
 /// Transformation class that can [encode] an instance of [JMAQuakeAllOfIssueCorrectEnum] to String,
@@ -238,7 +277,8 @@ class JMAQuakeAllOfIssueCorrectEnum {
 class JMAQuakeAllOfIssueCorrectEnumTypeTransformer {
   const JMAQuakeAllOfIssueCorrectEnumTypeTransformer._();
 
-  factory JMAQuakeAllOfIssueCorrectEnumTypeTransformer() => _instance ??= JMAQuakeAllOfIssueCorrectEnumTypeTransformer._();
+  factory JMAQuakeAllOfIssueCorrectEnumTypeTransformer() =>
+      _instance ??= JMAQuakeAllOfIssueCorrectEnumTypeTransformer._();
 
   String encode(JMAQuakeAllOfIssueCorrectEnum data) => data.value;
 
@@ -252,11 +292,16 @@ class JMAQuakeAllOfIssueCorrectEnumTypeTransformer {
   /// and users are still using an old app with the old code.
   JMAQuakeAllOfIssueCorrectEnum decode(dynamic data, {bool allowNull}) {
     switch (data) {
-      case 'None(なし)': return JMAQuakeAllOfIssueCorrectEnum.none_;
-      case 'Unknown(不明)': return JMAQuakeAllOfIssueCorrectEnum.unknown_;
-      case 'ScaleOnly(震度)': return JMAQuakeAllOfIssueCorrectEnum.scaleonly_;
-      case 'DestinationOnly(震源)': return JMAQuakeAllOfIssueCorrectEnum.destinationonly_;
-      case 'ScaleAndDestination(震度・震源)': return JMAQuakeAllOfIssueCorrectEnum.scaleanddestination_;
+      case 'None':
+        return JMAQuakeAllOfIssueCorrectEnum.none;
+      case 'Unknown':
+        return JMAQuakeAllOfIssueCorrectEnum.unknown;
+      case 'ScaleOnly':
+        return JMAQuakeAllOfIssueCorrectEnum.scaleOnly;
+      case 'DestinationOnly':
+        return JMAQuakeAllOfIssueCorrectEnum.destinationOnly;
+      case 'ScaleAndDestination':
+        return JMAQuakeAllOfIssueCorrectEnum.scaleAndDestination;
       default:
         if (allowNull == false) {
           throw ArgumentError('Unknown enum value to decode: $data');
@@ -268,4 +313,3 @@ class JMAQuakeAllOfIssueCorrectEnumTypeTransformer {
   /// Singleton [JMAQuakeAllOfIssueCorrectEnumTypeTransformer] instance.
   static JMAQuakeAllOfIssueCorrectEnumTypeTransformer _instance;
 }
-

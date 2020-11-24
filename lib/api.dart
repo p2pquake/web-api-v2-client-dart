@@ -7,7 +7,7 @@
 // ignore_for_file: always_put_required_named_parameters_first
 // ignore_for_file: lines_longer_than_80_chars
 
-library openapi.api;
+library p2pquake_v2_api.api;
 
 import 'dart:async';
 import 'dart:convert';
@@ -26,8 +26,8 @@ part 'auth/oauth.dart';
 part 'auth/http_basic_auth.dart';
 part 'auth/http_bearer_auth.dart';
 
-part 'api/jsonapi_api.dart';
-part 'api/p2_papi_api.dart';
+part 'api/json_api.dart';
+part 'api/v2_api.dart';
 
 part 'model/areapeers.dart';
 part 'model/areapeers_all_of.dart';

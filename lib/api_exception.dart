@@ -7,12 +7,13 @@
 // ignore_for_file: always_put_required_named_parameters_first
 // ignore_for_file: lines_longer_than_80_chars
 
-part of openapi.api;
+part of p2pquake_v2_api.api;
 
 class ApiException implements Exception {
   ApiException(this.code, this.message);
 
-  ApiException.withInner(this.code, this.message, this.innerException, this.stackTrace);
+  ApiException.withInner(
+      this.code, this.message, this.innerException, this.stackTrace);
 
   int code = 0;
   String message;
