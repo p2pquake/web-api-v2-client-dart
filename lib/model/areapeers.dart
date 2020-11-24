@@ -9,7 +9,7 @@
 
 part of p2pquake_v2_api.api;
 
-class Areapeers {
+class Areapeers extends BasicData {
   /// Returns a new [Areapeers] instance.
   Areapeers({
     @required this.id,

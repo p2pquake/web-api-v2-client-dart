@@ -221,7 +221,21 @@ class ApiClient {
         case 'AreapeersAllOfAreas':
           return AreapeersAllOfAreas.fromJson(value);
         case 'BasicData':
-          return BasicData.fromJson(value);
+          var data = BasicData.fromJson(value);
+          if (data.code == 551) {
+            return JMAQuake.fromJson(value);
+          } else if (data.code == 552) {
+            return JMATsunami.fromJson(value);
+          } else if (data.code == 554) {
+            return EEWDetection.fromJson(value);
+          } else if (data.code == 555) {
+            return Areapeers.fromJson(value);
+          } else if (data.code == 561) {
+            return Userquake.fromJson(value);
+          } else if (data.code == 9611) {
+            return UserquakeEvaluation.fromJson(value);
+          }
+          return data;
         case 'EEWDetection':
           return EEWDetection.fromJson(value);
         case 'EEWDetectionAllOf':

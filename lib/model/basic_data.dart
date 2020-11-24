@@ -25,6 +25,10 @@ class BasicData {
       code = json['code'];
       time = json['time'];
     }
+
+    if (code == 551) {
+      JMAQuake.fromJson(json) as BasicData;
+    }
   }
 
   /// 情報を一意に識別するID

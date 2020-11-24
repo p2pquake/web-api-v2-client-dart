@@ -9,7 +9,7 @@
 
 part of p2pquake_v2_api.api;
 
-class EEWDetection {
+class EEWDetection extends BasicData {
   /// Returns a new [EEWDetection] instance.
   EEWDetection({
     @required this.id,

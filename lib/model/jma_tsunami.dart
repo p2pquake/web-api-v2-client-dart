@@ -9,7 +9,7 @@
 
 part of p2pquake_v2_api.api;
 
-class JMATsunami {
+class JMATsunami extends BasicData {
   /// Returns a new [JMATsunami] instance.
   JMATsunami({
     @required this.id,
@@ -37,7 +37,7 @@ class JMATsunami {
   String id;
 
   /// 情報コード。常に552です。
-  Object code;
+  int code;
 
   /// 受信日時。形式は `2006/01/02 15:04:05.999` です。
   String time;

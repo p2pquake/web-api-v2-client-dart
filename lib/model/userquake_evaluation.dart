@@ -9,7 +9,7 @@
 
 part of p2pquake_v2_api.api;
 
-class UserquakeEvaluation {
+class UserquakeEvaluation extends BasicData {
   /// Returns a new [UserquakeEvaluation] instance.
   UserquakeEvaluation({
     @required this.id,
@@ -45,7 +45,7 @@ class UserquakeEvaluation {
   String id;
 
   /// 情報コード。常に9611です。
-  Object code;
+  int code;
 
   /// 評価日時。形式は `2006/01/02 15:04:05.999` です。
   String time;

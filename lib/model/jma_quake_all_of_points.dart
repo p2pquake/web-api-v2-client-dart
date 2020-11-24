@@ -25,7 +25,7 @@ class JMAQuakeAllOfPoints {
       pref = json['pref'];
       addr = json['addr'];
       isArea = json['isArea'];
-      scale = json['scale'] == null ? null : json['scale'].toDouble();
+      scale = JMAQuakeAllOfPointsScaleEnum.fromJson(json['scale']);
     }
   }
 
