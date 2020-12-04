@@ -63,12 +63,20 @@ void main() {
         expect(v0.cancelled, isFalse);
         expect(v0.time, equals("2016/11/22 07:29:00"));
         expect(v0.issue.time, equals("2016/11/22 07:26:00"));
+        expect(v0.issue.type, equals("Focus"));
         expect(v0.areas.length, equals(8));
         expect(v0.areas.where((element) => element.immediate).length, equals(2));
-        expect(v0.areas.where((element) => element.grade == JMATsunamiAllOfAreasGradeEnum.warning).length, equals(1));
+        expect(
+            v0.areas
+                .where((element) => element.grade == JMATsunamiAllOfAreasGradeEnum.warning)
+                .length,
+            equals(1));
         expect(v0.areas.first.grade, equals(JMATsunamiAllOfAreasGradeEnum.warning));
         expect(v0.areas.first.immediate, isFalse);
         expect(v0.areas.first.name, equals("福島県"));
+        expect(v0.areas.last.grade, equals(JMATsunamiAllOfAreasGradeEnum.watch));
+        expect(v0.areas.last.immediate, isTrue);
+        expect(v0.areas.last.name, equals("伊豆諸島"));
       });
       test('returns Areapeers', () async {
         replaceResponse(
