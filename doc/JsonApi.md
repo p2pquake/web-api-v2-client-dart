@@ -1,4 +1,4 @@
-# p2pquake_api_v2.api.JSONAPIApi
+# p2pquake_api_v2.api.JsonApi
 
 ## Load the API package
 ```dart
@@ -9,10 +9,10 @@ All URIs are relative to *https://api.p2pquake.net/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**jmaQuakeGet**](JSONAPIApi.md#jmaQuakeGet) | **GET** /jma/quake | 地震情報リスト
-[**jmaQuakeIdGet**](JSONAPIApi.md#jmaQuakeIdGet) | **GET** /jma/quake/{id} | 地震情報
-[**jmaTsunamiGet**](JSONAPIApi.md#jmaTsunamiGet) | **GET** /jma/tsunami | 津波予報リスト
-[**jmaTsunamiIdGet**](JSONAPIApi.md#jmaTsunamiIdGet) | **GET** /jma/tsunami/{id} | 津波予報
+[**jmaQuakeGet**](JsonApi.md#jmaQuakeGet) | **GET** /jma/quake | 地震情報リスト
+[**jmaQuakeIdGet**](JsonApi.md#jmaQuakeIdGet) | **GET** /jma/quake/{id} | 地震情報
+[**jmaTsunamiGet**](JsonApi.md#jmaTsunamiGet) | **GET** /jma/tsunami | 津波予報リスト
+[**jmaTsunamiIdGet**](JsonApi.md#jmaTsunamiIdGet) | **GET** /jma/tsunami/{id} | 津波予報
 
 
 # **jmaQuakeGet**
@@ -26,7 +26,7 @@ Method | HTTP request | Description
 ```dart
 import 'package:p2pquake_api_v2/api.dart';
 
-final api_instance = JSONAPIApi();
+final api_instance = JsonApi();
 final limit = 56; // int | 返却件数 (1〜100、デフォルトは10)
 final offset = 56; // int | 読み飛ばす件数 (0以上、デフォルトは0)。例えば、 limit=100&offset=200 とすると、201件目から100件を返却します。
 final order = 56; // int | 並び順。1は昇順（古い順）、-1は降順（新しい順）です。デフォルトは降順。
@@ -43,7 +43,7 @@ try {
     final result = api_instance.jmaQuakeGet(limit, offset, order, sinceDate, untilDate, quakeType, minMagnitude, maxMagnitude, minScale, maxScale, prefectures[]);
     print(result);
 } catch (e) {
-    print('Exception when calling JSONAPIApi->jmaQuakeGet: $e\n');
+    print('Exception when calling JsonApi->jmaQuakeGet: $e\n');
 }
 ```
 
@@ -87,14 +87,14 @@ No authorization required
 ```dart
 import 'package:p2pquake_api_v2/api.dart';
 
-final api_instance = JSONAPIApi();
+final api_instance = JsonApi();
 final id = id_example; // String | ID
 
 try { 
     final result = api_instance.jmaQuakeIdGet(id);
     print(result);
 } catch (e) {
-    print('Exception when calling JSONAPIApi->jmaQuakeIdGet: $e\n');
+    print('Exception when calling JsonApi->jmaQuakeIdGet: $e\n');
 }
 ```
 
@@ -130,7 +130,7 @@ No authorization required
 ```dart
 import 'package:p2pquake_api_v2/api.dart';
 
-final api_instance = JSONAPIApi();
+final api_instance = JsonApi();
 final limit = 56; // int | 返却件数 (1〜100、デフォルトは10)
 final offset = 56; // int | 読み飛ばす件数 (0以上、デフォルトは0)。例えば、 limit=100&offset=200 とすると、201件目から100件を返却します。
 final order = 56; // int | 並び順。1は昇順（古い順）、-1は降順（新しい順）です。デフォルトは降順。
@@ -141,7 +141,7 @@ try {
     final result = api_instance.jmaTsunamiGet(limit, offset, order, sinceDate, untilDate);
     print(result);
 } catch (e) {
-    print('Exception when calling JSONAPIApi->jmaTsunamiGet: $e\n');
+    print('Exception when calling JsonApi->jmaTsunamiGet: $e\n');
 }
 ```
 
@@ -179,14 +179,14 @@ No authorization required
 ```dart
 import 'package:p2pquake_api_v2/api.dart';
 
-final api_instance = JSONAPIApi();
+final api_instance = JsonApi();
 final id = id_example; // String | ID
 
 try { 
     final result = api_instance.jmaTsunamiIdGet(id);
     print(result);
 } catch (e) {
-    print('Exception when calling JSONAPIApi->jmaTsunamiIdGet: $e\n');
+    print('Exception when calling JsonApi->jmaTsunamiIdGet: $e\n');
 }
 ```
 

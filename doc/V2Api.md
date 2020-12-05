@@ -1,4 +1,4 @@
-# p2pquake_api_v2.api.P2PAPIApi
+# p2pquake_api_v2.api.V2Api
 
 ## Load the API package
 ```dart
@@ -9,8 +9,8 @@ All URIs are relative to *https://api.p2pquake.net/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**historyGet**](P2PAPIApi.md#historyGet) | **GET** /history | P2P地震情報 JSON API (v2)
-[**wsGet**](P2PAPIApi.md#wsGet) | **GET** /ws | P2P地震情報 WebSocket API
+[**historyGet**](V2Api.md#historyGet) | **GET** /history | P2P地震情報 JSON API (v2)
+[**wsGet**](V2Api.md#wsGet) | **GET** /ws | P2P地震情報 WebSocket API
 
 
 # **historyGet**
@@ -24,7 +24,7 @@ P2P地震情報の各種情報を返却します。   `offset` パラメタは�
 ```dart
 import 'package:p2pquake_api_v2/api.dart';
 
-final api_instance = P2PAPIApi();
+final api_instance = V2Api();
 final codes = []; // List<int> | 取得したい情報の情報コード (デフォルトはすべて)。値は551(地震情報)、552(津波予報)、554(緊急地震速報 発表検出)、555(各地域ピア数)、561(地震感知情報)、9611(地震感知情報 解析結果)です。
 final limit = 56; // int | 返却件数 (1〜100、デフォルトは10)
 final offset = 56; // int | 読み飛ばす件数 (0以上、デフォルトは0)。例えば、 limit=100&offset=200 とすると、201件目から100件を返却します。
@@ -33,7 +33,7 @@ try {
     final result = api_instance.historyGet(codes, limit, offset);
     print(result);
 } catch (e) {
-    print('Exception when calling P2PAPIApi->historyGet: $e\n');
+    print('Exception when calling V2Api->historyGet: $e\n');
 }
 ```
 
@@ -71,12 +71,12 @@ P2P地震情報の各種情報をリアルタイムに配信します。 WebSock
 ```dart
 import 'package:p2pquake_api_v2/api.dart';
 
-final api_instance = P2PAPIApi();
+final api_instance = V2Api();
 
 try { 
     api_instance.wsGet();
 } catch (e) {
-    print('Exception when calling P2PAPIApi->wsGet: $e\n');
+    print('Exception when calling V2Api->wsGet: $e\n');
 }
 ```
 
