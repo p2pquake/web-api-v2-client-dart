@@ -39,8 +39,7 @@ class JMAQuakeAllOfPoints {
   bool isArea;
 
   /// 震度
-  JMAQuakeAllOfPointsScaleEnum scale =
-      null; // JMAQuakeAllOfPointsScaleEnum._();
+  JMAQuakeAllOfPointsScaleEnum scale = null; // JMAQuakeAllOfPointsScaleEnum._();
 
   @override
   bool operator ==(Object other) =>
@@ -52,12 +51,10 @@ class JMAQuakeAllOfPoints {
           other.scale == scale;
 
   @override
-  int get hashCode =>
-      pref.hashCode + addr.hashCode + isArea.hashCode + scale.hashCode;
+  int get hashCode => pref.hashCode + addr.hashCode + isArea.hashCode + scale.hashCode;
 
   @override
-  String toString() =>
-      'JMAQuakeAllOfPoints[pref=$pref, addr=$addr, isArea=$isArea, scale=$scale]';
+  String toString() => 'JMAQuakeAllOfPoints[pref=$pref, addr=$addr, isArea=$isArea, scale=$scale]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -85,16 +82,12 @@ class JMAQuakeAllOfPoints {
           ? true == emptyIsNull
               ? null
               : <JMAQuakeAllOfPoints>[]
-          : json
-              .map((v) => JMAQuakeAllOfPoints.fromJson(v))
-              .toList(growable: true == growable);
+          : json.map((v) => JMAQuakeAllOfPoints.fromJson(v)).toList(growable: true == growable);
 
-  static Map<String, JMAQuakeAllOfPoints> mapFromJson(
-      Map<String, dynamic> json) {
+  static Map<String, JMAQuakeAllOfPoints> mapFromJson(Map<String, dynamic> json) {
     final map = <String, JMAQuakeAllOfPoints>{};
     if (json != null && json.isNotEmpty) {
-      json.forEach((String key, dynamic v) =>
-          map[key] = JMAQuakeAllOfPoints.fromJson(v));
+      json.forEach((String key, dynamic v) => map[key] = JMAQuakeAllOfPoints.fromJson(v));
     }
     return map;
   }
@@ -108,8 +101,8 @@ class JMAQuakeAllOfPoints {
     final map = <String, List<JMAQuakeAllOfPoints>>{};
     if (json != null && json.isNotEmpty) {
       json.forEach((String key, dynamic v) {
-        map[key] = JMAQuakeAllOfPoints.listFromJson(v,
-            emptyIsNull: emptyIsNull, growable: growable);
+        map[key] =
+            JMAQuakeAllOfPoints.listFromJson(v, emptyIsNull: emptyIsNull, growable: growable);
       });
     }
     return map;
@@ -138,16 +131,16 @@ class JMAQuakeAllOfPointsScaleEnum {
 
   String toJson() => value;
 
-  static const scale10 = JMAQuakeAllOfPointsScaleEnum._(null);
-  static const scale20 = JMAQuakeAllOfPointsScaleEnum._(null);
-  static const scale30 = JMAQuakeAllOfPointsScaleEnum._(null);
-  static const scale40 = JMAQuakeAllOfPointsScaleEnum._(null);
-  static const scale45 = JMAQuakeAllOfPointsScaleEnum._(null);
-  static const scale50 = JMAQuakeAllOfPointsScaleEnum._(null);
-  static const scale55 = JMAQuakeAllOfPointsScaleEnum._(null);
-  static const scale60 = JMAQuakeAllOfPointsScaleEnum._(null);
-  static const scale70 = JMAQuakeAllOfPointsScaleEnum._(null);
-  static const scale46 = JMAQuakeAllOfPointsScaleEnum._(null);
+  static const scale10 = JMAQuakeAllOfPointsScaleEnum._('10');
+  static const scale20 = JMAQuakeAllOfPointsScaleEnum._('20');
+  static const scale30 = JMAQuakeAllOfPointsScaleEnum._('30');
+  static const scale40 = JMAQuakeAllOfPointsScaleEnum._('40');
+  static const scale45 = JMAQuakeAllOfPointsScaleEnum._('45');
+  static const scale50 = JMAQuakeAllOfPointsScaleEnum._('50');
+  static const scale55 = JMAQuakeAllOfPointsScaleEnum._('55');
+  static const scale60 = JMAQuakeAllOfPointsScaleEnum._('60');
+  static const scale70 = JMAQuakeAllOfPointsScaleEnum._('70');
+  static const scale46 = JMAQuakeAllOfPointsScaleEnum._('46');
 
   /// List of all possible values in this [enum][JMAQuakeAllOfPointsScaleEnum].
   static const values = <JMAQuakeAllOfPointsScaleEnum>[

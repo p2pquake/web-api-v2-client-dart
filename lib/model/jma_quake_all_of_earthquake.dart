@@ -24,13 +24,11 @@ class JMAQuakeAllOfEarthquake {
   JMAQuakeAllOfEarthquake.fromJson(Map<String, dynamic> json) {
     if (json != null) {
       time = json['time'];
-      hypocenter =
-          JMAQuakeAllOfEarthquakeHypocenter.fromJson(json['hypocenter']);
+      hypocenter = JMAQuakeAllOfEarthquakeHypocenter.fromJson(json['hypocenter']);
       maxScale = JMAQuakeAllOfEarthquakeMaxScaleEnum.fromJson(json['maxScale']);
-      domesticTsunami = JMAQuakeAllOfEarthquakeDomesticTsunamiEnum.fromJson(
-          json['domesticTsunami']);
-      foreignTsunami = JMAQuakeAllOfEarthquakeForeignTsunamiEnum.fromJson(
-          json['foreignTsunami']);
+      domesticTsunami =
+          JMAQuakeAllOfEarthquakeDomesticTsunamiEnum.fromJson(json['domesticTsunami']);
+      foreignTsunami = JMAQuakeAllOfEarthquakeForeignTsunamiEnum.fromJson(json['foreignTsunami']);
     }
   }
 
@@ -99,16 +97,12 @@ class JMAQuakeAllOfEarthquake {
           ? true == emptyIsNull
               ? null
               : <JMAQuakeAllOfEarthquake>[]
-          : json
-              .map((v) => JMAQuakeAllOfEarthquake.fromJson(v))
-              .toList(growable: true == growable);
+          : json.map((v) => JMAQuakeAllOfEarthquake.fromJson(v)).toList(growable: true == growable);
 
-  static Map<String, JMAQuakeAllOfEarthquake> mapFromJson(
-      Map<String, dynamic> json) {
+  static Map<String, JMAQuakeAllOfEarthquake> mapFromJson(Map<String, dynamic> json) {
     final map = <String, JMAQuakeAllOfEarthquake>{};
     if (json != null && json.isNotEmpty) {
-      json.forEach((String key, dynamic v) =>
-          map[key] = JMAQuakeAllOfEarthquake.fromJson(v));
+      json.forEach((String key, dynamic v) => map[key] = JMAQuakeAllOfEarthquake.fromJson(v));
     }
     return map;
   }
@@ -122,8 +116,8 @@ class JMAQuakeAllOfEarthquake {
     final map = <String, List<JMAQuakeAllOfEarthquake>>{};
     if (json != null && json.isNotEmpty) {
       json.forEach((String key, dynamic v) {
-        map[key] = JMAQuakeAllOfEarthquake.listFromJson(v,
-            emptyIsNull: emptyIsNull, growable: growable);
+        map[key] =
+            JMAQuakeAllOfEarthquake.listFromJson(v, emptyIsNull: emptyIsNull, growable: growable);
       });
     }
     return map;
@@ -152,16 +146,16 @@ class JMAQuakeAllOfEarthquakeMaxScaleEnum {
 
   String toJson() => value;
 
-  static const scale10 = JMAQuakeAllOfEarthquakeMaxScaleEnum._(null);
-  static const scale20 = JMAQuakeAllOfEarthquakeMaxScaleEnum._(null);
-  static const scale30 = JMAQuakeAllOfEarthquakeMaxScaleEnum._(null);
-  static const scale40 = JMAQuakeAllOfEarthquakeMaxScaleEnum._(null);
-  static const scale45 = JMAQuakeAllOfEarthquakeMaxScaleEnum._(null);
-  static const scale50 = JMAQuakeAllOfEarthquakeMaxScaleEnum._(null);
-  static const scale55 = JMAQuakeAllOfEarthquakeMaxScaleEnum._(null);
-  static const scale60 = JMAQuakeAllOfEarthquakeMaxScaleEnum._(null);
-  static const scale70 = JMAQuakeAllOfEarthquakeMaxScaleEnum._(null);
-  static const scale46 = JMAQuakeAllOfEarthquakeMaxScaleEnum._(null);
+  static const scale10 = JMAQuakeAllOfEarthquakeMaxScaleEnum._('10');
+  static const scale20 = JMAQuakeAllOfEarthquakeMaxScaleEnum._('20');
+  static const scale30 = JMAQuakeAllOfEarthquakeMaxScaleEnum._('30');
+  static const scale40 = JMAQuakeAllOfEarthquakeMaxScaleEnum._('40');
+  static const scale45 = JMAQuakeAllOfEarthquakeMaxScaleEnum._('45');
+  static const scale50 = JMAQuakeAllOfEarthquakeMaxScaleEnum._('50');
+  static const scale55 = JMAQuakeAllOfEarthquakeMaxScaleEnum._('55');
+  static const scale60 = JMAQuakeAllOfEarthquakeMaxScaleEnum._('60');
+  static const scale70 = JMAQuakeAllOfEarthquakeMaxScaleEnum._('70');
+  static const scale46 = JMAQuakeAllOfEarthquakeMaxScaleEnum._('46');
 
   /// List of all possible values in this [enum][JMAQuakeAllOfEarthquakeMaxScaleEnum].
   static const values = <JMAQuakeAllOfEarthquakeMaxScaleEnum>[
@@ -190,8 +184,7 @@ class JMAQuakeAllOfEarthquakeMaxScaleEnum {
               ? null
               : <JMAQuakeAllOfEarthquakeMaxScaleEnum>[]
           : json
-              .map((value) =>
-                  JMAQuakeAllOfEarthquakeMaxScaleEnum.fromJson(value))
+              .map((value) => JMAQuakeAllOfEarthquakeMaxScaleEnum.fromJson(value))
               .toList(growable: true == growable);
 }
 
@@ -258,8 +251,7 @@ class JMAQuakeAllOfEarthquakeDomesticTsunamiEnum {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is JMAQuakeAllOfEarthquakeDomesticTsunamiEnum &&
-          other.value == value ||
+      other is JMAQuakeAllOfEarthquakeDomesticTsunamiEnum && other.value == value ||
       other is String && other == value;
 
   @override
@@ -271,15 +263,11 @@ class JMAQuakeAllOfEarthquakeDomesticTsunamiEnum {
   String toJson() => value;
 
   static const none = JMAQuakeAllOfEarthquakeDomesticTsunamiEnum._('None');
-  static const unknown =
-      JMAQuakeAllOfEarthquakeDomesticTsunamiEnum._('Unknown');
-  static const checking =
-      JMAQuakeAllOfEarthquakeDomesticTsunamiEnum._('Checking');
-  static const nonEffective =
-      JMAQuakeAllOfEarthquakeDomesticTsunamiEnum._('NonEffective');
+  static const unknown = JMAQuakeAllOfEarthquakeDomesticTsunamiEnum._('Unknown');
+  static const checking = JMAQuakeAllOfEarthquakeDomesticTsunamiEnum._('Checking');
+  static const nonEffective = JMAQuakeAllOfEarthquakeDomesticTsunamiEnum._('NonEffective');
   static const watch = JMAQuakeAllOfEarthquakeDomesticTsunamiEnum._('Watch');
-  static const warning =
-      JMAQuakeAllOfEarthquakeDomesticTsunamiEnum._('Warning');
+  static const warning = JMAQuakeAllOfEarthquakeDomesticTsunamiEnum._('Warning');
 
   /// List of all possible values in this [enum][JMAQuakeAllOfEarthquakeDomesticTsunamiEnum].
   static const values = <JMAQuakeAllOfEarthquakeDomesticTsunamiEnum>[
@@ -304,8 +292,7 @@ class JMAQuakeAllOfEarthquakeDomesticTsunamiEnum {
               ? null
               : <JMAQuakeAllOfEarthquakeDomesticTsunamiEnum>[]
           : json
-              .map((value) =>
-                  JMAQuakeAllOfEarthquakeDomesticTsunamiEnum.fromJson(value))
+              .map((value) => JMAQuakeAllOfEarthquakeDomesticTsunamiEnum.fromJson(value))
               .toList(growable: true == growable);
 }
 
@@ -315,8 +302,7 @@ class JMAQuakeAllOfEarthquakeDomesticTsunamiEnumTypeTransformer {
   const JMAQuakeAllOfEarthquakeDomesticTsunamiEnumTypeTransformer._();
 
   factory JMAQuakeAllOfEarthquakeDomesticTsunamiEnumTypeTransformer() =>
-      _instance ??=
-          JMAQuakeAllOfEarthquakeDomesticTsunamiEnumTypeTransformer._();
+      _instance ??= JMAQuakeAllOfEarthquakeDomesticTsunamiEnumTypeTransformer._();
 
   String encode(JMAQuakeAllOfEarthquakeDomesticTsunamiEnum data) => data.value;
 
@@ -328,8 +314,7 @@ class JMAQuakeAllOfEarthquakeDomesticTsunamiEnumTypeTransformer {
   ///
   /// The [allowNull] is very handy when an API changes and a new enum value is added or removed,
   /// and users are still using an old app with the old code.
-  JMAQuakeAllOfEarthquakeDomesticTsunamiEnum decode(dynamic data,
-      {bool allowNull}) {
+  JMAQuakeAllOfEarthquakeDomesticTsunamiEnum decode(dynamic data, {bool allowNull}) {
     switch (data) {
       case 'None':
         return JMAQuakeAllOfEarthquakeDomesticTsunamiEnum.none;
@@ -366,8 +351,7 @@ class JMAQuakeAllOfEarthquakeForeignTsunamiEnum {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is JMAQuakeAllOfEarthquakeForeignTsunamiEnum &&
-          other.value == value ||
+      other is JMAQuakeAllOfEarthquakeForeignTsunamiEnum && other.value == value ||
       other is String && other == value;
 
   @override
@@ -380,22 +364,16 @@ class JMAQuakeAllOfEarthquakeForeignTsunamiEnum {
 
   static const none = JMAQuakeAllOfEarthquakeForeignTsunamiEnum._('None');
   static const unknown = JMAQuakeAllOfEarthquakeForeignTsunamiEnum._('Unknown');
-  static const checking =
-      JMAQuakeAllOfEarthquakeForeignTsunamiEnum._('Checking');
+  static const checking = JMAQuakeAllOfEarthquakeForeignTsunamiEnum._('Checking');
   static const nonEffectiveNearby =
       JMAQuakeAllOfEarthquakeForeignTsunamiEnum._('NonEffectiveNearby');
-  static const warningNearby =
-      JMAQuakeAllOfEarthquakeForeignTsunamiEnum._('WarningNearby');
-  static const warningPacific =
-      JMAQuakeAllOfEarthquakeForeignTsunamiEnum._('WarningPacific');
+  static const warningNearby = JMAQuakeAllOfEarthquakeForeignTsunamiEnum._('WarningNearby');
+  static const warningPacific = JMAQuakeAllOfEarthquakeForeignTsunamiEnum._('WarningPacific');
   static const warningPacificWide =
       JMAQuakeAllOfEarthquakeForeignTsunamiEnum._('WarningPacificWide');
-  static const warningIndian =
-      JMAQuakeAllOfEarthquakeForeignTsunamiEnum._('WarningIndian');
-  static const warningIndianWide =
-      JMAQuakeAllOfEarthquakeForeignTsunamiEnum._('WarningIndianWide');
-  static const potential =
-      JMAQuakeAllOfEarthquakeForeignTsunamiEnum._('Potential');
+  static const warningIndian = JMAQuakeAllOfEarthquakeForeignTsunamiEnum._('WarningIndian');
+  static const warningIndianWide = JMAQuakeAllOfEarthquakeForeignTsunamiEnum._('WarningIndianWide');
+  static const potential = JMAQuakeAllOfEarthquakeForeignTsunamiEnum._('Potential');
 
   /// List of all possible values in this [enum][JMAQuakeAllOfEarthquakeForeignTsunamiEnum].
   static const values = <JMAQuakeAllOfEarthquakeForeignTsunamiEnum>[
@@ -424,8 +402,7 @@ class JMAQuakeAllOfEarthquakeForeignTsunamiEnum {
               ? null
               : <JMAQuakeAllOfEarthquakeForeignTsunamiEnum>[]
           : json
-              .map((value) =>
-                  JMAQuakeAllOfEarthquakeForeignTsunamiEnum.fromJson(value))
+              .map((value) => JMAQuakeAllOfEarthquakeForeignTsunamiEnum.fromJson(value))
               .toList(growable: true == growable);
 }
 
@@ -435,8 +412,7 @@ class JMAQuakeAllOfEarthquakeForeignTsunamiEnumTypeTransformer {
   const JMAQuakeAllOfEarthquakeForeignTsunamiEnumTypeTransformer._();
 
   factory JMAQuakeAllOfEarthquakeForeignTsunamiEnumTypeTransformer() =>
-      _instance ??=
-          JMAQuakeAllOfEarthquakeForeignTsunamiEnumTypeTransformer._();
+      _instance ??= JMAQuakeAllOfEarthquakeForeignTsunamiEnumTypeTransformer._();
 
   String encode(JMAQuakeAllOfEarthquakeForeignTsunamiEnum data) => data.value;
 
@@ -448,8 +424,7 @@ class JMAQuakeAllOfEarthquakeForeignTsunamiEnumTypeTransformer {
   ///
   /// The [allowNull] is very handy when an API changes and a new enum value is added or removed,
   /// and users are still using an old app with the old code.
-  JMAQuakeAllOfEarthquakeForeignTsunamiEnum decode(dynamic data,
-      {bool allowNull}) {
+  JMAQuakeAllOfEarthquakeForeignTsunamiEnum decode(dynamic data, {bool allowNull}) {
     switch (data) {
       case 'None':
         return JMAQuakeAllOfEarthquakeForeignTsunamiEnum.none;

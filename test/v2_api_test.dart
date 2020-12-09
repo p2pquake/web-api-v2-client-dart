@@ -79,16 +79,22 @@ void main() {
 
         final scalePrompt = quakes[0];
         expect(scalePrompt.issue.type, equals(JMAQuakeAllOfIssueTypeEnum.scalePrompt));
+        expect(scalePrompt.issue.type, isNot(equals(JMAQuakeAllOfIssueTypeEnum.other)));
         expect(scalePrompt.earthquake.time, equals("2016/04/14 21:26:00"));
         expect(
             scalePrompt.earthquake.maxScale, equals(JMAQuakeAllOfEarthquakeMaxScaleEnum.scale70));
+        expect(scalePrompt.earthquake.maxScale,
+            isNot(equals(JMAQuakeAllOfEarthquakeMaxScaleEnum.scale60)));
         expect(scalePrompt.earthquake.domesticTsunami,
             equals(JMAQuakeAllOfEarthquakeDomesticTsunamiEnum.checking));
+        expect(scalePrompt.earthquake.domesticTsunami,
+            isNot(equals(JMAQuakeAllOfEarthquakeDomesticTsunamiEnum.unknown)));
         expect(scalePrompt.points.length, equals(3));
         expect(scalePrompt.points[0].addr, equals("熊本県熊本"));
         expect(scalePrompt.points[0].isArea, isTrue);
         expect(scalePrompt.points[0].pref, equals("熊本県"));
         expect(scalePrompt.points[0].scale, equals(JMAQuakeAllOfPointsScaleEnum.scale70));
+        expect(scalePrompt.points[0].scale, isNot(equals(JMAQuakeAllOfPointsScaleEnum.scale60)));
 
         final destination = quakes[1];
         expect(destination.issue.type, equals(JMAQuakeAllOfIssueTypeEnum.destination));
@@ -155,6 +161,8 @@ void main() {
             equals(JMAQuakeAllOfEarthquakeDomesticTsunamiEnum.none));
         expect(foreign.earthquake.foreignTsunami,
             equals(JMAQuakeAllOfEarthquakeForeignTsunamiEnum.warningNearby));
+        expect(foreign.earthquake.foreignTsunami,
+            isNot(equals(JMAQuakeAllOfEarthquakeForeignTsunamiEnum.unknown)));
         expect(foreign.earthquake.hypocenter.depth, equals(-1));
         expect(foreign.earthquake.hypocenter.latitude, equals(54.7));
         expect(foreign.earthquake.hypocenter.longitude, equals(-159.6));
@@ -186,6 +194,7 @@ void main() {
                 .length,
             equals(1));
         expect(v0.areas.first.grade, equals(JMATsunamiAllOfAreasGradeEnum.warning));
+        expect(v0.areas.first.grade, isNot(equals(JMATsunamiAllOfAreasGradeEnum.unknown)));
         expect(v0.areas.first.immediate, isFalse);
         expect(v0.areas.first.name, equals("福島県"));
         expect(v0.areas.last.grade, equals(JMATsunamiAllOfAreasGradeEnum.watch));
@@ -212,6 +221,7 @@ void main() {
         final v = await instance.historyGet();
         expect(v[0], isA<EEWDetection>());
         expect((v[0] as EEWDetection).type, equals(EEWDetectionTypeEnum.full));
+        expect((v[0] as EEWDetection).type, isNot(equals(EEWDetectionTypeEnum.chime)));
         expect((v[0] as EEWDetection).time, equals("2020/11/22 19:06:19.963"));
       });
       test('returns Userquakes', () async {
