@@ -123,35 +123,35 @@ class ApiClient {
       switch (method) {
         case 'POST':
           return await _client.post(
-            url,
+            Uri.parse(url),
             headers: nullableHeaderParams,
             body: msgBody,
           );
         case 'PUT':
           return await _client.put(
-            url,
+            Uri.parse(url),
             headers: nullableHeaderParams,
             body: msgBody,
           );
         case 'DELETE':
           return await _client.delete(
-            url,
+            Uri.parse(url),
             headers: nullableHeaderParams,
           );
         case 'PATCH':
           return await _client.patch(
-            url,
+            Uri.parse(url),
             headers: nullableHeaderParams,
             body: msgBody,
           );
         case 'HEAD':
           return await _client.head(
-            url,
+            Uri.parse(url),
             headers: nullableHeaderParams,
           );
         case 'GET':
           return await _client.get(
-            url,
+            Uri.parse(url),
             headers: nullableHeaderParams,
           );
       }

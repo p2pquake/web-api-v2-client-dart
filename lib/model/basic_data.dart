@@ -27,7 +27,7 @@ class BasicData {
     }
 
     if (code == 551) {
-      JMAQuake.fromJson(json) as BasicData;
+      JMAQuake.fromJson(json);
     }
   }
 
