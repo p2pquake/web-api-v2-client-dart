@@ -1,4 +1,4 @@
-# p2pquake_api_v2.model.UserquakeAllOf
+# p2pquake_api_v2.model.EEWAllOfIssue
 
 ## Load the model package
 ```dart
@@ -8,8 +8,9 @@ import 'package:p2pquake_api_v2/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**code** | [**Object**](.md) | 情報コード。常に561です。 | [optional] 
-**area** | **int** | 地域コード（コード一覧は [GitHub: epsp-specifications/epsp-area.csv · p2pquake/epsp-specifications](https://github.com/p2pquake/epsp-specifications/blob/master/epsp-area.csv) 参照） | 
+**time** | **String** | 発表時刻 | 
+**eventId** | **String** | 識別情報 | 
+**serial** | **String** | 情報番号 | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
