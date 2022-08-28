@@ -224,6 +224,45 @@ void main() {
         expect((v[0] as EEWDetection).type, isNot(equals(EEWDetectionTypeEnum.chime)));
         expect((v[0] as EEWDetection).time, equals("2020/11/22 19:06:19.963"));
       });
+      test('returns EEW', () async {
+        replaceResponse(
+            '[{"areas":[{"arrivalTime":"2022/08/11 00:53:59","kindCode":"10","name":"上川地方北部","pref":"北海道道北","scaleFrom":45.0,"scaleTo":45.0},{"arrivalTime":null,"kindCode":"11","name":"宗谷地方南部","pref":"北海道道北","scaleFrom":40,"scaleTo":40},{"arrivalTime":null,"kindCode":"19","name":"宗谷地方北部","pref":"北海道道北","scaleFrom":40,"scaleTo":40},{"arrivalTime":null,"kindCode":"11","name":"留萌地方中北部","pref":"北海道道北","scaleFrom":40,"scaleTo":40}],"cancelled":false,"code":556,"earthquake":{"arrivalTime":"2022/08/11 00:53:10","condition":"","hypocenter":{"depth":10,"latitude":44.9,"longitude":142.1,"magnitude":5.5,"name":"宗谷地方北部","reduceName":"北海道道北"},"originTime":"2022/08/11 00:53:00"},"id":"62ff70ca30fbd9f45f8c77e2","issue":{"eventId":"20220811005302","serial":"1","time":"2022/08/11 00:53:24"},"time":"2022/08/19 20:15:22.336","timestamp":{"convert":"2022/08/19 20:15:22.334","register":"2022/08/19 20:15:22.336"},"user_agent":"jmaxml-seis-parser-go, relay, register-api","ver":"20220813"}]');
+        final v = await instance.historyGet();
+        expect(v[0], isA<EEW>());
+        expect((v[0] as EEW).time, equals("2022/08/19 20:15:22.336"));
+        expect((v[0] as EEW).issue.eventId, equals("20220811005302"));
+        expect((v[0] as EEW).issue.serial, equals("1"));
+        expect((v[0] as EEW).issue.time, equals("2022/08/11 00:53:24"));
+        expect((v[0] as EEW).earthquake.arrivalTime, equals("2022/08/11 00:53:10"));
+        expect((v[0] as EEW).earthquake.originTime, equals("2022/08/11 00:53:00"));
+        expect((v[0] as EEW).earthquake.condition, equals(""));
+        expect((v[0] as EEW).earthquake.hypocenter.depth, equals(10));
+        expect((v[0] as EEW).earthquake.hypocenter.latitude, equals(44.9));
+        expect((v[0] as EEW).earthquake.hypocenter.longitude, equals(142.1));
+        expect((v[0] as EEW).earthquake.hypocenter.magnitude, equals(5.5));
+        expect((v[0] as EEW).earthquake.hypocenter.name, equals("宗谷地方北部"));
+        expect((v[0] as EEW).earthquake.hypocenter.reduceName, equals("北海道道北"));
+
+        final areas = (v[0] as EEW).areas;
+        expect(areas[0].arrivalTime, equals("2022/08/11 00:53:59"));
+        expect(areas[0].kindCode, equals(EEWAllOfAreasKindCodeEnum.notReached));
+        expect(areas[0].pref, equals("北海道道北"));
+        expect(areas[0].name, equals("上川地方北部"));
+        expect(areas[0].scaleFrom, equals(EEWAllOfAreasScaleFromEnum.scale45));
+        expect(areas[0].scaleTo, equals(EEWAllOfAreasScaleToEnum.scale45));
+        expect(areas[1].arrivalTime, isNull);
+        expect(areas[1].kindCode, equals(EEWAllOfAreasKindCodeEnum.reached));
+        expect(areas[1].pref, equals("北海道道北"));
+        expect(areas[1].name, equals("宗谷地方南部"));
+        expect(areas[1].scaleFrom, equals(EEWAllOfAreasScaleFromEnum.scale40));
+        expect(areas[1].scaleTo, equals(EEWAllOfAreasScaleToEnum.scale40));
+        expect(areas[2].arrivalTime, isNull);
+        expect(areas[2].kindCode, equals(EEWAllOfAreasKindCodeEnum.noPrediction));
+        expect(areas[2].pref, equals("北海道道北"));
+        expect(areas[2].name, equals("宗谷地方北部"));
+        expect(areas[2].scaleFrom, equals(EEWAllOfAreasScaleFromEnum.scale40));
+        expect(areas[2].scaleTo, equals(EEWAllOfAreasScaleToEnum.scale40));
+      });
       test('returns Userquakes', () async {
         replaceResponse(
             '[{"area":275,"code":561,"created_at":"2020/12/03 23:22:52.270","hop":1,"id":"5fc8f4bc02add60b32698525","time":"2020/12/03 23:22:52.256","uid":"9999920201203232252253","ver":"20150406"},{"area":225,"code":561,"created_at":"2020/12/03 22:56:12.206","hop":1,"id":"5fc8ee7c02add60b34698095","time":"2020/12/03 22:56:12.200","uid":"9999920201203225612197","ver":"20150406"}]');

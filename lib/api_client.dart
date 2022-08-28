@@ -230,6 +230,8 @@ class ApiClient {
             return EEWDetection.fromJson(value);
           } else if (data.code == 555) {
             return Areapeers.fromJson(value);
+          } else if (data.code == 556) {
+            return EEW.fromJson(value);
           } else if (data.code == 561) {
             return Userquake.fromJson(value);
           } else if (data.code == 9611) {
