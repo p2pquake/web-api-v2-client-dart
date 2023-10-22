@@ -175,9 +175,15 @@ void main() {
       });
 
       test('returns JMATsunamis', () async {
-        replaceResponse(
-            '[{"areas":[{"grade":"Warning","immediate":false,"name":"福島県"},{"grade":"Watch","immediate":false,"name":"青森県太平洋沿岸"},{"grade":"Watch","immediate":false,"name":"岩手県"},{"grade":"Watch","immediate":false,"name":"宮城県"},{"grade":"Watch","immediate":false,"name":"茨城県"},{"grade":"Watch","immediate":false,"name":"千葉県九十九里・外房"},{"grade":"Watch","immediate":true,"name":"千葉県内房"},{"grade":"Watch","immediate":true,"name":"伊豆諸島"}],"cancelled":false,"code":552,"id":"5d615d7cb94edb2ab8d60a0e","issue":{"source":"気象庁","time":"2016/11/22 07:26:00","type":"Focus"},"time":"2016/11/22 07:29:00","user-agent":"tsunami_checker/analyzer 20180128","ver":"20180128"},' +
-                '{"areas":[],"cancelled":true,"code":552,"created_at":"2019/06/19 01:05:18.344","id":"5d090bbe02add629bb6fbd3a","issue":{"source":"気象庁","time":"2019/06/19 01:02:00","type":"Focus"},"time":"2019/06/19 01:04:15.957","user-agent":"tsunami_checker/analyzer 20180128","ver":"20180128"}]');
+        replaceResponse('[' +
+            // 旧形式
+            '{"areas":[{"grade":"Warning","immediate":false,"name":"福島県"},{"grade":"Watch","immediate":false,"name":"青森県太平洋沿岸"},{"grade":"Watch","immediate":false,"name":"岩手県"},{"grade":"Watch","immediate":false,"name":"宮城県"},{"grade":"Watch","immediate":false,"name":"茨城県"},{"grade":"Watch","immediate":false,"name":"千葉県九十九里・外房"},{"grade":"Watch","immediate":true,"name":"千葉県内房"},{"grade":"Watch","immediate":true,"name":"伊豆諸島"}],"cancelled":false,"code":552,"id":"5d615d7cb94edb2ab8d60a0e","issue":{"source":"気象庁","time":"2016/11/22 07:26:00","type":"Focus"},"time":"2016/11/22 07:29:00","user-agent":"tsunami_checker/analyzer 20180128","ver":"20180128"},' +
+            // 解除
+            '{"areas":[],"cancelled":true,"code":552,"created_at":"2019/06/19 01:05:18.344","id":"5d090bbe02add629bb6fbd3a","issue":{"source":"気象庁","time":"2019/06/19 01:02:00","type":"Focus"},"time":"2019/06/19 01:04:15.957","user-agent":"tsunami_checker/analyzer 20180128","ver":"20180128"},' +
+            // 津波の到達予想時刻、予想される津波の高さに対応した情報
+            '{"areas":[{"firstHeight":{"arrivalTime":"2023/10/05 11:30:00"},"grade":"Watch","immediate":false,"maxHeight":{"description":"１ｍ","value":1},"name":"伊豆諸島"}],"cancelled":false,"code":552,"id":"65342a3be076e89cc7e462e5","issue":{"source":"気象庁","time":"2023/10/05 11:06:33","type":"Focus"},"time":"2023/10/22 04:44:59.896","user_agent":"jmaxml-seis-parser-go, relay, register-api","ver":"20220813"},' +
+            '{"areas":[{"firstHeight":{"condition":"第１波の到達を確認"},"grade":"Watch","immediate":false,"maxHeight":{"description":"１ｍ","value":1},"name":"伊豆諸島"},{"firstHeight":{"condition":"第１波の到達を確認"},"grade":"Watch","immediate":false,"maxHeight":{"description":"１ｍ","value":1},"name":"小笠原諸島"},{"firstHeight":{"condition":"津波到達中と推測"},"grade":"Watch","immediate":true,"maxHeight":{"description":"１ｍ","value":1},"name":"高知県"}],"cancelled":false,"code":552,"id":"65342d2be076e89cc7e462fe","issue":{"source":"気象庁","time":"2023/10/09 07:44:40","type":"Focus"},"time":"2023/10/22 04:57:31.17","user_agent":"jmaxml-seis-parser-go, relay, register-api","ver":"20220813"}' +
+            ']');
         final v = await instance.historyGet();
 
         expect(v[0], isA<JMATsunami>());
@@ -200,6 +206,43 @@ void main() {
         expect(v0.areas.last.grade, equals(JMATsunamiAllOfAreasGradeEnum.watch));
         expect(v0.areas.last.immediate, isTrue);
         expect(v0.areas.last.name, equals("伊豆諸島"));
+        final v1 = v[1] as JMATsunami;
+        expect(v1.cancelled, isTrue);
+        expect(v1.areas.length, equals(0));
+        final v2 = v[2] as JMATsunami;
+        expect(v2.cancelled, isFalse);
+        expect(v2.areas.length, equals(1));
+        expect(v2.areas.first.grade, equals(JMATsunamiAllOfAreasGradeEnum.watch));
+        expect(v2.areas.first.immediate, isFalse);
+        expect(v2.areas.first.name, equals("伊豆諸島"));
+        expect(v2.areas.first.firstHeight.arrivalTime, equals("2023/10/05 11:30:00"));
+        expect(v2.areas.first.firstHeight.condition, isNull);
+        expect(v2.areas.first.maxHeight.description, "１ｍ");
+        expect(v2.areas.first.maxHeight.value, 1);
+        final v3 = v[3] as JMATsunami;
+        expect(v3.cancelled, isFalse);
+        expect(v3.areas.length, equals(3));
+        expect(v3.areas[0].grade, equals(JMATsunamiAllOfAreasGradeEnum.watch));
+        expect(v3.areas[0].immediate, isFalse);
+        expect(v3.areas[0].name, equals("伊豆諸島"));
+        expect(v3.areas[0].firstHeight.arrivalTime, isNull);
+        expect(v3.areas[0].firstHeight.condition, "第１波の到達を確認");
+        expect(v3.areas[0].maxHeight.description, "１ｍ");
+        expect(v3.areas[0].maxHeight.value, 1);
+        expect(v3.areas[1].grade, equals(JMATsunamiAllOfAreasGradeEnum.watch));
+        expect(v3.areas[1].immediate, isFalse);
+        expect(v3.areas[1].name, equals("小笠原諸島"));
+        expect(v3.areas[1].firstHeight.arrivalTime, isNull);
+        expect(v3.areas[1].firstHeight.condition, "第１波の到達を確認");
+        expect(v3.areas[1].maxHeight.description, "１ｍ");
+        expect(v3.areas[1].maxHeight.value, 1);
+        expect(v3.areas[2].grade, equals(JMATsunamiAllOfAreasGradeEnum.watch));
+        expect(v3.areas[2].immediate, isTrue);
+        expect(v3.areas[2].name, equals("高知県"));
+        expect(v3.areas[2].firstHeight.arrivalTime, isNull);
+        expect(v3.areas[2].firstHeight.condition, "津波到達中と推測");
+        expect(v3.areas[2].maxHeight.description, "１ｍ");
+        expect(v3.areas[2].maxHeight.value, 1);
       });
       test('returns Areapeers', () async {
         replaceResponse(
