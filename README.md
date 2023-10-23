@@ -23,7 +23,7 @@ import 'package:p2pquake_api_v2/api.dart';
 
 main(List<String> args) async {
   print(await V2Api().historyGet());
-  for (var item in [551, 552, 554, 555, 561, 9611]) {
+  for (var item in [551, 552, 554, 555, 556, 561, 9611]) {
     print(await V2Api().historyGet(codes: [item], limit: 100));
   }
 
@@ -71,7 +71,9 @@ Class | Method | HTTP request | Description
  - [JMATsunami](doc//JMATsunami.md)
  - [JMATsunamiAllOf](doc//JMATsunamiAllOf.md)
  - [JMATsunamiAllOfAreas](doc//JMATsunamiAllOfAreas.md)
+ - [JMATsunamiAllOfFirstHeight](doc//JMATsunamiAllOfFirstHeight.md)
  - [JMATsunamiAllOfIssue](doc//JMATsunamiAllOfIssue.md)
+ - [JMATsunamiAllOfMaxHeight](doc//JMATsunamiAllOfMaxHeight.md)
  - [Userquake](doc//Userquake.md)
  - [UserquakeAllOf](doc//UserquakeAllOf.md)
  - [UserquakeEvaluation](doc//UserquakeEvaluation.md)

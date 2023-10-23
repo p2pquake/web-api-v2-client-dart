@@ -5,6 +5,7 @@
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
+// ignore_for_file: constant_identifier_names
 // ignore_for_file: lines_longer_than_80_chars
 
 part of p2pquake_v2_api.api;
@@ -15,17 +16,9 @@ class JMATsunamiAllOfAreas {
     this.grade,
     this.immediate,
     this.name,
+    this.firstHeight,
+    this.maxHeight,
   });
-
-  /// Returns a new [JMATsunamiAllOfAreas] instance and optionally import its values from
-  /// [json] if it's non-null.
-  JMATsunamiAllOfAreas.fromJson(Map<String, dynamic> json) {
-    if (json != null) {
-      grade = JMATsunamiAllOfAreasGradeEnum.fromJson(json['grade']);
-      immediate = json['immediate'];
-      name = json['name'];
-    }
-  }
 
   /// 津波予報の種類
   JMATsunamiAllOfAreasGradeEnum grade;
@@ -36,60 +29,105 @@ class JMATsunamiAllOfAreas {
   /// 津波予報区名。[気象庁｜津波予報区について](http://www.data.jma.go.jp/svd/eqev/data/joho/t-yohokuinfo.html)を参照。
   String name;
 
+  JMATsunamiAllOfFirstHeight firstHeight;
+
+  JMATsunamiAllOfMaxHeight maxHeight;
+
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is JMATsunamiAllOfAreas && other.grade == grade && other.immediate == immediate && other.name == name;
+      other is JMATsunamiAllOfAreas &&
+          other.grade == grade &&
+          other.immediate == immediate &&
+          other.name == name &&
+          other.firstHeight == firstHeight &&
+          other.maxHeight == maxHeight;
 
   @override
-  int get hashCode => grade.hashCode + immediate.hashCode + name.hashCode;
+  int get hashCode =>
+      // ignore: unnecessary_parenthesis
+      (grade == null ? 0 : grade.hashCode) +
+      (immediate == null ? 0 : immediate.hashCode) +
+      (name == null ? 0 : name.hashCode) +
+      (firstHeight == null ? 0 : firstHeight.hashCode) +
+      (maxHeight == null ? 0 : maxHeight.hashCode);
 
   @override
-  String toString() => 'JMATsunamiAllOfAreas[grade=$grade, immediate=$immediate, name=$name]';
+  String toString() =>
+      'JMATsunamiAllOfAreas[grade=$grade, immediate=$immediate, name=$name, firstHeight=$firstHeight, maxHeight=$maxHeight]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
     if (grade != null) {
-      json['grade'] = grade;
+      json[r'grade'] = grade;
     }
     if (immediate != null) {
-      json['immediate'] = immediate;
+      json[r'immediate'] = immediate;
     }
     if (name != null) {
-      json['name'] = name;
+      json[r'name'] = name;
+    }
+    if (firstHeight != null) {
+      json[r'firstHeight'] = firstHeight;
+    }
+    if (maxHeight != null) {
+      json[r'maxHeight'] = maxHeight;
     }
     return json;
   }
 
+  /// Returns a new [JMATsunamiAllOfAreas] instance and imports its values from
+  /// [value] if it's a [Map], null otherwise.
+  // ignore: prefer_constructors_over_static_methods
+  static JMATsunamiAllOfAreas fromJson(dynamic value) {
+    if (value is Map) {
+      final json = value.cast<String, dynamic>();
+      return JMATsunamiAllOfAreas(
+        grade: JMATsunamiAllOfAreasGradeEnum.fromJson(json[r'grade']),
+        immediate: json[r'immediate'],
+        name: json[r'name'],
+        firstHeight: JMATsunamiAllOfFirstHeight.fromJson(json[r'firstHeight']),
+        maxHeight: JMATsunamiAllOfMaxHeight.fromJson(json[r'maxHeight']),
+      );
+    }
+    return null;
+  }
+
   static List<JMATsunamiAllOfAreas> listFromJson(
-    List<dynamic> json, {
+    dynamic json, {
     bool emptyIsNull,
     bool growable,
   }) =>
-      json == null || json.isEmpty
-          ? true == emptyIsNull
+      json is List && json.isNotEmpty
+          ? json.map(JMATsunamiAllOfAreas.fromJson).toList(growable: true == growable)
+          : true == emptyIsNull
               ? null
-              : <JMATsunamiAllOfAreas>[]
-          : json.map((v) => JMATsunamiAllOfAreas.fromJson(v)).toList(growable: true == growable);
+              : <JMATsunamiAllOfAreas>[];
 
-  static Map<String, JMATsunamiAllOfAreas> mapFromJson(Map<String, dynamic> json) {
+  static Map<String, JMATsunamiAllOfAreas> mapFromJson(dynamic json) {
     final map = <String, JMATsunamiAllOfAreas>{};
-    if (json != null && json.isNotEmpty) {
-      json.forEach((String key, dynamic v) => map[key] = JMATsunamiAllOfAreas.fromJson(v));
+    if (json is Map && json.isNotEmpty) {
+      json
+          .cast<String, dynamic>()
+          .forEach((key, dynamic value) => map[key] = JMATsunamiAllOfAreas.fromJson(value));
     }
     return map;
   }
 
   // maps a json object with a list of JMATsunamiAllOfAreas-objects as value to a dart map
   static Map<String, List<JMATsunamiAllOfAreas>> mapListFromJson(
-    Map<String, dynamic> json, {
+    dynamic json, {
     bool emptyIsNull,
     bool growable,
   }) {
     final map = <String, List<JMATsunamiAllOfAreas>>{};
-    if (json != null && json.isNotEmpty) {
-      json.forEach((String key, dynamic v) {
-        map[key] = JMATsunamiAllOfAreas.listFromJson(v, emptyIsNull: emptyIsNull, growable: growable);
+    if (json is Map && json.isNotEmpty) {
+      json.cast<String, dynamic>().forEach((key, dynamic value) {
+        map[key] = JMATsunamiAllOfAreas.listFromJson(
+          value,
+          emptyIsNull: emptyIsNull,
+          growable: growable,
+        );
       });
     }
     return map;
@@ -143,7 +181,9 @@ class JMATsunamiAllOfAreasGradeEnum {
           ? true == emptyIsNull
               ? null
               : <JMATsunamiAllOfAreasGradeEnum>[]
-          : json.map((value) => JMATsunamiAllOfAreasGradeEnum.fromJson(value)).toList(growable: true == growable);
+          : json
+              .map((value) => JMATsunamiAllOfAreasGradeEnum.fromJson(value))
+              .toList(growable: true == growable);
 }
 
 /// Transformation class that can [encode] an instance of [JMATsunamiAllOfAreasGradeEnum] to String,

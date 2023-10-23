@@ -25,7 +25,7 @@ P2P地震情報の各種情報を返却します。   `offset` パラメタは�
 import 'package:p2pquake_api_v2/api.dart';
 
 final api_instance = V2Api();
-final codes = []; // List<int> | 取得したい情報の情報コード (デフォルトはすべて)。値は551(地震情報)、552(津波予報)、554(緊急地震速報 発表検出)、555(各地域ピア数)、561(地震感知情報)、9611(地震感知情報 解析結果)です。
+final codes = []; // List<int> | 取得したい情報の情報コード (デフォルトはすべて)。値は551(地震情報)、552(津波予報)、554(緊急地震速報 発表検出)、555(各地域ピア数)、556(緊急地震速報（警報）)、561(地震感知情報)、9611(地震感知情報 解析結果)です。
 final limit = 56; // int | 返却件数 (1〜100、デフォルトは10)
 final offset = 56; // int | 読み飛ばす件数 (0以上、デフォルトは0)。例えば、 limit=100&offset=200 とすると、201件目から100件を返却します。
 
@@ -41,13 +41,13 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **codes** | [**List<int>**](int.md)| 取得したい情報の情報コード (デフォルトはすべて)。値は551(地震情報)、552(津波予報)、554(緊急地震速報 発表検出)、555(各地域ピア数)、561(地震感知情報)、9611(地震感知情報 解析結果)です。 | [optional] [default to const []]
+ **codes** | [**List<int>**](int.md)| 取得したい情報の情報コード (デフォルトはすべて)。値は551(地震情報)、552(津波予報)、554(緊急地震速報 発表検出)、555(各地域ピア数)、556(緊急地震速報（警報）)、561(地震感知情報)、9611(地震感知情報 解析結果)です。 | [optional] [default to const []]
  **limit** | **int**| 返却件数 (1〜100、デフォルトは10) | [optional] 
  **offset** | **int**| 読み飛ばす件数 (0以上、デフォルトは0)。例えば、 limit=100&offset=200 とすると、201件目から100件を返却します。 | [optional] 
 
 ### Return type
 
-[**List<AnyOf<JMAQuake,JMATsunami,Areapeers,EEWDetection,Userquake,UserquakeEvaluation>>**](AnyOf<JMAQuake,JMATsunami,Areapeers,EEWDetection,Userquake,UserquakeEvaluation>.md)
+[**List<AnyOf<JMAQuake,JMATsunami,Areapeers,EEW,EEWDetection,Userquake,UserquakeEvaluation>>**](AnyOf<JMAQuake,JMATsunami,Areapeers,EEWDetection,Userquake,UserquakeEvaluation>.md)
 
 ### Authorization
 
