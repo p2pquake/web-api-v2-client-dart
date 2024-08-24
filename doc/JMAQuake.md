@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **issue** | [**JMAQuakeAllOfIssue**](JMAQuakeAllOfIssue.md) |  | 
 **earthquake** | [**JMAQuakeAllOfEarthquake**](JMAQuakeAllOfEarthquake.md) |  | 
 **points** | [**List<JMAQuakeAllOfPoints>**](JMAQuakeAllOfPoints.md) | 震度観測点の情報 | [optional] [default to const []]
+**comments** | [**JMAQuakeAllOfComments**](JMAQuakeAllOfComments.md) |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

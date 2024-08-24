@@ -63,7 +63,7 @@ void main() {
               // ScaleAndDestination (津波予報あり)
               '{"code":551,"created_at":"2019/06/18 22:28:42.873","earthquake":{"domesticTsunami":"Warning","foreignTsunami":"Unknown","hypocenter":{"depth":10,"latitude":38.6,"longitude":139.5,"magnitude":6.8,"name":"山形県沖"},"maxScale":60,"time":"2019/06/18 22:22:00"},"id":"5d08e70a02add629efecb61f","issue":{"correct":"None","source":"気象庁","time":"2019/06/18 22:26:00","type":"ScaleAndDestination"},"points":[{"addr":"新潟県下越","isArea":true,"pref":"新潟県","scale":60},{"addr":"山形県庄内","isArea":true,"pref":"山形県","scale":55},{"addr":"岩手県内陸北部","isArea":true,"pref":"岩手県","scale":40}],"time":"2019/06/18 22:28:08.209","user-agent":"quake_checker/analyzer 20180128","ver":"20180128"},' +
               // DetailScale
-              '{"code":551,"created_at":"2018/09/06 03:15:06.880","earthquake":{"domesticTsunami":"NonEffective","foreignTsunami":"Unknown","hypocenter":{"depth":40,"latitude":42.7,"longitude":142,"magnitude":6.7,"name":"胆振地方中東部"},"maxScale":60,"time":"2018/09/06 03:08:00"},"id":"5b901d2af837cf68164a675f","issue":{"correct":"None","source":"気象庁","time":"2018/09/06 03:12:00","type":"DetailScale"},"points":[{"addr":"安平町早来北進","isArea":false,"pref":"北海道","scale":60},{"addr":"札幌北区太平","isArea":false,"pref":"北海道","scale":50},{"addr":"厚真町鹿沼","isArea":false,"pref":"北海道","scale":46},{"addr":"平内町東田沢","isArea":false,"pref":"青森県","scale":20},{"addr":"村上市岩船駅前","isArea":false,"pref":"新潟県","scale":10}],"time":"2018/09/06 03:14:05.261","user-agent":"quake_checker/analyzer 20180128","ver":"20180128"},' +
+              '{"code":551,"created_at":"2018/09/06 03:15:06.880","comments": { "freeFormComment": "この地震の付近で地震が連続して発生したため、別の地震によって観測された震度の一部を混在して発表しています（地震毎の震度観測は、定期刊行物をご覧願います）。" },"earthquake":{"domesticTsunami":"NonEffective","foreignTsunami":"Unknown","hypocenter":{"depth":40,"latitude":42.7,"longitude":142,"magnitude":6.7,"name":"胆振地方中東部"},"maxScale":60,"time":"2018/09/06 03:08:00"},"id":"5b901d2af837cf68164a675f","issue":{"correct":"None","source":"気象庁","time":"2018/09/06 03:12:00","type":"DetailScale"},"points":[{"addr":"安平町早来北進","isArea":false,"pref":"北海道","scale":60},{"addr":"札幌北区太平","isArea":false,"pref":"北海道","scale":50},{"addr":"厚真町鹿沼","isArea":false,"pref":"北海道","scale":46},{"addr":"平内町東田沢","isArea":false,"pref":"青森県","scale":20},{"addr":"村上市岩船駅前","isArea":false,"pref":"新潟県","scale":10}],"time":"2018/09/06 03:14:05.261","user-agent":"quake_checker/analyzer 20180128","ver":"20180128"},' +
               // Foreign
               '{"code":551,"created_at":"2020/10/20 06:32:36.648","earthquake":{"domesticTsunami":"None","foreignTsunami":"WarningNearby","hypocenter":{"depth":-1,"latitude":54.7,"longitude":-159.6,"magnitude":7.4,"name":"アラスカ州南方"},"maxScale":-1,"time":"2020/10/20 05:55:00"},"id":"5f8e05f402add60b34694906","issue":{"correct":"None","source":"気象庁","time":"2020/10/20 06:30:00","type":"Foreign"},"points":[],"time":"2020/10/20 06:32:05.903","user-agent":"quake_checker/analyzer 20180128","ver":"20180128"},' +
               // Other
@@ -139,6 +139,7 @@ void main() {
 
         final detail = quakes[4];
         expect(detail.issue.type, equals(JMAQuakeAllOfIssueTypeEnum.detailScale));
+        expect(detail.comments.freeFormComment, contains("混在して発表しています"));
         expect(detail.earthquake.time, equals("2018/09/06 03:08:00"));
         expect(detail.earthquake.maxScale, equals(JMAQuakeAllOfEarthquakeMaxScaleEnum.scale60));
         expect(detail.earthquake.domesticTsunami,
@@ -273,6 +274,7 @@ void main() {
         final v = await instance.historyGet();
         expect(v[0], isA<EEW>());
         expect((v[0] as EEW).time, equals("2022/08/19 20:15:22.336"));
+        expect((v[0] as EEW).cancelled, equals(false));
         expect((v[0] as EEW).issue.eventId, equals("20220811005302"));
         expect((v[0] as EEW).issue.serial, equals("1"));
         expect((v[0] as EEW).issue.time, equals("2022/08/11 00:53:24"));

@@ -3,7 +3,7 @@
 #
 
 name: 'p2pquake_api_v2'
-version: '1.0.0'
+version: '0.1.4'
 description: 'OpenAPI API client'
 homepage: 'homepage'
 environment:

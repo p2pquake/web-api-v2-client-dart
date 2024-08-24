@@ -64,6 +64,7 @@ Class | Method | HTTP request | Description
  - [EEWDetectionAllOf](doc//EEWDetectionAllOf.md)
  - [JMAQuake](doc//JMAQuake.md)
  - [JMAQuakeAllOf](doc//JMAQuakeAllOf.md)
+ - [JMAQuakeAllOfComments](doc//JMAQuakeAllOfComments.md)
  - [JMAQuakeAllOfEarthquake](doc//JMAQuakeAllOfEarthquake.md)
  - [JMAQuakeAllOfEarthquakeHypocenter](doc//JMAQuakeAllOfEarthquakeHypocenter.md)
  - [JMAQuakeAllOfIssue](doc//JMAQuakeAllOfIssue.md)
