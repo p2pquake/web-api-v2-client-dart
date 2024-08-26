@@ -47,6 +47,7 @@ part 'model/jma_quake_all_of_earthquake.dart';
 part 'model/jma_quake_all_of_earthquake_hypocenter.dart';
 part 'model/jma_quake_all_of_issue.dart';
 part 'model/jma_quake_all_of_points.dart';
+part 'model/jma_quake_all_of_comments.dart';
 part 'model/jma_tsunami.dart';
 part 'model/jma_tsunami_all_of.dart';
 part 'model/jma_tsunami_all_of_areas.dart';

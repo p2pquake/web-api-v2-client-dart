@@ -5,6 +5,7 @@
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
+// ignore_for_file: constant_identifier_names
 // ignore_for_file: lines_longer_than_80_chars
 
 part of p2pquake_v2_api.api;
@@ -26,6 +27,7 @@ class JMAQuakeAllOf {
       issue = JMAQuakeAllOfIssue.fromJson(json['issue']);
       earthquake = JMAQuakeAllOfEarthquake.fromJson(json['earthquake']);
       points = JMAQuakeAllOfPoints.listFromJson(json['points']);
+      comments = JMAQuakeAllOfComments.fromJson(json['comments']);
     }
   }
 
@@ -39,6 +41,8 @@ class JMAQuakeAllOf {
   /// 震度観測点の情報
   List<JMAQuakeAllOfPoints> points;
 
+  JMAQuakeAllOfComments comments;
+
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
@@ -46,18 +50,21 @@ class JMAQuakeAllOf {
           other.code == code &&
           other.issue == issue &&
           other.earthquake == earthquake &&
-          other.points == points;
+          other.points == points &&
+          other.comments == comments;
 
   @override
   int get hashCode =>
-      (code?.hashCode ?? 0) +
-      issue.hashCode +
-      earthquake.hashCode +
-      points.hashCode;
+      // ignore: unnecessary_parenthesis
+      (code == null ? 0 : code.hashCode) +
+      (issue == null ? 0 : issue.hashCode) +
+      (earthquake == null ? 0 : earthquake.hashCode) +
+      (points == null ? 0 : points.hashCode) +
+      (comments == null ? 0 : comments.hashCode);
 
   @override
   String toString() =>
-      'JMAQuakeAllOf[code=$code, issue=$issue, earthquake=$earthquake, points=$points]';
+      'JMAQuakeAllOf[code=$code, issue=$issue, earthquake=$earthquake, points=$points, comments=$comments]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -73,6 +80,9 @@ class JMAQuakeAllOf {
     if (points != null) {
       json['points'] = points;
     }
+    if (comments != null) {
+      json['comments'] = comments;
+    }
     return json;
   }
 
@@ -85,15 +95,12 @@ class JMAQuakeAllOf {
           ? true == emptyIsNull
               ? null
               : <JMAQuakeAllOf>[]
-          : json
-              .map((v) => JMAQuakeAllOf.fromJson(v))
-              .toList(growable: true == growable);
+          : json.map((v) => JMAQuakeAllOf.fromJson(v)).toList(growable: true == growable);
 
   static Map<String, JMAQuakeAllOf> mapFromJson(Map<String, dynamic> json) {
     final map = <String, JMAQuakeAllOf>{};
     if (json != null && json.isNotEmpty) {
-      json.forEach(
-          (String key, dynamic v) => map[key] = JMAQuakeAllOf.fromJson(v));
+      json.forEach((String key, dynamic v) => map[key] = JMAQuakeAllOf.fromJson(v));
     }
     return map;
   }
@@ -107,8 +114,7 @@ class JMAQuakeAllOf {
     final map = <String, List<JMAQuakeAllOf>>{};
     if (json != null && json.isNotEmpty) {
       json.forEach((String key, dynamic v) {
-        map[key] = JMAQuakeAllOf.listFromJson(v,
-            emptyIsNull: emptyIsNull, growable: growable);
+        map[key] = JMAQuakeAllOf.listFromJson(v, emptyIsNull: emptyIsNull, growable: growable);
       });
     }
     return map;

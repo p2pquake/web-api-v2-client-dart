@@ -5,6 +5,7 @@
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
+// ignore_for_file: constant_identifier_names
 // ignore_for_file: lines_longer_than_80_chars
 
 part of p2pquake_v2_api.api;
@@ -13,11 +14,12 @@ class JMAQuake extends BasicData {
   /// Returns a new [JMAQuake] instance.
   JMAQuake({
     @required this.id,
-    @required this.code,
+    this.code,
     @required this.time,
     @required this.issue,
     @required this.earthquake,
     this.points = const [],
+    @required this.comments,
   });
 
   /// Returns a new [JMAQuake] instance and optionally import its values from
@@ -30,6 +32,7 @@ class JMAQuake extends BasicData {
       issue = JMAQuakeAllOfIssue.fromJson(json['issue']);
       earthquake = JMAQuakeAllOfEarthquake.fromJson(json['earthquake']);
       points = JMAQuakeAllOfPoints.listFromJson(json['points']);
+      comments = JMAQuakeAllOfComments.fromJson(json['comments']);
     }
   }
 
@@ -49,6 +52,8 @@ class JMAQuake extends BasicData {
   /// 震度観測点の情報
   List<JMAQuakeAllOfPoints> points;
 
+  JMAQuakeAllOfComments comments;
+
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
@@ -58,20 +63,23 @@ class JMAQuake extends BasicData {
           other.time == time &&
           other.issue == issue &&
           other.earthquake == earthquake &&
-          other.points == points;
+          other.points == points &&
+          other.comments == comments;
 
   @override
   int get hashCode =>
-      id.hashCode +
-      (code?.hashCode ?? 0) +
-      time.hashCode +
-      issue.hashCode +
-      earthquake.hashCode +
-      points.hashCode;
+      // ignore: unnecessary_parenthesis
+      (id == null ? 0 : id.hashCode) +
+      (code == null ? 0 : code.hashCode) +
+      (time == null ? 0 : time.hashCode) +
+      (issue == null ? 0 : issue.hashCode) +
+      (earthquake == null ? 0 : earthquake.hashCode) +
+      (points == null ? 0 : points.hashCode) +
+      (comments == null ? 0 : comments.hashCode);
 
   @override
   String toString() =>
-      'JMAQuake[id=$id, code=$code, time=$time, issue=$issue, earthquake=$earthquake, points=$points]';
+      'JMAQuake[id=$id, code=$code, time=$time, issue=$issue, earthquake=$earthquake, points=$points, comments=$comments]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -93,6 +101,9 @@ class JMAQuake extends BasicData {
     if (points != null) {
       json['points'] = points;
     }
+    if (comments != null) {
+      json['comments'] = comments;
+    }
     return json;
   }
 
@@ -105,9 +116,7 @@ class JMAQuake extends BasicData {
           ? true == emptyIsNull
               ? null
               : <JMAQuake>[]
-          : json
-              .map((v) => JMAQuake.fromJson(v))
-              .toList(growable: true == growable);
+          : json.map((v) => JMAQuake.fromJson(v)).toList(growable: true == growable);
 
   static Map<String, JMAQuake> mapFromJson(Map<String, dynamic> json) {
     final map = <String, JMAQuake>{};
@@ -126,8 +135,7 @@ class JMAQuake extends BasicData {
     final map = <String, List<JMAQuake>>{};
     if (json != null && json.isNotEmpty) {
       json.forEach((String key, dynamic v) {
-        map[key] = JMAQuake.listFromJson(v,
-            emptyIsNull: emptyIsNull, growable: growable);
+        map[key] = JMAQuake.listFromJson(v, emptyIsNull: emptyIsNull, growable: growable);
       });
     }
     return map;
