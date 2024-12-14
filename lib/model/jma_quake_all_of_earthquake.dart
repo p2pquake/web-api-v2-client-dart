@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
+
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -12,7 +12,7 @@ part of p2pquake_v2_api.api;
 class JMAQuakeAllOfEarthquake {
   /// Returns a new [JMAQuakeAllOfEarthquake] instance.
   JMAQuakeAllOfEarthquake({
-    @required this.time,
+    required this.time,
     this.hypocenter,
     this.maxScale,
     this.domesticTsunami,
@@ -21,7 +21,7 @@ class JMAQuakeAllOfEarthquake {
 
   /// Returns a new [JMAQuakeAllOfEarthquake] instance and optionally import its values from
   /// [json] if it's non-null.
-  JMAQuakeAllOfEarthquake.fromJson(Map<String, dynamic> json) {
+  JMAQuakeAllOfEarthquake.fromJson(Map<String, dynamic>? json) {
     if (json != null) {
       time = json['time'];
       hypocenter = JMAQuakeAllOfEarthquakeHypocenter.fromJson(json['hypocenter']);
@@ -33,18 +33,18 @@ class JMAQuakeAllOfEarthquake {
   }
 
   /// 発生日時
-  String time;
+  String? time;
 
-  JMAQuakeAllOfEarthquakeHypocenter hypocenter;
+  JMAQuakeAllOfEarthquakeHypocenter? hypocenter;
 
   /// 最大震度。震度情報が存在しない場合は-1となります。
-  JMAQuakeAllOfEarthquakeMaxScaleEnum maxScale;
+  JMAQuakeAllOfEarthquakeMaxScaleEnum? maxScale;
 
   /// 国内への津波の有無
-  JMAQuakeAllOfEarthquakeDomesticTsunamiEnum domesticTsunami;
+  JMAQuakeAllOfEarthquakeDomesticTsunamiEnum? domesticTsunami;
 
   /// 海外での津波の有無
-  JMAQuakeAllOfEarthquakeForeignTsunamiEnum foreignTsunami;
+  JMAQuakeAllOfEarthquakeForeignTsunamiEnum? foreignTsunami;
 
   @override
   bool operator ==(Object other) =>
@@ -88,10 +88,10 @@ class JMAQuakeAllOfEarthquake {
     return json;
   }
 
-  static List<JMAQuakeAllOfEarthquake> listFromJson(
+  static List<JMAQuakeAllOfEarthquake>? listFromJson(
     List<dynamic> json, {
-    bool emptyIsNull,
-    bool growable,
+    bool? emptyIsNull,
+    bool? growable,
   }) =>
       json == null || json.isEmpty
           ? true == emptyIsNull
@@ -108,12 +108,12 @@ class JMAQuakeAllOfEarthquake {
   }
 
   // maps a json object with a list of JMAQuakeAllOfEarthquake-objects as value to a dart map
-  static Map<String, List<JMAQuakeAllOfEarthquake>> mapListFromJson(
+  static Map<String, List<JMAQuakeAllOfEarthquake>?> mapListFromJson(
     Map<String, dynamic> json, {
-    bool emptyIsNull,
-    bool growable,
+    bool? emptyIsNull,
+    bool? growable,
   }) {
-    final map = <String, List<JMAQuakeAllOfEarthquake>>{};
+    final map = <String, List<JMAQuakeAllOfEarthquake>?>{};
     if (json != null && json.isNotEmpty) {
       json.forEach((String key, dynamic v) {
         map[key] =
@@ -171,13 +171,13 @@ class JMAQuakeAllOfEarthquakeMaxScaleEnum {
     scale46,
   ];
 
-  static JMAQuakeAllOfEarthquakeMaxScaleEnum fromJson(int value) =>
+  static JMAQuakeAllOfEarthquakeMaxScaleEnum? fromJson(int? value) =>
       JMAQuakeAllOfEarthquakeMaxScaleEnumTypeTransformer().decode(value);
 
-  static List<JMAQuakeAllOfEarthquakeMaxScaleEnum> listFromJson(
+  static List<JMAQuakeAllOfEarthquakeMaxScaleEnum?>? listFromJson(
     List<dynamic> json, {
-    bool emptyIsNull,
-    bool growable,
+    bool? emptyIsNull,
+    bool? growable,
   }) =>
       json == null || json.isEmpty
           ? true == emptyIsNull
@@ -206,7 +206,7 @@ class JMAQuakeAllOfEarthquakeMaxScaleEnumTypeTransformer {
   ///
   /// The [allowNull] is very handy when an API changes and a new enum value is added or removed,
   /// and users are still using an old app with the old code.
-  JMAQuakeAllOfEarthquakeMaxScaleEnum decode(dynamic data, {bool allowNull}) {
+  JMAQuakeAllOfEarthquakeMaxScaleEnum? decode(dynamic data, {bool? allowNull}) {
     switch (data) {
       case 10:
         return JMAQuakeAllOfEarthquakeMaxScaleEnum.scale10;
@@ -237,7 +237,7 @@ class JMAQuakeAllOfEarthquakeMaxScaleEnumTypeTransformer {
   }
 
   /// Singleton [JMAQuakeAllOfEarthquakeMaxScaleEnumTypeTransformer] instance.
-  static JMAQuakeAllOfEarthquakeMaxScaleEnumTypeTransformer _instance;
+  static JMAQuakeAllOfEarthquakeMaxScaleEnumTypeTransformer? _instance;
 }
 
 /// 国内への津波の有無
@@ -279,13 +279,13 @@ class JMAQuakeAllOfEarthquakeDomesticTsunamiEnum {
     warning,
   ];
 
-  static JMAQuakeAllOfEarthquakeDomesticTsunamiEnum fromJson(String value) =>
+  static JMAQuakeAllOfEarthquakeDomesticTsunamiEnum? fromJson(String? value) =>
       JMAQuakeAllOfEarthquakeDomesticTsunamiEnumTypeTransformer().decode(value);
 
-  static List<JMAQuakeAllOfEarthquakeDomesticTsunamiEnum> listFromJson(
+  static List<JMAQuakeAllOfEarthquakeDomesticTsunamiEnum?>? listFromJson(
     List<dynamic> json, {
-    bool emptyIsNull,
-    bool growable,
+    bool? emptyIsNull,
+    bool? growable,
   }) =>
       json == null || json.isEmpty
           ? true == emptyIsNull
@@ -314,7 +314,7 @@ class JMAQuakeAllOfEarthquakeDomesticTsunamiEnumTypeTransformer {
   ///
   /// The [allowNull] is very handy when an API changes and a new enum value is added or removed,
   /// and users are still using an old app with the old code.
-  JMAQuakeAllOfEarthquakeDomesticTsunamiEnum decode(dynamic data, {bool allowNull}) {
+  JMAQuakeAllOfEarthquakeDomesticTsunamiEnum? decode(dynamic data, {bool? allowNull}) {
     switch (data) {
       case 'None':
         return JMAQuakeAllOfEarthquakeDomesticTsunamiEnum.none;
@@ -337,7 +337,7 @@ class JMAQuakeAllOfEarthquakeDomesticTsunamiEnumTypeTransformer {
   }
 
   /// Singleton [JMAQuakeAllOfEarthquakeDomesticTsunamiEnumTypeTransformer] instance.
-  static JMAQuakeAllOfEarthquakeDomesticTsunamiEnumTypeTransformer _instance;
+  static JMAQuakeAllOfEarthquakeDomesticTsunamiEnumTypeTransformer? _instance;
 }
 
 /// 海外での津波の有無
@@ -389,13 +389,13 @@ class JMAQuakeAllOfEarthquakeForeignTsunamiEnum {
     potential,
   ];
 
-  static JMAQuakeAllOfEarthquakeForeignTsunamiEnum fromJson(String value) =>
+  static JMAQuakeAllOfEarthquakeForeignTsunamiEnum? fromJson(String? value) =>
       JMAQuakeAllOfEarthquakeForeignTsunamiEnumTypeTransformer().decode(value);
 
-  static List<JMAQuakeAllOfEarthquakeForeignTsunamiEnum> listFromJson(
+  static List<JMAQuakeAllOfEarthquakeForeignTsunamiEnum?>? listFromJson(
     List<dynamic> json, {
-    bool emptyIsNull,
-    bool growable,
+    bool? emptyIsNull,
+    bool? growable,
   }) =>
       json == null || json.isEmpty
           ? true == emptyIsNull
@@ -424,7 +424,7 @@ class JMAQuakeAllOfEarthquakeForeignTsunamiEnumTypeTransformer {
   ///
   /// The [allowNull] is very handy when an API changes and a new enum value is added or removed,
   /// and users are still using an old app with the old code.
-  JMAQuakeAllOfEarthquakeForeignTsunamiEnum decode(dynamic data, {bool allowNull}) {
+  JMAQuakeAllOfEarthquakeForeignTsunamiEnum? decode(dynamic data, {bool? allowNull}) {
     switch (data) {
       case 'None':
         return JMAQuakeAllOfEarthquakeForeignTsunamiEnum.none;
@@ -455,5 +455,5 @@ class JMAQuakeAllOfEarthquakeForeignTsunamiEnumTypeTransformer {
   }
 
   /// Singleton [JMAQuakeAllOfEarthquakeForeignTsunamiEnumTypeTransformer] instance.
-  static JMAQuakeAllOfEarthquakeForeignTsunamiEnumTypeTransformer _instance;
+  static JMAQuakeAllOfEarthquakeForeignTsunamiEnumTypeTransformer? _instance;
 }

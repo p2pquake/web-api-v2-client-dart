@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
+
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -12,13 +12,13 @@ part of p2pquake_v2_api.api;
 class AreapeersAllOfAreas {
   /// Returns a new [AreapeersAllOfAreas] instance.
   AreapeersAllOfAreas({
-    @required this.id,
-    @required this.peer,
+    required this.id,
+    required this.peer,
   });
 
   /// Returns a new [AreapeersAllOfAreas] instance and optionally import its values from
   /// [json] if it's non-null.
-  AreapeersAllOfAreas.fromJson(Map<String, dynamic> json) {
+  AreapeersAllOfAreas.fromJson(Map<String, dynamic>? json) {
     if (json != null) {
       id = json['id'];
       peer = json['peer'];
@@ -26,10 +26,10 @@ class AreapeersAllOfAreas {
   }
 
   /// 地域コード
-  int id;
+  int? id;
 
   /// ピア数
-  int peer;
+  int? peer;
 
   @override
   bool operator ==(Object other) =>
@@ -53,10 +53,10 @@ class AreapeersAllOfAreas {
     return json;
   }
 
-  static List<AreapeersAllOfAreas> listFromJson(
-    List<dynamic> json, {
-    bool emptyIsNull,
-    bool growable,
+  static List<AreapeersAllOfAreas>? listFromJson(
+    List<dynamic>? json, {
+    bool? emptyIsNull,
+    bool? growable,
   }) =>
       json == null || json.isEmpty
           ? true == emptyIsNull
@@ -77,12 +77,12 @@ class AreapeersAllOfAreas {
   }
 
   // maps a json object with a list of AreapeersAllOfAreas-objects as value to a dart map
-  static Map<String, List<AreapeersAllOfAreas>> mapListFromJson(
+  static Map<String, List<AreapeersAllOfAreas>?> mapListFromJson(
     Map<String, dynamic> json, {
-    bool emptyIsNull,
-    bool growable,
+    bool? emptyIsNull,
+    bool? growable,
   }) {
-    final map = <String, List<AreapeersAllOfAreas>>{};
+    final map = <String, List<AreapeersAllOfAreas>?>{};
     if (json != null && json.isNotEmpty) {
       json.forEach((String key, dynamic v) {
         map[key] = AreapeersAllOfAreas.listFromJson(v,

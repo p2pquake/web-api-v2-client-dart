@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
+
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -18,7 +18,7 @@ class AreapeersAllOf {
 
   /// Returns a new [AreapeersAllOf] instance and optionally import its values from
   /// [json] if it's non-null.
-  AreapeersAllOf.fromJson(Map<String, dynamic> json) {
+  AreapeersAllOf.fromJson(Map<String, dynamic>? json) {
     if (json != null) {
       code = json['code'];
       areas = AreapeersAllOfAreas.listFromJson(json['areas']);
@@ -26,10 +26,10 @@ class AreapeersAllOf {
   }
 
   /// 情報コード。常に555です。
-  int code;
+  int? code;
 
   /// ピアの地域分布
-  List<AreapeersAllOfAreas> areas;
+  List<AreapeersAllOfAreas>? areas;
 
   @override
   bool operator ==(Object other) =>
@@ -53,10 +53,10 @@ class AreapeersAllOf {
     return json;
   }
 
-  static List<AreapeersAllOf> listFromJson(
+  static List<AreapeersAllOf>? listFromJson(
     List<dynamic> json, {
-    bool emptyIsNull,
-    bool growable,
+    bool? emptyIsNull,
+    bool? growable,
   }) =>
       json == null || json.isEmpty
           ? true == emptyIsNull
@@ -76,12 +76,12 @@ class AreapeersAllOf {
   }
 
   // maps a json object with a list of AreapeersAllOf-objects as value to a dart map
-  static Map<String, List<AreapeersAllOf>> mapListFromJson(
+  static Map<String, List<AreapeersAllOf>?> mapListFromJson(
     Map<String, dynamic> json, {
-    bool emptyIsNull,
-    bool growable,
+    bool? emptyIsNull,
+    bool? growable,
   }) {
-    final map = <String, List<AreapeersAllOf>>{};
+    final map = <String, List<AreapeersAllOf>?>{};
     if (json != null && json.isNotEmpty) {
       json.forEach((String key, dynamic v) {
         map[key] = AreapeersAllOf.listFromJson(v,

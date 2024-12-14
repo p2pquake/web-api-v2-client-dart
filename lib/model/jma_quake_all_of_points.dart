@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
+
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -12,15 +12,15 @@ part of p2pquake_v2_api.api;
 class JMAQuakeAllOfPoints {
   /// Returns a new [JMAQuakeAllOfPoints] instance.
   JMAQuakeAllOfPoints({
-    @required this.pref,
-    @required this.addr,
-    @required this.isArea,
-    @required this.scale,
+    required this.pref,
+    required this.addr,
+    required this.isArea,
+    required this.scale,
   });
 
   /// Returns a new [JMAQuakeAllOfPoints] instance and optionally import its values from
   /// [json] if it's non-null.
-  JMAQuakeAllOfPoints.fromJson(Map<String, dynamic> json) {
+  JMAQuakeAllOfPoints.fromJson(Map<String, dynamic>? json) {
     if (json != null) {
       pref = json['pref'];
       addr = json['addr'];
@@ -30,16 +30,16 @@ class JMAQuakeAllOfPoints {
   }
 
   /// 都道府県
-  String pref;
+  String? pref;
 
   /// 震度観測点名称（震度速報の場合は [気象庁 | 緊急地震速報や震度情報で用いる区域の名称](http://www.data.jma.go.jp/svd/eqev/data/joho/shindo-name.html) に記載のある区域名）
-  String addr;
+  String? addr;
 
   /// 区域名かどうか
-  bool isArea;
+  bool? isArea;
 
   /// 震度
-  JMAQuakeAllOfPointsScaleEnum scale = null; // JMAQuakeAllOfPointsScaleEnum._();
+  JMAQuakeAllOfPointsScaleEnum? scale = null; // JMAQuakeAllOfPointsScaleEnum._();
 
   @override
   bool operator ==(Object other) =>
@@ -73,10 +73,10 @@ class JMAQuakeAllOfPoints {
     return json;
   }
 
-  static List<JMAQuakeAllOfPoints> listFromJson(
-    List<dynamic> json, {
-    bool emptyIsNull,
-    bool growable,
+  static List<JMAQuakeAllOfPoints>? listFromJson(
+    List<dynamic>? json, {
+    bool? emptyIsNull,
+    bool? growable,
   }) =>
       json == null || json.isEmpty
           ? true == emptyIsNull
@@ -93,12 +93,12 @@ class JMAQuakeAllOfPoints {
   }
 
   // maps a json object with a list of JMAQuakeAllOfPoints-objects as value to a dart map
-  static Map<String, List<JMAQuakeAllOfPoints>> mapListFromJson(
+  static Map<String, List<JMAQuakeAllOfPoints>?> mapListFromJson(
     Map<String, dynamic> json, {
-    bool emptyIsNull,
-    bool growable,
+    bool? emptyIsNull,
+    bool? growable,
   }) {
-    final map = <String, List<JMAQuakeAllOfPoints>>{};
+    final map = <String, List<JMAQuakeAllOfPoints>?>{};
     if (json != null && json.isNotEmpty) {
       json.forEach((String key, dynamic v) {
         map[key] =
@@ -156,13 +156,13 @@ class JMAQuakeAllOfPointsScaleEnum {
     scale46,
   ];
 
-  static JMAQuakeAllOfPointsScaleEnum fromJson(num value) =>
+  static JMAQuakeAllOfPointsScaleEnum? fromJson(num? value) =>
       JMAQuakeAllOfPointsScaleEnumTypeTransformer().decode(value);
 
-  static List<JMAQuakeAllOfPointsScaleEnum> listFromJson(
+  static List<JMAQuakeAllOfPointsScaleEnum?>? listFromJson(
     List<dynamic> json, {
-    bool emptyIsNull,
-    bool growable,
+    bool? emptyIsNull,
+    bool? growable,
   }) =>
       json == null || json.isEmpty
           ? true == emptyIsNull
@@ -191,7 +191,7 @@ class JMAQuakeAllOfPointsScaleEnumTypeTransformer {
   ///
   /// The [allowNull] is very handy when an API changes and a new enum value is added or removed,
   /// and users are still using an old app with the old code.
-  JMAQuakeAllOfPointsScaleEnum decode(dynamic data, {bool allowNull}) {
+  JMAQuakeAllOfPointsScaleEnum? decode(dynamic data, {bool? allowNull}) {
     switch (data) {
       case 10:
         return JMAQuakeAllOfPointsScaleEnum.scale10;
@@ -222,5 +222,5 @@ class JMAQuakeAllOfPointsScaleEnumTypeTransformer {
   }
 
   /// Singleton [JMAQuakeAllOfPointsScaleEnumTypeTransformer] instance.
-  static JMAQuakeAllOfPointsScaleEnumTypeTransformer _instance;
+  static JMAQuakeAllOfPointsScaleEnumTypeTransformer? _instance;
 }

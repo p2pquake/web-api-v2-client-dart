@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -12,31 +11,31 @@ part of p2pquake_v2_api.api;
 class EEWAllOfAreas {
   /// Returns a new [EEWAllOfAreas] instance.
   EEWAllOfAreas({
-    @required this.pref,
-    @required this.name,
-    @required this.scaleFrom,
-    @required this.scaleTo,
+    required this.pref,
+    required this.name,
+    required this.scaleFrom,
+    required this.scaleTo,
     this.kindCode,
     this.arrivalTime,
   });
 
   /// 府県予報区
-  String pref;
+  String? pref;
 
   /// 地域名（細分区域名）
-  String name;
+  String? name;
 
   /// 最大予測震度の下限   システムの都合で小数点が付きますが整数部のみ有効です。
-  EEWAllOfAreasScaleFromEnum scaleFrom;
+  EEWAllOfAreasScaleFromEnum? scaleFrom;
 
   /// 最大予測震度の上限   システムの都合で小数点が付きますが整数部のみ有効です。
-  EEWAllOfAreasScaleToEnum scaleTo;
+  EEWAllOfAreasScaleToEnum? scaleTo;
 
   /// 警報コード
-  EEWAllOfAreasKindCodeEnum kindCode;
+  EEWAllOfAreasKindCodeEnum? kindCode;
 
   /// 主要動の到達予測時刻
-  String arrivalTime;
+  String? arrivalTime;
 
   @override
   bool operator ==(Object other) =>
@@ -79,7 +78,7 @@ class EEWAllOfAreas {
 
   /// Returns a new [EEWAllOfAreas] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static EEWAllOfAreas fromJson(Map<String, dynamic> json) => json == null
+  static EEWAllOfAreas? fromJson(Map<String, dynamic>? json) => json == null
       ? null
       : EEWAllOfAreas(
           pref: json[r'pref'],
@@ -90,34 +89,37 @@ class EEWAllOfAreas {
           arrivalTime: json[r'arrivalTime'],
         );
 
-  static List<EEWAllOfAreas> listFromJson(
-    List<dynamic> json, {
-    bool emptyIsNull,
-    bool growable,
+  static List<EEWAllOfAreas>? listFromJson(
+    List<dynamic>? json, {
+    bool? emptyIsNull,
+    bool? growable,
   }) =>
       json == null || json.isEmpty
           ? true == emptyIsNull
               ? null
               : <EEWAllOfAreas>[]
-          : json.map((dynamic value) => EEWAllOfAreas.fromJson(value)).toList(growable: true == growable);
+          : json
+              .map((dynamic value) => EEWAllOfAreas.fromJson(value))
+              .whereType<EEWAllOfAreas>()
+              .toList(growable: true == growable);
 
-  static Map<String, EEWAllOfAreas> mapFromJson(Map<String, dynamic> json) {
-    final map = <String, EEWAllOfAreas>{};
+  static Map<String, EEWAllOfAreas?> mapFromJson(Map<String, dynamic>? json) {
+    final map = <String, EEWAllOfAreas?>{};
     if (json?.isNotEmpty == true) {
-      json.forEach((key, value) => map[key] = EEWAllOfAreas.fromJson(value));
+      json!.forEach((key, value) => map[key] = EEWAllOfAreas.fromJson(value));
     }
     return map;
   }
 
   // maps a json object with a list of EEWAllOfAreas-objects as value to a dart map
-  static Map<String, List<EEWAllOfAreas>> mapListFromJson(
-    Map<String, dynamic> json, {
-    bool emptyIsNull,
-    bool growable,
+  static Map<String, List<EEWAllOfAreas>?> mapListFromJson(
+    Map<String, dynamic>? json, {
+    bool? emptyIsNull,
+    bool? growable,
   }) {
-    final map = <String, List<EEWAllOfAreas>>{};
+    final map = <String, List<EEWAllOfAreas>?>{};
     if (json?.isNotEmpty == true) {
-      json.forEach((key, value) {
+      json!.forEach((key, value) {
         map[key] = EEWAllOfAreas.listFromJson(
           value,
           emptyIsNull: emptyIsNull,
@@ -169,19 +171,21 @@ class EEWAllOfAreasScaleFromEnum {
     scale70,
   ];
 
-  static EEWAllOfAreasScaleFromEnum fromJson(dynamic value) =>
+  static EEWAllOfAreasScaleFromEnum? fromJson(dynamic value) =>
       EEWAllOfAreasScaleFromEnumTypeTransformer().decode(value);
 
-  static List<EEWAllOfAreasScaleFromEnum> listFromJson(
+  static List<EEWAllOfAreasScaleFromEnum?>? listFromJson(
     List<dynamic> json, {
-    bool emptyIsNull,
-    bool growable,
+    bool? emptyIsNull,
+    bool? growable,
   }) =>
       json == null || json.isEmpty
           ? true == emptyIsNull
               ? null
               : <EEWAllOfAreasScaleFromEnum>[]
-          : json.map((value) => EEWAllOfAreasScaleFromEnum.fromJson(value)).toList(growable: true == growable);
+          : json
+              .map((value) => EEWAllOfAreasScaleFromEnum.fromJson(value))
+              .toList(growable: true == growable);
 }
 
 /// Transformation class that can [encode] an instance of [EEWAllOfAreasScaleFromEnum] to num,
@@ -189,7 +193,8 @@ class EEWAllOfAreasScaleFromEnum {
 class EEWAllOfAreasScaleFromEnumTypeTransformer {
   const EEWAllOfAreasScaleFromEnumTypeTransformer._();
 
-  factory EEWAllOfAreasScaleFromEnumTypeTransformer() => _instance ??= EEWAllOfAreasScaleFromEnumTypeTransformer._();
+  factory EEWAllOfAreasScaleFromEnumTypeTransformer() =>
+      _instance ??= EEWAllOfAreasScaleFromEnumTypeTransformer._();
 
   num encode(EEWAllOfAreasScaleFromEnum data) => data.value;
 
@@ -201,7 +206,7 @@ class EEWAllOfAreasScaleFromEnumTypeTransformer {
   ///
   /// The [allowNull] is very handy when an API changes and a new enum value is added or removed,
   /// and users are still using an old app with the old code.
-  EEWAllOfAreasScaleFromEnum decode(dynamic data, {bool allowNull}) {
+  EEWAllOfAreasScaleFromEnum? decode(dynamic data, {bool? allowNull}) {
     switch (data) {
       case -1:
         return EEWAllOfAreasScaleFromEnum.scaleUnknown;
@@ -234,7 +239,7 @@ class EEWAllOfAreasScaleFromEnumTypeTransformer {
   }
 
   /// Singleton [EEWAllOfAreasScaleFromEnumTypeTransformer] instance.
-  static EEWAllOfAreasScaleFromEnumTypeTransformer _instance;
+  static EEWAllOfAreasScaleFromEnumTypeTransformer? _instance;
 }
 
 /// 最大予測震度の上限   システムの都合で小数点が付きますが整数部のみ有効です。
@@ -279,18 +284,21 @@ class EEWAllOfAreasScaleToEnum {
     scaleOver,
   ];
 
-  static EEWAllOfAreasScaleToEnum fromJson(dynamic value) => EEWAllOfAreasScaleToEnumTypeTransformer().decode(value);
+  static EEWAllOfAreasScaleToEnum? fromJson(dynamic value) =>
+      EEWAllOfAreasScaleToEnumTypeTransformer().decode(value);
 
-  static List<EEWAllOfAreasScaleToEnum> listFromJson(
+  static List<EEWAllOfAreasScaleToEnum?>? listFromJson(
     List<dynamic> json, {
-    bool emptyIsNull,
-    bool growable,
+    bool? emptyIsNull,
+    bool? growable,
   }) =>
       json == null || json.isEmpty
           ? true == emptyIsNull
               ? null
               : <EEWAllOfAreasScaleToEnum>[]
-          : json.map((value) => EEWAllOfAreasScaleToEnum.fromJson(value)).toList(growable: true == growable);
+          : json
+              .map((value) => EEWAllOfAreasScaleToEnum.fromJson(value))
+              .toList(growable: true == growable);
 }
 
 /// Transformation class that can [encode] an instance of [EEWAllOfAreasScaleToEnum] to num,
@@ -298,7 +306,8 @@ class EEWAllOfAreasScaleToEnum {
 class EEWAllOfAreasScaleToEnumTypeTransformer {
   const EEWAllOfAreasScaleToEnumTypeTransformer._();
 
-  factory EEWAllOfAreasScaleToEnumTypeTransformer() => _instance ??= EEWAllOfAreasScaleToEnumTypeTransformer._();
+  factory EEWAllOfAreasScaleToEnumTypeTransformer() =>
+      _instance ??= EEWAllOfAreasScaleToEnumTypeTransformer._();
 
   num encode(EEWAllOfAreasScaleToEnum data) => data.value;
 
@@ -310,7 +319,7 @@ class EEWAllOfAreasScaleToEnumTypeTransformer {
   ///
   /// The [allowNull] is very handy when an API changes and a new enum value is added or removed,
   /// and users are still using an old app with the old code.
-  EEWAllOfAreasScaleToEnum decode(dynamic data, {bool allowNull}) {
+  EEWAllOfAreasScaleToEnum? decode(dynamic data, {bool? allowNull}) {
     switch (data) {
       case -1:
         return EEWAllOfAreasScaleToEnum.scaleUnknown;
@@ -345,7 +354,7 @@ class EEWAllOfAreasScaleToEnumTypeTransformer {
   }
 
   /// Singleton [EEWAllOfAreasScaleToEnumTypeTransformer] instance.
-  static EEWAllOfAreasScaleToEnumTypeTransformer _instance;
+  static EEWAllOfAreasScaleToEnumTypeTransformer? _instance;
 }
 
 /// 警報コード
@@ -372,18 +381,21 @@ class EEWAllOfAreasKindCodeEnum {
     noPrediction,
   ];
 
-  static EEWAllOfAreasKindCodeEnum fromJson(dynamic value) => EEWAllOfAreasKindCodeEnumTypeTransformer().decode(value);
+  static EEWAllOfAreasKindCodeEnum? fromJson(dynamic value) =>
+      EEWAllOfAreasKindCodeEnumTypeTransformer().decode(value);
 
-  static List<EEWAllOfAreasKindCodeEnum> listFromJson(
+  static List<EEWAllOfAreasKindCodeEnum?>? listFromJson(
     List<dynamic> json, {
-    bool emptyIsNull,
-    bool growable,
+    bool? emptyIsNull,
+    bool? growable,
   }) =>
       json == null || json.isEmpty
           ? true == emptyIsNull
               ? null
               : <EEWAllOfAreasKindCodeEnum>[]
-          : json.map((value) => EEWAllOfAreasKindCodeEnum.fromJson(value)).toList(growable: true == growable);
+          : json
+              .map((value) => EEWAllOfAreasKindCodeEnum.fromJson(value))
+              .toList(growable: true == growable);
 }
 
 /// Transformation class that can [encode] an instance of [EEWAllOfAreasKindCodeEnum] to String,
@@ -391,7 +403,8 @@ class EEWAllOfAreasKindCodeEnum {
 class EEWAllOfAreasKindCodeEnumTypeTransformer {
   const EEWAllOfAreasKindCodeEnumTypeTransformer._();
 
-  factory EEWAllOfAreasKindCodeEnumTypeTransformer() => _instance ??= EEWAllOfAreasKindCodeEnumTypeTransformer._();
+  factory EEWAllOfAreasKindCodeEnumTypeTransformer() =>
+      _instance ??= EEWAllOfAreasKindCodeEnumTypeTransformer._();
 
   String encode(EEWAllOfAreasKindCodeEnum data) => data.value;
 
@@ -403,7 +416,7 @@ class EEWAllOfAreasKindCodeEnumTypeTransformer {
   ///
   /// The [allowNull] is very handy when an API changes and a new enum value is added or removed,
   /// and users are still using an old app with the old code.
-  EEWAllOfAreasKindCodeEnum decode(dynamic data, {bool allowNull}) {
+  EEWAllOfAreasKindCodeEnum? decode(dynamic data, {bool? allowNull}) {
     switch (data) {
       case r'10':
         return EEWAllOfAreasKindCodeEnum.notReached;
@@ -420,5 +433,5 @@ class EEWAllOfAreasKindCodeEnumTypeTransformer {
   }
 
   /// Singleton [EEWAllOfAreasKindCodeEnumTypeTransformer] instance.
-  static EEWAllOfAreasKindCodeEnumTypeTransformer _instance;
+  static EEWAllOfAreasKindCodeEnumTypeTransformer? _instance;
 }

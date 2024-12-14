@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -12,17 +11,17 @@ part of p2pquake_v2_api.api;
 class JMATsunami extends BasicData {
   /// Returns a new [JMATsunami] instance.
   JMATsunami({
-    @required this.id,
-    @required this.code,
-    @required this.time,
-    @required this.cancelled,
-    @required this.issue,
+    required this.id,
+    required this.code,
+    required this.time,
+    required this.cancelled,
+    required this.issue,
     this.areas = const [],
-  });
+  }) : super(id: id, code: code, time: time);
 
   /// Returns a new [JMATsunami] instance and optionally import its values from
   /// [json] if it's non-null.
-  JMATsunami.fromJson(Map<String, dynamic> json) {
+  JMATsunami.fromJson(Map<String, dynamic>? json) : super.fromJson(json) {
     if (json != null) {
       id = json['id'];
       code = json['code'];
@@ -34,21 +33,21 @@ class JMATsunami extends BasicData {
   }
 
   /// 情報を一意に識別するID
-  String id;
+  String? id;
 
   /// 情報コード。常に552です。
-  int code;
+  int? code;
 
   /// 受信日時。形式は `2006/01/02 15:04:05.999` です。
-  String time;
+  String? time;
 
   /// 津波予報が解除されたかどうか。trueの場合、areasは空配列です。
-  bool cancelled;
+  bool? cancelled;
 
-  JMATsunamiAllOfIssue issue;
+  JMATsunamiAllOfIssue? issue;
 
   /// 津波予報の詳細
-  List<JMATsunamiAllOfAreas> areas;
+  List<JMATsunamiAllOfAreas?>? areas;
 
   @override
   bool operator ==(Object other) =>
@@ -97,39 +96,35 @@ class JMATsunami extends BasicData {
     return json;
   }
 
-  static List<JMATsunami> listFromJson(
+  static List<JMATsunami>? listFromJson(
     List<dynamic> json, {
-    bool emptyIsNull,
-    bool growable,
+    bool? emptyIsNull,
+    bool? growable,
   }) =>
       json == null || json.isEmpty
           ? true == emptyIsNull
               ? null
               : <JMATsunami>[]
-          : json
-              .map((v) => JMATsunami.fromJson(v))
-              .toList(growable: true == growable);
+          : json.map((v) => JMATsunami.fromJson(v)).toList(growable: true == growable);
 
   static Map<String, JMATsunami> mapFromJson(Map<String, dynamic> json) {
     final map = <String, JMATsunami>{};
     if (json != null && json.isNotEmpty) {
-      json.forEach(
-          (String key, dynamic v) => map[key] = JMATsunami.fromJson(v));
+      json.forEach((String key, dynamic v) => map[key] = JMATsunami.fromJson(v));
     }
     return map;
   }
 
   // maps a json object with a list of JMATsunami-objects as value to a dart map
-  static Map<String, List<JMATsunami>> mapListFromJson(
+  static Map<String, List<JMATsunami>?> mapListFromJson(
     Map<String, dynamic> json, {
-    bool emptyIsNull,
-    bool growable,
+    bool? emptyIsNull,
+    bool? growable,
   }) {
-    final map = <String, List<JMATsunami>>{};
+    final map = <String, List<JMATsunami>?>{};
     if (json != null && json.isNotEmpty) {
       json.forEach((String key, dynamic v) {
-        map[key] = JMATsunami.listFromJson(v,
-            emptyIsNull: emptyIsNull, growable: growable);
+        map[key] = JMATsunami.listFromJson(v, emptyIsNull: emptyIsNull, growable: growable);
       });
     }
     return map;

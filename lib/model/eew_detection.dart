@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -12,15 +11,15 @@ part of p2pquake_v2_api.api;
 class EEWDetection extends BasicData {
   /// Returns a new [EEWDetection] instance.
   EEWDetection({
-    @required this.id,
-    @required this.code,
-    @required this.time,
-    @required this.type,
-  });
+    required this.id,
+    required this.code,
+    required this.time,
+    required this.type,
+  }) : super(id: id, code: code, time: time);
 
   /// Returns a new [EEWDetection] instance and optionally import its values from
   /// [json] if it's non-null.
-  EEWDetection.fromJson(Map<String, dynamic> json) {
+  EEWDetection.fromJson(Map<String, dynamic>? json) : super.fromJson(json) {
     if (json != null) {
       id = json['id'];
       code = json['code'];
@@ -30,16 +29,16 @@ class EEWDetection extends BasicData {
   }
 
   /// 情報を一意に識別するID
-  String id;
+  String? id;
 
   /// 情報コード。常に554です。
-  int code;
+  int? code;
 
   /// 受信日時。形式は `2006/01/02 15:04:05.999` です。
-  String time;
+  String? time;
 
   /// 検出種類
-  EEWDetectionTypeEnum type = EEWDetectionTypeEnum.full;
+  EEWDetectionTypeEnum? type = EEWDetectionTypeEnum.full;
 
   @override
   bool operator ==(Object other) =>
@@ -51,12 +50,10 @@ class EEWDetection extends BasicData {
           other.type == type;
 
   @override
-  int get hashCode =>
-      id.hashCode + (code?.hashCode ?? 0) + time.hashCode + type.hashCode;
+  int get hashCode => id.hashCode + (code?.hashCode ?? 0) + time.hashCode + type.hashCode;
 
   @override
-  String toString() =>
-      'EEWDetection[id=$id, code=$code, time=$time, type=$type]';
+  String toString() => 'EEWDetection[id=$id, code=$code, time=$time, type=$type]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -75,39 +72,35 @@ class EEWDetection extends BasicData {
     return json;
   }
 
-  static List<EEWDetection> listFromJson(
+  static List<EEWDetection>? listFromJson(
     List<dynamic> json, {
-    bool emptyIsNull,
-    bool growable,
+    bool? emptyIsNull,
+    bool? growable,
   }) =>
       json == null || json.isEmpty
           ? true == emptyIsNull
               ? null
               : <EEWDetection>[]
-          : json
-              .map((v) => EEWDetection.fromJson(v))
-              .toList(growable: true == growable);
+          : json.map((v) => EEWDetection.fromJson(v)).toList(growable: true == growable);
 
   static Map<String, EEWDetection> mapFromJson(Map<String, dynamic> json) {
     final map = <String, EEWDetection>{};
     if (json != null && json.isNotEmpty) {
-      json.forEach(
-          (String key, dynamic v) => map[key] = EEWDetection.fromJson(v));
+      json.forEach((String key, dynamic v) => map[key] = EEWDetection.fromJson(v));
     }
     return map;
   }
 
   // maps a json object with a list of EEWDetection-objects as value to a dart map
-  static Map<String, List<EEWDetection>> mapListFromJson(
+  static Map<String, List<EEWDetection>?> mapListFromJson(
     Map<String, dynamic> json, {
-    bool emptyIsNull,
-    bool growable,
+    bool? emptyIsNull,
+    bool? growable,
   }) {
-    final map = <String, List<EEWDetection>>{};
+    final map = <String, List<EEWDetection>?>{};
     if (json != null && json.isNotEmpty) {
       json.forEach((String key, dynamic v) {
-        map[key] = EEWDetection.listFromJson(v,
-            emptyIsNull: emptyIsNull, growable: growable);
+        map[key] = EEWDetection.listFromJson(v, emptyIsNull: emptyIsNull, growable: growable);
       });
     }
     return map;
@@ -145,13 +138,13 @@ class EEWDetectionTypeEnum {
     chime,
   ];
 
-  static EEWDetectionTypeEnum fromJson(String value) =>
+  static EEWDetectionTypeEnum? fromJson(String? value) =>
       EEWDetectionTypeEnumTypeTransformer().decode(value);
 
-  static List<EEWDetectionTypeEnum> listFromJson(
+  static List<EEWDetectionTypeEnum?>? listFromJson(
     List<dynamic> json, {
-    bool emptyIsNull,
-    bool growable,
+    bool? emptyIsNull,
+    bool? growable,
   }) =>
       json == null || json.isEmpty
           ? true == emptyIsNull
@@ -180,7 +173,7 @@ class EEWDetectionTypeEnumTypeTransformer {
   ///
   /// The [allowNull] is very handy when an API changes and a new enum value is added or removed,
   /// and users are still using an old app with the old code.
-  EEWDetectionTypeEnum decode(dynamic data, {bool allowNull}) {
+  EEWDetectionTypeEnum? decode(dynamic data, {bool? allowNull}) {
     switch (data) {
       case 'Full':
         return EEWDetectionTypeEnum.full;
@@ -195,5 +188,5 @@ class EEWDetectionTypeEnumTypeTransformer {
   }
 
   /// Singleton [EEWDetectionTypeEnumTypeTransformer] instance.
-  static EEWDetectionTypeEnumTypeTransformer _instance;
+  static EEWDetectionTypeEnumTypeTransformer? _instance;
 }

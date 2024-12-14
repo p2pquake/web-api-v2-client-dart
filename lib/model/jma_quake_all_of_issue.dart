@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
+
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -13,14 +13,14 @@ class JMAQuakeAllOfIssue {
   /// Returns a new [JMAQuakeAllOfIssue] instance.
   JMAQuakeAllOfIssue({
     this.source_,
-    @required this.time,
-    @required this.type,
+    required this.time,
+    required this.type,
     this.correct,
   });
 
   /// Returns a new [JMAQuakeAllOfIssue] instance and optionally import its values from
   /// [json] if it's non-null.
-  JMAQuakeAllOfIssue.fromJson(Map<String, dynamic> json) {
+  JMAQuakeAllOfIssue.fromJson(Map<String, dynamic>? json) {
     if (json != null) {
       source_ = json['source'];
       time = json['time'];
@@ -30,16 +30,16 @@ class JMAQuakeAllOfIssue {
   }
 
   /// 発表元
-  String source_;
+  String? source_;
 
   /// 発表日時
-  String time;
+  String? time;
 
   /// 発表種類
-  JMAQuakeAllOfIssueTypeEnum type = JMAQuakeAllOfIssueTypeEnum.other;
+  JMAQuakeAllOfIssueTypeEnum? type = JMAQuakeAllOfIssueTypeEnum.other;
 
   /// 訂正の有無
-  JMAQuakeAllOfIssueCorrectEnum correct;
+  JMAQuakeAllOfIssueCorrectEnum? correct;
 
   @override
   bool operator ==(Object other) =>
@@ -75,10 +75,10 @@ class JMAQuakeAllOfIssue {
     return json;
   }
 
-  static List<JMAQuakeAllOfIssue> listFromJson(
+  static List<JMAQuakeAllOfIssue>? listFromJson(
     List<dynamic> json, {
-    bool emptyIsNull,
-    bool growable,
+    bool? emptyIsNull,
+    bool? growable,
   }) =>
       json == null || json.isEmpty
           ? true == emptyIsNull
@@ -99,12 +99,12 @@ class JMAQuakeAllOfIssue {
   }
 
   // maps a json object with a list of JMAQuakeAllOfIssue-objects as value to a dart map
-  static Map<String, List<JMAQuakeAllOfIssue>> mapListFromJson(
+  static Map<String, List<JMAQuakeAllOfIssue>?> mapListFromJson(
     Map<String, dynamic> json, {
-    bool emptyIsNull,
-    bool growable,
+    bool? emptyIsNull,
+    bool? growable,
   }) {
-    final map = <String, List<JMAQuakeAllOfIssue>>{};
+    final map = <String, List<JMAQuakeAllOfIssue>?>{};
     if (json != null && json.isNotEmpty) {
       json.forEach((String key, dynamic v) {
         map[key] = JMAQuakeAllOfIssue.listFromJson(v,
@@ -155,13 +155,13 @@ class JMAQuakeAllOfIssueTypeEnum {
     other,
   ];
 
-  static JMAQuakeAllOfIssueTypeEnum fromJson(String value) =>
+  static JMAQuakeAllOfIssueTypeEnum? fromJson(String? value) =>
       JMAQuakeAllOfIssueTypeEnumTypeTransformer().decode(value);
 
-  static List<JMAQuakeAllOfIssueTypeEnum> listFromJson(
+  static List<JMAQuakeAllOfIssueTypeEnum?>? listFromJson(
     List<dynamic> json, {
-    bool emptyIsNull,
-    bool growable,
+    bool? emptyIsNull,
+    bool? growable,
   }) =>
       json == null || json.isEmpty
           ? true == emptyIsNull
@@ -190,7 +190,7 @@ class JMAQuakeAllOfIssueTypeEnumTypeTransformer {
   ///
   /// The [allowNull] is very handy when an API changes and a new enum value is added or removed,
   /// and users are still using an old app with the old code.
-  JMAQuakeAllOfIssueTypeEnum decode(dynamic data, {bool allowNull}) {
+  JMAQuakeAllOfIssueTypeEnum? decode(dynamic data, {bool? allowNull}) {
     switch (data) {
       case 'ScalePrompt':
         return JMAQuakeAllOfIssueTypeEnum.scalePrompt;
@@ -213,7 +213,7 @@ class JMAQuakeAllOfIssueTypeEnumTypeTransformer {
   }
 
   /// Singleton [JMAQuakeAllOfIssueTypeEnumTypeTransformer] instance.
-  static JMAQuakeAllOfIssueTypeEnumTypeTransformer _instance;
+  static JMAQuakeAllOfIssueTypeEnumTypeTransformer? _instance;
 }
 
 /// 訂正の有無
@@ -255,13 +255,13 @@ class JMAQuakeAllOfIssueCorrectEnum {
     scaleAndDestination,
   ];
 
-  static JMAQuakeAllOfIssueCorrectEnum fromJson(String value) =>
+  static JMAQuakeAllOfIssueCorrectEnum? fromJson(String? value) =>
       JMAQuakeAllOfIssueCorrectEnumTypeTransformer().decode(value);
 
-  static List<JMAQuakeAllOfIssueCorrectEnum> listFromJson(
+  static List<JMAQuakeAllOfIssueCorrectEnum?>? listFromJson(
     List<dynamic> json, {
-    bool emptyIsNull,
-    bool growable,
+    bool? emptyIsNull,
+    bool? growable,
   }) =>
       json == null || json.isEmpty
           ? true == emptyIsNull
@@ -290,7 +290,7 @@ class JMAQuakeAllOfIssueCorrectEnumTypeTransformer {
   ///
   /// The [allowNull] is very handy when an API changes and a new enum value is added or removed,
   /// and users are still using an old app with the old code.
-  JMAQuakeAllOfIssueCorrectEnum decode(dynamic data, {bool allowNull}) {
+  JMAQuakeAllOfIssueCorrectEnum? decode(dynamic data, {bool? allowNull}) {
     switch (data) {
       case 'None':
         return JMAQuakeAllOfIssueCorrectEnum.none;
@@ -311,5 +311,5 @@ class JMAQuakeAllOfIssueCorrectEnumTypeTransformer {
   }
 
   /// Singleton [JMAQuakeAllOfIssueCorrectEnumTypeTransformer] instance.
-  static JMAQuakeAllOfIssueCorrectEnumTypeTransformer _instance;
+  static JMAQuakeAllOfIssueCorrectEnumTypeTransformer? _instance;
 }

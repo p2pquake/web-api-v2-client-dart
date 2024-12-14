@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
+
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -18,10 +18,10 @@ class JMATsunamiAllOfMaxHeight {
   });
 
   /// 文字列表現
-  String description;
+  String? description;
 
   /// 数値表現。文字列表現が「巨大」「高い」の場合は設定されません。また、「０．２ｍ未満」は「0.2」となります。
-  num value;
+  num? value;
 
   @override
   bool operator ==(Object other) =>
@@ -50,7 +50,7 @@ class JMATsunamiAllOfMaxHeight {
   /// Returns a new [JMATsunamiAllOfMaxHeight] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static JMATsunamiAllOfMaxHeight fromJson(dynamic value) {
+  static JMATsunamiAllOfMaxHeight? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
       return JMATsunamiAllOfMaxHeight(
@@ -61,10 +61,10 @@ class JMATsunamiAllOfMaxHeight {
     return null;
   }
 
-  static List<JMATsunamiAllOfMaxHeight> listFromJson(
+  static List<JMATsunamiAllOfMaxHeight?>? listFromJson(
     dynamic json, {
-    bool emptyIsNull,
-    bool growable,
+    bool? emptyIsNull,
+    bool? growable,
   }) =>
       json is List && json.isNotEmpty
           ? json.map(JMATsunamiAllOfMaxHeight.fromJson).toList(growable: true == growable)
@@ -72,8 +72,8 @@ class JMATsunamiAllOfMaxHeight {
               ? null
               : <JMATsunamiAllOfMaxHeight>[];
 
-  static Map<String, JMATsunamiAllOfMaxHeight> mapFromJson(dynamic json) {
-    final map = <String, JMATsunamiAllOfMaxHeight>{};
+  static Map<String, JMATsunamiAllOfMaxHeight?> mapFromJson(dynamic json) {
+    final map = <String, JMATsunamiAllOfMaxHeight?>{};
     if (json is Map && json.isNotEmpty) {
       json
           .cast<String, dynamic>()
@@ -83,12 +83,12 @@ class JMATsunamiAllOfMaxHeight {
   }
 
   // maps a json object with a list of JMATsunamiAllOfMaxHeight-objects as value to a dart map
-  static Map<String, List<JMATsunamiAllOfMaxHeight>> mapListFromJson(
+  static Map<String, List<JMATsunamiAllOfMaxHeight?>?> mapListFromJson(
     dynamic json, {
-    bool emptyIsNull,
-    bool growable,
+    bool? emptyIsNull,
+    bool? growable,
   }) {
-    final map = <String, List<JMATsunamiAllOfMaxHeight>>{};
+    final Map<String, List<JMATsunamiAllOfMaxHeight?>?> map = <String, List<JMATsunamiAllOfMaxHeight>?>{};
     if (json is Map && json.isNotEmpty) {
       json.cast<String, dynamic>().forEach((key, dynamic value) {
         map[key] = JMATsunamiAllOfMaxHeight.listFromJson(

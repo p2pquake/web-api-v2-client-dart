@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
+
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -21,7 +21,7 @@ class JMAQuakeAllOfEarthquakeHypocenter {
 
   /// Returns a new [JMAQuakeAllOfEarthquakeHypocenter] instance and optionally import its values from
   /// [json] if it's non-null.
-  JMAQuakeAllOfEarthquakeHypocenter.fromJson(Map<String, dynamic> json) {
+  JMAQuakeAllOfEarthquakeHypocenter.fromJson(Map<String, dynamic>? json) {
     if (json != null) {
       name = json['name'];
       latitude = json['latitude'] == null ? null : json['latitude'].toDouble();
@@ -34,19 +34,19 @@ class JMAQuakeAllOfEarthquakeHypocenter {
   }
 
   /// 名称
-  String name;
+  String? name;
 
   /// 緯度。震源情報が存在しない場合は-200となります。
-  num latitude;
+  num? latitude;
 
   /// 経度。震源情報が存在しない場合は-200となります。
-  num longitude;
+  num? longitude;
 
   /// 深さ(km)。「ごく浅い」は0、震源情報が存在しない場合は-1となります。
-  int depth;
+  int? depth;
 
   /// マグニチュード。震源情報が存在しない場合は-1となります。
-  num magnitude;
+  num? magnitude;
 
   @override
   bool operator ==(Object other) =>
@@ -90,10 +90,10 @@ class JMAQuakeAllOfEarthquakeHypocenter {
     return json;
   }
 
-  static List<JMAQuakeAllOfEarthquakeHypocenter> listFromJson(
+  static List<JMAQuakeAllOfEarthquakeHypocenter>? listFromJson(
     List<dynamic> json, {
-    bool emptyIsNull,
-    bool growable,
+    bool? emptyIsNull,
+    bool? growable,
   }) =>
       json == null || json.isEmpty
           ? true == emptyIsNull
@@ -114,12 +114,12 @@ class JMAQuakeAllOfEarthquakeHypocenter {
   }
 
   // maps a json object with a list of JMAQuakeAllOfEarthquakeHypocenter-objects as value to a dart map
-  static Map<String, List<JMAQuakeAllOfEarthquakeHypocenter>> mapListFromJson(
+  static Map<String, List<JMAQuakeAllOfEarthquakeHypocenter>?> mapListFromJson(
     Map<String, dynamic> json, {
-    bool emptyIsNull,
-    bool growable,
+    bool? emptyIsNull,
+    bool? growable,
   }) {
-    final map = <String, List<JMAQuakeAllOfEarthquakeHypocenter>>{};
+    final map = <String, List<JMAQuakeAllOfEarthquakeHypocenter>?>{};
     if (json != null && json.isNotEmpty) {
       json.forEach((String key, dynamic v) {
         map[key] = JMAQuakeAllOfEarthquakeHypocenter.listFromJson(v,

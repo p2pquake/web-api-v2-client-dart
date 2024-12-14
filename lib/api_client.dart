@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
+
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -38,7 +38,7 @@ class ApiClient {
     _defaultHeaderMap[key] = value;
   }
 
-  dynamic deserialize(String json, String targetType, {bool growable}) {
+  dynamic deserialize(String json, String targetType, {bool? growable}) {
     // Remove all spaces.  Necessary for reg expressions as well.
     targetType = targetType.replaceAll(' ', '');
 
@@ -48,9 +48,9 @@ class ApiClient {
             growable: true == growable);
   }
 
-  String serialize(Object obj) => obj == null ? '' : json.encode(obj);
+  String serialize(Object? obj) => obj == null ? '' : json.encode(obj);
 
-  T getAuthentication<T extends Authentication>(String name) {
+  T? getAuthentication<T extends Authentication>(String name) {
     final authentication = _authentications[name];
     return authentication is T ? authentication : null;
   }
@@ -61,13 +61,13 @@ class ApiClient {
     String path,
     String method,
     Iterable<QueryParam> queryParams,
-    Object body,
+    Object? body,
     Map<String, String> headerParams,
     Map<String, String> formParams,
-    String nullableContentType,
+    String? nullableContentType,
     List<String> authNames,
   ) async {
-    _updateParamsForAuth(authNames, queryParams, headerParams);
+    _updateParamsForAuth(authNames, queryParams as List<QueryParam>, headerParams);
 
     headerParams.addAll(_defaultHeaderMap);
 
@@ -198,7 +198,7 @@ class ApiClient {
     );
   }
 
-  dynamic _deserialize(dynamic value, String targetType, {bool growable}) {
+  dynamic _deserialize(dynamic value, String? targetType, {bool? growable}) {
     try {
       switch (targetType) {
         case 'String':
@@ -273,17 +273,17 @@ class ApiClient {
         case 'UserquakeEvaluationAllOfAreaConfidences':
           return UserquakeEvaluationAllOfAreaConfidences.fromJson(value);
         default:
-          Match match;
+          Match? match;
           if (value is List &&
-              (match = _regList.firstMatch(targetType)) != null) {
-            final newTargetType = match[1];
+              (match = _regList.firstMatch(targetType!)) != null) {
+            final newTargetType = match![1];
             return value
                 .map((v) => _deserialize(v, newTargetType, growable: growable))
                 .toList(growable: true == growable);
           }
           if (value is Map &&
-              (match = _regMap.firstMatch(targetType)) != null) {
-            final newTargetType = match[1];
+              (match = _regMap.firstMatch(targetType!)) != null) {
+            final newTargetType = match![1];
             return Map.fromIterables(
               value.keys,
               value.values.map(
