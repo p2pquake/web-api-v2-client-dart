@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
+
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -13,12 +13,12 @@ class EEWDetectionAllOf {
   /// Returns a new [EEWDetectionAllOf] instance.
   EEWDetectionAllOf({
     this.code,
-    @required this.type,
+    required this.type,
   });
 
   /// Returns a new [EEWDetectionAllOf] instance and optionally import its values from
   /// [json] if it's non-null.
-  EEWDetectionAllOf.fromJson(Map<String, dynamic> json) {
+  EEWDetectionAllOf.fromJson(Map<String, dynamic>? json) {
     if (json != null) {
       code = json['code'];
       type = EEWDetectionAllOfTypeEnum.fromJson(json['type']);
@@ -26,10 +26,10 @@ class EEWDetectionAllOf {
   }
 
   /// 情報コード。常に554です。
-  int code;
+  int? code;
 
   /// 検出種類
-  EEWDetectionAllOfTypeEnum type = EEWDetectionAllOfTypeEnum.full;
+  EEWDetectionAllOfTypeEnum? type = EEWDetectionAllOfTypeEnum.full;
 
   @override
   bool operator ==(Object other) =>
@@ -53,10 +53,10 @@ class EEWDetectionAllOf {
     return json;
   }
 
-  static List<EEWDetectionAllOf> listFromJson(
+  static List<EEWDetectionAllOf>? listFromJson(
     List<dynamic> json, {
-    bool emptyIsNull,
-    bool growable,
+    bool? emptyIsNull,
+    bool? growable,
   }) =>
       json == null || json.isEmpty
           ? true == emptyIsNull
@@ -76,12 +76,12 @@ class EEWDetectionAllOf {
   }
 
   // maps a json object with a list of EEWDetectionAllOf-objects as value to a dart map
-  static Map<String, List<EEWDetectionAllOf>> mapListFromJson(
+  static Map<String, List<EEWDetectionAllOf>?> mapListFromJson(
     Map<String, dynamic> json, {
-    bool emptyIsNull,
-    bool growable,
+    bool? emptyIsNull,
+    bool? growable,
   }) {
-    final map = <String, List<EEWDetectionAllOf>>{};
+    final map = <String, List<EEWDetectionAllOf>?>{};
     if (json != null && json.isNotEmpty) {
       json.forEach((String key, dynamic v) {
         map[key] = EEWDetectionAllOf.listFromJson(v,
@@ -123,13 +123,13 @@ class EEWDetectionAllOfTypeEnum {
     chime,
   ];
 
-  static EEWDetectionAllOfTypeEnum fromJson(String value) =>
+  static EEWDetectionAllOfTypeEnum? fromJson(String? value) =>
       EEWDetectionAllOfTypeEnumTypeTransformer().decode(value);
 
-  static List<EEWDetectionAllOfTypeEnum> listFromJson(
+  static List<EEWDetectionAllOfTypeEnum?>? listFromJson(
     List<dynamic> json, {
-    bool emptyIsNull,
-    bool growable,
+    bool? emptyIsNull,
+    bool? growable,
   }) =>
       json == null || json.isEmpty
           ? true == emptyIsNull
@@ -158,7 +158,7 @@ class EEWDetectionAllOfTypeEnumTypeTransformer {
   ///
   /// The [allowNull] is very handy when an API changes and a new enum value is added or removed,
   /// and users are still using an old app with the old code.
-  EEWDetectionAllOfTypeEnum decode(dynamic data, {bool allowNull}) {
+  EEWDetectionAllOfTypeEnum? decode(dynamic data, {bool? allowNull}) {
     switch (data) {
       case 'Full':
         return EEWDetectionAllOfTypeEnum.full;
@@ -173,5 +173,5 @@ class EEWDetectionAllOfTypeEnumTypeTransformer {
   }
 
   /// Singleton [EEWDetectionAllOfTypeEnumTypeTransformer] instance.
-  static EEWDetectionAllOfTypeEnumTypeTransformer _instance;
+  static EEWDetectionAllOfTypeEnumTypeTransformer? _instance;
 }

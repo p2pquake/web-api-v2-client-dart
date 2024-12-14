@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
+
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -13,14 +13,14 @@ class JMATsunamiAllOf {
   /// Returns a new [JMATsunamiAllOf] instance.
   JMATsunamiAllOf({
     this.code,
-    @required this.cancelled,
-    @required this.issue,
+    required this.cancelled,
+    required this.issue,
     this.areas = const [],
   });
 
   /// Returns a new [JMATsunamiAllOf] instance and optionally import its values from
   /// [json] if it's non-null.
-  JMATsunamiAllOf.fromJson(Map<String, dynamic> json) {
+  JMATsunamiAllOf.fromJson(Map<String, dynamic>? json) {
     if (json != null) {
       code = json['code'];
       cancelled = json['cancelled'];
@@ -30,15 +30,15 @@ class JMATsunamiAllOf {
   }
 
   /// 情報コード。常に552です。
-  Object code;
+  Object? code;
 
   /// 津波予報が解除されたかどうか。trueの場合、areasは空配列です。
-  bool cancelled;
+  bool? cancelled;
 
-  JMATsunamiAllOfIssue issue;
+  JMATsunamiAllOfIssue? issue;
 
   /// 津波予報の詳細
-  List<JMATsunamiAllOfAreas> areas;
+  List<JMATsunamiAllOfAreas?>? areas;
 
   @override
   bool operator ==(Object other) =>
@@ -77,10 +77,10 @@ class JMATsunamiAllOf {
     return json;
   }
 
-  static List<JMATsunamiAllOf> listFromJson(
+  static List<JMATsunamiAllOf>? listFromJson(
     List<dynamic> json, {
-    bool emptyIsNull,
-    bool growable,
+    bool? emptyIsNull,
+    bool? growable,
   }) =>
       json == null || json.isEmpty
           ? true == emptyIsNull
@@ -100,12 +100,12 @@ class JMATsunamiAllOf {
   }
 
   // maps a json object with a list of JMATsunamiAllOf-objects as value to a dart map
-  static Map<String, List<JMATsunamiAllOf>> mapListFromJson(
+  static Map<String, List<JMATsunamiAllOf>?> mapListFromJson(
     Map<String, dynamic> json, {
-    bool emptyIsNull,
-    bool growable,
+    bool? emptyIsNull,
+    bool? growable,
   }) {
-    final map = <String, List<JMATsunamiAllOf>>{};
+    final map = <String, List<JMATsunamiAllOf>?>{};
     if (json != null && json.isNotEmpty) {
       json.forEach((String key, dynamic v) {
         map[key] = JMATsunamiAllOf.listFromJson(v,

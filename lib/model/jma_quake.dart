@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -13,18 +12,19 @@ part of p2pquake_v2_api.api;
 class JMAQuake extends BasicData {
   /// Returns a new [JMAQuake] instance.
   JMAQuake({
-    @required this.id,
+    required this.id,
     this.code,
-    @required this.time,
-    @required this.issue,
-    @required this.earthquake,
+    required this.time,
+    required this.issue,
+    required this.earthquake,
     this.points = const [],
-    @required this.comments,
-  });
+    required this.comments,
+  }) : super(id: id, code: code, time: time);
 
   /// Returns a new [JMAQuake] instance and optionally import its values from
   /// [json] if it's non-null.
-  JMAQuake.fromJson(Map<String, dynamic> json) {
+  // JMAQuake のみ、 BasicData から JMAQuake.fromJson を呼ぶので循環させない
+  JMAQuake.fromJson(Map<String, dynamic>? json) : super(id: null, code: null, time: null) {
     if (json != null) {
       id = json['id'];
       code = json['code'];
@@ -37,22 +37,22 @@ class JMAQuake extends BasicData {
   }
 
   /// 情報を一意に識別するID
-  String id;
+  String? id;
 
   /// 情報コード。常に551です。
-  int code;
+  int? code;
 
   /// 受信日時。形式は `2006/01/02 15:04:05.999` です。
-  String time;
+  String? time;
 
-  JMAQuakeAllOfIssue issue;
+  JMAQuakeAllOfIssue? issue;
 
-  JMAQuakeAllOfEarthquake earthquake;
+  JMAQuakeAllOfEarthquake? earthquake;
 
   /// 震度観測点の情報
-  List<JMAQuakeAllOfPoints> points;
+  List<JMAQuakeAllOfPoints>? points;
 
-  JMAQuakeAllOfComments comments;
+  JMAQuakeAllOfComments? comments;
 
   @override
   bool operator ==(Object other) =>
@@ -107,10 +107,10 @@ class JMAQuake extends BasicData {
     return json;
   }
 
-  static List<JMAQuake> listFromJson(
+  static List<JMAQuake>? listFromJson(
     List<dynamic> json, {
-    bool emptyIsNull,
-    bool growable,
+    bool? emptyIsNull,
+    bool? growable,
   }) =>
       json == null || json.isEmpty
           ? true == emptyIsNull
@@ -127,12 +127,12 @@ class JMAQuake extends BasicData {
   }
 
   // maps a json object with a list of JMAQuake-objects as value to a dart map
-  static Map<String, List<JMAQuake>> mapListFromJson(
+  static Map<String, List<JMAQuake>?> mapListFromJson(
     Map<String, dynamic> json, {
-    bool emptyIsNull,
-    bool growable,
+    bool? emptyIsNull,
+    bool? growable,
   }) {
-    final map = <String, List<JMAQuake>>{};
+    final map = <String, List<JMAQuake>?>{};
     if (json != null && json.isNotEmpty) {
       json.forEach((String key, dynamic v) {
         map[key] = JMAQuake.listFromJson(v, emptyIsNull: emptyIsNull, growable: growable);

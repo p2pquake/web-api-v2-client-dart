@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -10,7 +9,7 @@
 part of p2pquake_v2_api.api;
 
 class V2Api {
-  V2Api([ApiClient apiClient]) : apiClient = apiClient ?? defaultApiClient;
+  V2Api([ApiClient? apiClient]) : apiClient = apiClient ?? defaultApiClient;
 
   final ApiClient apiClient;
 
@@ -32,44 +31,30 @@ class V2Api {
    * * [int] offset:
    *   読み飛ばす件数 (0以上、デフォルトは0)。例えば、 limit=100&offset=200 とすると、201件目から100件を返却します。
    */
-  Future<Response> historyGetWithHttpInfo(
-      {List<int> codes, int limit, int offset}) async {
+  Future<Response> historyGetWithHttpInfo({List<int>? codes, int? limit, int? offset}) async {
     // Verify required params are set.
 
     final path = '/history'.replaceAll('{format}', 'json');
 
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
     if (codes != null) {
-      queryParams.addAll(
-          _convertParametersForCollectionFormat('multi', 'codes', codes));
+      queryParams.addAll(_convertParametersForCollectionFormat('multi', 'codes', codes));
     }
     if (limit != null) {
-      queryParams
-          .addAll(_convertParametersForCollectionFormat('', 'limit', limit));
+      queryParams.addAll(_convertParametersForCollectionFormat('', 'limit', limit));
     }
     if (offset != null) {
-      queryParams
-          .addAll(_convertParametersForCollectionFormat('', 'offset', offset));
+      queryParams.addAll(_convertParametersForCollectionFormat('', 'offset', offset));
     }
 
     final contentTypes = <String>[];
-    final nullableContentType =
-        contentTypes.isNotEmpty ? contentTypes[0] : null;
+    final nullableContentType = contentTypes.isNotEmpty ? contentTypes[0] : null;
     final authNames = <String>[];
-
-    if (nullableContentType != null &&
-        nullableContentType.toLowerCase().startsWith('multipart/form-data')) {
-      bool hasFields = false;
-      final mp = MultipartRequest(null, null);
-      if (hasFields) {
-        postBody = mp;
-      }
-    } else {}
 
     return await apiClient.invokeAPI(
       path,
@@ -97,19 +82,16 @@ class V2Api {
   ///
   /// * [int] offset:
   ///   読み飛ばす件数 (0以上、デフォルトは0)。例えば、 limit=100&offset=200 とすると、201件目から100件を返却します。
-  Future<List<BasicData>> historyGet(
-      {List<int> codes, int limit, int offset}) async {
-    final response = await historyGetWithHttpInfo(
-        codes: codes, limit: limit, offset: offset);
+  Future<List<BasicData>?> historyGet({List<int>? codes, int? limit, int? offset}) async {
+    final response = await historyGetWithHttpInfo(codes: codes, limit: limit, offset: offset);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, _decodeBodyBytes(response));
+      throw ApiException(response.statusCode, _decodeBodyBytes(response) ?? "");
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
-      return (apiClient.deserialize(
-              _decodeBodyBytes(response), 'List<BasicData>') as List)
+    if (response.body != "" && response.statusCode != HttpStatus.noContent) {
+      return (apiClient.deserialize(_decodeBodyBytes(response)!, 'List<BasicData>') as List)
           .map((item) => item as BasicData)
           .toList(growable: false);
     }

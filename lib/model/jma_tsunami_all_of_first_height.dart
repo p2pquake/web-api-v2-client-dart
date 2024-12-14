@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
+
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -18,10 +18,10 @@ class JMATsunamiAllOfFirstHeight {
   });
 
   /// 第1波の到達予想時刻
-  String arrivalTime;
+  String? arrivalTime;
 
   /// 第1波の到達状況
-  String condition;
+  String? condition;
 
   @override
   bool operator ==(Object other) =>
@@ -53,7 +53,7 @@ class JMATsunamiAllOfFirstHeight {
   /// Returns a new [JMATsunamiAllOfFirstHeight] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static JMATsunamiAllOfFirstHeight fromJson(dynamic value) {
+  static JMATsunamiAllOfFirstHeight? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
       return JMATsunamiAllOfFirstHeight(
@@ -64,10 +64,10 @@ class JMATsunamiAllOfFirstHeight {
     return null;
   }
 
-  static List<JMATsunamiAllOfFirstHeight> listFromJson(
+  static List<JMATsunamiAllOfFirstHeight?>? listFromJson(
     dynamic json, {
-    bool emptyIsNull,
-    bool growable,
+    bool? emptyIsNull,
+    bool? growable,
   }) =>
       json is List && json.isNotEmpty
           ? json.map(JMATsunamiAllOfFirstHeight.fromJson).toList(growable: true == growable)
@@ -75,8 +75,8 @@ class JMATsunamiAllOfFirstHeight {
               ? null
               : <JMATsunamiAllOfFirstHeight>[];
 
-  static Map<String, JMATsunamiAllOfFirstHeight> mapFromJson(dynamic json) {
-    final map = <String, JMATsunamiAllOfFirstHeight>{};
+  static Map<String, JMATsunamiAllOfFirstHeight?> mapFromJson(dynamic json) {
+    final map = <String, JMATsunamiAllOfFirstHeight?>{};
     if (json is Map && json.isNotEmpty) {
       json
           .cast<String, dynamic>()
@@ -86,12 +86,12 @@ class JMATsunamiAllOfFirstHeight {
   }
 
   // maps a json object with a list of JMATsunamiAllOfFirstHeight-objects as value to a dart map
-  static Map<String, List<JMATsunamiAllOfFirstHeight>> mapListFromJson(
+  static Map<String, List<JMATsunamiAllOfFirstHeight?>?> mapListFromJson(
     dynamic json, {
-    bool emptyIsNull,
-    bool growable,
+    bool? emptyIsNull,
+    bool? growable,
   }) {
-    final map = <String, List<JMATsunamiAllOfFirstHeight>>{};
+    final Map<String, List<JMATsunamiAllOfFirstHeight?>?> map = <String, List<JMATsunamiAllOfFirstHeight>?>{};
     if (json is Map && json.isNotEmpty) {
       json.cast<String, dynamic>().forEach((key, dynamic value) {
         map[key] = JMATsunamiAllOfFirstHeight.listFromJson(

@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -15,26 +14,26 @@ class EEWAllOf {
     this.code,
     this.test,
     this.earthquake,
-    @required this.issue,
-    @required this.cancelled,
+    required this.issue,
+    required this.cancelled,
     this.areas = const [],
   });
 
   /// 情報コード。常に556です。
-  Object code;
+  Object? code;
 
   /// テストかどうか。
-  bool test;
+  bool? test;
 
-  EEWAllOfEarthquake earthquake;
+  EEWAllOfEarthquake? earthquake;
 
-  EEWAllOfIssue issue;
+  EEWAllOfIssue? issue;
 
   /// 取消
-  bool cancelled;
+  bool? cancelled;
 
   /// 細分区域
-  List<EEWAllOfAreas> areas;
+  List<EEWAllOfAreas>? areas;
 
   @override
   bool operator ==(Object other) =>
@@ -81,7 +80,7 @@ class EEWAllOf {
 
   /// Returns a new [EEWAllOf] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static EEWAllOf fromJson(Map<String, dynamic> json) => json == null
+  static EEWAllOf? fromJson(Map<String, dynamic>? json) => json == null
       ? null
       : EEWAllOf(
           code: json[r'code'],
@@ -92,34 +91,37 @@ class EEWAllOf {
           areas: EEWAllOfAreas.listFromJson(json[r'areas']),
         );
 
-  static List<EEWAllOf> listFromJson(
-    List<dynamic> json, {
-    bool emptyIsNull,
-    bool growable,
+  static List<EEWAllOf>? listFromJson(
+    List<dynamic>? json, {
+    bool? emptyIsNull,
+    bool? growable,
   }) =>
       json == null || json.isEmpty
           ? true == emptyIsNull
               ? null
               : <EEWAllOf>[]
-          : json.map((dynamic value) => EEWAllOf.fromJson(value)).toList(growable: true == growable);
+          : json
+              .map((dynamic value) => EEWAllOf.fromJson(value))
+              .whereType<EEWAllOf>()
+              .toList(growable: true == growable);
 
-  static Map<String, EEWAllOf> mapFromJson(Map<String, dynamic> json) {
-    final map = <String, EEWAllOf>{};
+  static Map<String, EEWAllOf?> mapFromJson(Map<String, dynamic>? json) {
+    final map = <String, EEWAllOf?>{};
     if (json?.isNotEmpty == true) {
-      json.forEach((key, value) => map[key] = EEWAllOf.fromJson(value));
+      json!.forEach((key, value) => map[key] = EEWAllOf.fromJson(value));
     }
     return map;
   }
 
   // maps a json object with a list of EEWAllOf-objects as value to a dart map
-  static Map<String, List<EEWAllOf>> mapListFromJson(
-    Map<String, dynamic> json, {
-    bool emptyIsNull,
-    bool growable,
+  static Map<String, List<EEWAllOf>?> mapListFromJson(
+    Map<String, dynamic>? json, {
+    bool? emptyIsNull,
+    bool? growable,
   }) {
-    final map = <String, List<EEWAllOf>>{};
+    final map = <String, List<EEWAllOf>?>{};
     if (json?.isNotEmpty == true) {
-      json.forEach((key, value) {
+      json!.forEach((key, value) {
         map[key] = EEWAllOf.listFromJson(
           value,
           emptyIsNull: emptyIsNull,

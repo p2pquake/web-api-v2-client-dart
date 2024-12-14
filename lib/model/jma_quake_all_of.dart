@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
+
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -14,14 +14,14 @@ class JMAQuakeAllOf {
   /// Returns a new [JMAQuakeAllOf] instance.
   JMAQuakeAllOf({
     this.code,
-    @required this.issue,
-    @required this.earthquake,
+    required this.issue,
+    required this.earthquake,
     this.points = const [],
   });
 
   /// Returns a new [JMAQuakeAllOf] instance and optionally import its values from
   /// [json] if it's non-null.
-  JMAQuakeAllOf.fromJson(Map<String, dynamic> json) {
+  JMAQuakeAllOf.fromJson(Map<String, dynamic>? json) {
     if (json != null) {
       code = json['code'];
       issue = JMAQuakeAllOfIssue.fromJson(json['issue']);
@@ -32,16 +32,16 @@ class JMAQuakeAllOf {
   }
 
   /// 情報コード。常に551です。
-  Object code;
+  Object? code;
 
-  JMAQuakeAllOfIssue issue;
+  JMAQuakeAllOfIssue? issue;
 
-  JMAQuakeAllOfEarthquake earthquake;
+  JMAQuakeAllOfEarthquake? earthquake;
 
   /// 震度観測点の情報
-  List<JMAQuakeAllOfPoints> points;
+  List<JMAQuakeAllOfPoints>? points;
 
-  JMAQuakeAllOfComments comments;
+  JMAQuakeAllOfComments? comments;
 
   @override
   bool operator ==(Object other) =>
@@ -86,10 +86,10 @@ class JMAQuakeAllOf {
     return json;
   }
 
-  static List<JMAQuakeAllOf> listFromJson(
+  static List<JMAQuakeAllOf>? listFromJson(
     List<dynamic> json, {
-    bool emptyIsNull,
-    bool growable,
+    bool? emptyIsNull,
+    bool? growable,
   }) =>
       json == null || json.isEmpty
           ? true == emptyIsNull
@@ -106,12 +106,12 @@ class JMAQuakeAllOf {
   }
 
   // maps a json object with a list of JMAQuakeAllOf-objects as value to a dart map
-  static Map<String, List<JMAQuakeAllOf>> mapListFromJson(
+  static Map<String, List<JMAQuakeAllOf>?> mapListFromJson(
     Map<String, dynamic> json, {
-    bool emptyIsNull,
-    bool growable,
+    bool? emptyIsNull,
+    bool? growable,
   }) {
-    final map = <String, List<JMAQuakeAllOf>>{};
+    final map = <String, List<JMAQuakeAllOf>?>{};
     if (json != null && json.isNotEmpty) {
       json.forEach((String key, dynamic v) {
         map[key] = JMAQuakeAllOf.listFromJson(v, emptyIsNull: emptyIsNull, growable: growable);

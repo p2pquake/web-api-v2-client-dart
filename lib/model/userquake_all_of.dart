@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
+
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -13,12 +13,12 @@ class UserquakeAllOf {
   /// Returns a new [UserquakeAllOf] instance.
   UserquakeAllOf({
     this.code,
-    @required this.area,
+    required this.area,
   });
 
   /// Returns a new [UserquakeAllOf] instance and optionally import its values from
   /// [json] if it's non-null.
-  UserquakeAllOf.fromJson(Map<String, dynamic> json) {
+  UserquakeAllOf.fromJson(Map<String, dynamic>? json) {
     if (json != null) {
       code = json['code'];
       area = json['area'];
@@ -26,10 +26,10 @@ class UserquakeAllOf {
   }
 
   /// 情報コード。常に561です。
-  Object code;
+  Object? code;
 
   /// 地域コード
-  int area;
+  int? area;
 
   @override
   bool operator ==(Object other) =>
@@ -53,10 +53,10 @@ class UserquakeAllOf {
     return json;
   }
 
-  static List<UserquakeAllOf> listFromJson(
+  static List<UserquakeAllOf>? listFromJson(
     List<dynamic> json, {
-    bool emptyIsNull,
-    bool growable,
+    bool? emptyIsNull,
+    bool? growable,
   }) =>
       json == null || json.isEmpty
           ? true == emptyIsNull
@@ -76,12 +76,12 @@ class UserquakeAllOf {
   }
 
   // maps a json object with a list of UserquakeAllOf-objects as value to a dart map
-  static Map<String, List<UserquakeAllOf>> mapListFromJson(
+  static Map<String, List<UserquakeAllOf>?> mapListFromJson(
     Map<String, dynamic> json, {
-    bool emptyIsNull,
-    bool growable,
+    bool? emptyIsNull,
+    bool? growable,
   }) {
-    final map = <String, List<UserquakeAllOf>>{};
+    final map = <String, List<UserquakeAllOf>?>{};
     if (json != null && json.isNotEmpty) {
       json.forEach((String key, dynamic v) {
         map[key] = UserquakeAllOf.listFromJson(v,

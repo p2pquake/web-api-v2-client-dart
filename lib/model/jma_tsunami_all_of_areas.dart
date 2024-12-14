@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
+
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -21,17 +21,17 @@ class JMATsunamiAllOfAreas {
   });
 
   /// 津波予報の種類
-  JMATsunamiAllOfAreasGradeEnum grade;
+  JMATsunamiAllOfAreasGradeEnum? grade;
 
   /// 直ちに津波が来襲すると予想されているかどうか
-  bool immediate;
+  bool? immediate;
 
   /// 津波予報区名。[気象庁｜津波予報区について](http://www.data.jma.go.jp/svd/eqev/data/joho/t-yohokuinfo.html)を参照。
-  String name;
+  String? name;
 
-  JMATsunamiAllOfFirstHeight firstHeight;
+  JMATsunamiAllOfFirstHeight? firstHeight;
 
-  JMATsunamiAllOfMaxHeight maxHeight;
+  JMATsunamiAllOfMaxHeight? maxHeight;
 
   @override
   bool operator ==(Object other) =>
@@ -79,7 +79,7 @@ class JMATsunamiAllOfAreas {
   /// Returns a new [JMATsunamiAllOfAreas] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static JMATsunamiAllOfAreas fromJson(dynamic value) {
+  static JMATsunamiAllOfAreas? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
       return JMATsunamiAllOfAreas(
@@ -93,10 +93,10 @@ class JMATsunamiAllOfAreas {
     return null;
   }
 
-  static List<JMATsunamiAllOfAreas> listFromJson(
+  static List<JMATsunamiAllOfAreas?>? listFromJson(
     dynamic json, {
-    bool emptyIsNull,
-    bool growable,
+    bool? emptyIsNull,
+    bool? growable,
   }) =>
       json is List && json.isNotEmpty
           ? json.map(JMATsunamiAllOfAreas.fromJson).toList(growable: true == growable)
@@ -104,8 +104,8 @@ class JMATsunamiAllOfAreas {
               ? null
               : <JMATsunamiAllOfAreas>[];
 
-  static Map<String, JMATsunamiAllOfAreas> mapFromJson(dynamic json) {
-    final map = <String, JMATsunamiAllOfAreas>{};
+  static Map<String, JMATsunamiAllOfAreas?> mapFromJson(dynamic json) {
+    final map = <String, JMATsunamiAllOfAreas?>{};
     if (json is Map && json.isNotEmpty) {
       json
           .cast<String, dynamic>()
@@ -115,12 +115,12 @@ class JMATsunamiAllOfAreas {
   }
 
   // maps a json object with a list of JMATsunamiAllOfAreas-objects as value to a dart map
-  static Map<String, List<JMATsunamiAllOfAreas>> mapListFromJson(
+  static Map<String, List<JMATsunamiAllOfAreas?>?> mapListFromJson(
     dynamic json, {
-    bool emptyIsNull,
-    bool growable,
+    bool? emptyIsNull,
+    bool? growable,
   }) {
-    final map = <String, List<JMATsunamiAllOfAreas>>{};
+    final Map<String, List<JMATsunamiAllOfAreas?>?> map = <String, List<JMATsunamiAllOfAreas>?>{};
     if (json is Map && json.isNotEmpty) {
       json.cast<String, dynamic>().forEach((key, dynamic value) {
         map[key] = JMATsunamiAllOfAreas.listFromJson(
@@ -169,13 +169,13 @@ class JMATsunamiAllOfAreasGradeEnum {
     unknown,
   ];
 
-  static JMATsunamiAllOfAreasGradeEnum fromJson(String value) =>
+  static JMATsunamiAllOfAreasGradeEnum? fromJson(String? value) =>
       JMATsunamiAllOfAreasGradeEnumTypeTransformer().decode(value);
 
-  static List<JMATsunamiAllOfAreasGradeEnum> listFromJson(
+  static List<JMATsunamiAllOfAreasGradeEnum?>? listFromJson(
     List<dynamic> json, {
-    bool emptyIsNull,
-    bool growable,
+    bool? emptyIsNull,
+    bool? growable,
   }) =>
       json == null || json.isEmpty
           ? true == emptyIsNull
@@ -204,7 +204,7 @@ class JMATsunamiAllOfAreasGradeEnumTypeTransformer {
   ///
   /// The [allowNull] is very handy when an API changes and a new enum value is added or removed,
   /// and users are still using an old app with the old code.
-  JMATsunamiAllOfAreasGradeEnum decode(dynamic data, {bool allowNull}) {
+  JMATsunamiAllOfAreasGradeEnum? decode(dynamic data, {bool? allowNull}) {
     switch (data) {
       case 'MajorWarning':
         return JMATsunamiAllOfAreasGradeEnum.majorWarning;
@@ -223,5 +223,5 @@ class JMATsunamiAllOfAreasGradeEnumTypeTransformer {
   }
 
   /// Singleton [JMATsunamiAllOfAreasGradeEnumTypeTransformer] instance.
-  static JMATsunamiAllOfAreasGradeEnumTypeTransformer _instance;
+  static JMATsunamiAllOfAreasGradeEnumTypeTransformer? _instance;
 }

@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
+
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -17,7 +17,7 @@ class JMAQuakeAllOfComments {
   });
 
   /// 自由付加文。ない場合は空文字列となります。気象庁の発表電文に含まれる自由付加文をそのまま提供しており、火山噴火に伴って発表される遠地地震に関する情報では、「大規模な噴火が発生しました」という文言が含まれます（2024年7月現在）。
-  String freeFormComment;
+  String? freeFormComment;
 
   @override
   bool operator ==(Object other) =>
@@ -43,16 +43,16 @@ class JMAQuakeAllOfComments {
   /// Returns a new [JMAQuakeAllOfComments] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  JMAQuakeAllOfComments.fromJson(Map<String, dynamic> json) {
+  JMAQuakeAllOfComments.fromJson(Map<String, dynamic>? json) {
     if (json != null) {
       freeFormComment = json['freeFormComment'];
     }
   }
 
-  static List<JMAQuakeAllOfComments> listFromJson(
+  static List<JMAQuakeAllOfComments>? listFromJson(
     List<dynamic> json, {
-    bool emptyIsNull,
-    bool growable,
+    bool? emptyIsNull,
+    bool? growable,
   }) =>
       json == null || json.isEmpty
           ? true == emptyIsNull
@@ -69,12 +69,12 @@ class JMAQuakeAllOfComments {
   }
 
   // maps a json object with a list of JMAQuakeAllOfComments-objects as value to a dart map
-  static Map<String, List<JMAQuakeAllOfComments>> mapListFromJson(
+  static Map<String, List<JMAQuakeAllOfComments>?> mapListFromJson(
     dynamic json, {
-    bool emptyIsNull,
-    bool growable,
+    bool? emptyIsNull,
+    bool? growable,
   }) {
-    final map = <String, List<JMAQuakeAllOfComments>>{};
+    final map = <String, List<JMAQuakeAllOfComments>?>{};
     if (json is Map && json.isNotEmpty) {
       json.cast<String, dynamic>().forEach((key, dynamic value) {
         map[key] = JMAQuakeAllOfComments.listFromJson(

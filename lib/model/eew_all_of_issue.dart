@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
+
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -12,19 +12,19 @@ part of p2pquake_v2_api.api;
 class EEWAllOfIssue {
   /// Returns a new [EEWAllOfIssue] instance.
   EEWAllOfIssue({
-    @required this.time,
-    @required this.eventId,
-    @required this.serial,
+    required this.time,
+    required this.eventId,
+    required this.serial,
   });
 
   /// 発表時刻
-  String time;
+  String? time;
 
   /// 識別情報
-  String eventId;
+  String? eventId;
 
   /// 情報番号
-  String serial;
+  String? serial;
 
   @override
   bool operator ==(Object other) =>
@@ -50,7 +50,7 @@ class EEWAllOfIssue {
 
   /// Returns a new [EEWAllOfIssue] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static EEWAllOfIssue fromJson(Map<String, dynamic> json) => json == null
+  static EEWAllOfIssue? fromJson(Map<String, dynamic>? json) => json == null
       ? null
       : EEWAllOfIssue(
           time: json[r'time'],
@@ -58,10 +58,10 @@ class EEWAllOfIssue {
           serial: json[r'serial'],
         );
 
-  static List<EEWAllOfIssue> listFromJson(
+  static List<EEWAllOfIssue?>? listFromJson(
     List<dynamic> json, {
-    bool emptyIsNull,
-    bool growable,
+    bool? emptyIsNull,
+    bool? growable,
   }) =>
       json == null || json.isEmpty
           ? true == emptyIsNull
@@ -69,23 +69,23 @@ class EEWAllOfIssue {
               : <EEWAllOfIssue>[]
           : json.map((dynamic value) => EEWAllOfIssue.fromJson(value)).toList(growable: true == growable);
 
-  static Map<String, EEWAllOfIssue> mapFromJson(Map<String, dynamic> json) {
-    final map = <String, EEWAllOfIssue>{};
+  static Map<String, EEWAllOfIssue?> mapFromJson(Map<String, dynamic>? json) {
+    final map = <String, EEWAllOfIssue?>{};
     if (json?.isNotEmpty == true) {
-      json.forEach((key, value) => map[key] = EEWAllOfIssue.fromJson(value));
+      json!.forEach((key, value) => map[key] = EEWAllOfIssue.fromJson(value));
     }
     return map;
   }
 
   // maps a json object with a list of EEWAllOfIssue-objects as value to a dart map
-  static Map<String, List<EEWAllOfIssue>> mapListFromJson(
-    Map<String, dynamic> json, {
-    bool emptyIsNull,
-    bool growable,
+  static Map<String, List<EEWAllOfIssue?>?> mapListFromJson(
+    Map<String, dynamic>? json, {
+    bool? emptyIsNull,
+    bool? growable,
   }) {
-    final map = <String, List<EEWAllOfIssue>>{};
+    final Map<String, List<EEWAllOfIssue?>?> map = <String, List<EEWAllOfIssue>?>{};
     if (json?.isNotEmpty == true) {
-      json.forEach((key, value) {
+      json!.forEach((key, value) {
         map[key] = EEWAllOfIssue.listFromJson(
           value,
           emptyIsNull: emptyIsNull,

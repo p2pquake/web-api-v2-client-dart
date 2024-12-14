@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
+
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -13,8 +13,8 @@ class UserquakeEvaluationAllOf {
   /// Returns a new [UserquakeEvaluationAllOf] instance.
   UserquakeEvaluationAllOf({
     this.code,
-    @required this.count,
-    @required this.confidence,
+    required this.count,
+    required this.confidence,
     this.startedAt,
     this.updatedAt,
     this.time,
@@ -23,7 +23,7 @@ class UserquakeEvaluationAllOf {
 
   /// Returns a new [UserquakeEvaluationAllOf] instance and optionally import its values from
   /// [json] if it's non-null.
-  UserquakeEvaluationAllOf.fromJson(Map<String, dynamic> json) {
+  UserquakeEvaluationAllOf.fromJson(Map<String, dynamic>? json) {
     if (json != null) {
       code = json['code'];
       count = json['count'];
@@ -40,25 +40,25 @@ class UserquakeEvaluationAllOf {
   }
 
   /// 情報コード。常に9611です。
-  Object code;
+  Object? code;
 
   /// 件数
-  int count;
+  int? count;
 
   /// P2P地震情報 Beta3 における信頼度（0～1）   0: 非表示、0.97015: レベル1、0.96774: レベル2、0.97024: レベル3、0.98052: レベル4。   値は適合率 (precision) です。
-  num confidence;
+  num? confidence;
 
   /// 開始日時。地震感知情報のイベントを一意に識別するキーとなります。 形式は `2006/01/02 15:04:05.999` です。
-  String startedAt;
+  String? startedAt;
 
   /// 更新日時。形式は `2006/01/02 15:04:05.999` です。
-  String updatedAt;
+  String? updatedAt;
 
   /// 評価日時。形式は `2006/01/02 15:04:05.999` です。
-  String time;
+  String? time;
 
   /// 地域ごとの信頼度情報
-  Map<String, UserquakeEvaluationAllOfAreaConfidences> areaConfidences;
+  Map<String, UserquakeEvaluationAllOfAreaConfidences>? areaConfidences;
 
   @override
   bool operator ==(Object other) =>
@@ -112,10 +112,10 @@ class UserquakeEvaluationAllOf {
     return json;
   }
 
-  static List<UserquakeEvaluationAllOf> listFromJson(
+  static List<UserquakeEvaluationAllOf>? listFromJson(
     List<dynamic> json, {
-    bool emptyIsNull,
-    bool growable,
+    bool? emptyIsNull,
+    bool? growable,
   }) =>
       json == null || json.isEmpty
           ? true == emptyIsNull
@@ -136,12 +136,12 @@ class UserquakeEvaluationAllOf {
   }
 
   // maps a json object with a list of UserquakeEvaluationAllOf-objects as value to a dart map
-  static Map<String, List<UserquakeEvaluationAllOf>> mapListFromJson(
+  static Map<String, List<UserquakeEvaluationAllOf>?> mapListFromJson(
     Map<String, dynamic> json, {
-    bool emptyIsNull,
-    bool growable,
+    bool? emptyIsNull,
+    bool? growable,
   }) {
-    final map = <String, List<UserquakeEvaluationAllOf>>{};
+    final map = <String, List<UserquakeEvaluationAllOf>?>{};
     if (json != null && json.isNotEmpty) {
       json.forEach((String key, dynamic v) {
         map[key] = UserquakeEvaluationAllOf.listFromJson(v,

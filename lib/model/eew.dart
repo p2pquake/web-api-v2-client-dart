@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -12,37 +11,37 @@ part of p2pquake_v2_api.api;
 class EEW extends BasicData {
   /// Returns a new [EEW] instance.
   EEW({
-    @required this.id,
+    required this.id,
     this.code,
-    @required this.time,
+    required this.time,
     this.test,
     this.earthquake,
-    @required this.issue,
-    @required this.cancelled,
+    required this.issue,
+    required this.cancelled,
     this.areas = const [],
-  });
+  }) : super(id: id, code: code, time: time);
 
   /// 情報を一意に識別するID
-  String id;
+  String? id;
 
   /// 情報コード。常に556です。
-  int code;
+  int? code;
 
   /// 受信日時。形式は `2006/01/02 15:04:05.999` です。
-  String time;
+  String? time;
 
   /// テストかどうか。
-  bool test;
+  bool? test;
 
-  EEWAllOfEarthquake earthquake;
+  EEWAllOfEarthquake? earthquake;
 
-  EEWAllOfIssue issue;
+  EEWAllOfIssue? issue;
 
   /// 取消
-  bool cancelled;
+  bool? cancelled;
 
   /// 細分区域
-  List<EEWAllOfAreas> areas;
+  List<EEWAllOfAreas>? areas;
 
   @override
   bool operator ==(Object other) =>
@@ -93,7 +92,7 @@ class EEW extends BasicData {
 
   /// Returns a new [EEW] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static EEW fromJson(Map<String, dynamic> json) => json == null
+  static EEW? fromJson(Map<String, dynamic>? json) => json == null
       ? null
       : EEW(
           id: json[r'id'],
@@ -106,10 +105,10 @@ class EEW extends BasicData {
           areas: EEWAllOfAreas.listFromJson(json[r'areas']),
         );
 
-  static List<EEW> listFromJson(
+  static List<EEW?>? listFromJson(
     List<dynamic> json, {
-    bool emptyIsNull,
-    bool growable,
+    bool? emptyIsNull,
+    bool? growable,
   }) =>
       json == null || json.isEmpty
           ? true == emptyIsNull
@@ -117,23 +116,23 @@ class EEW extends BasicData {
               : <EEW>[]
           : json.map((dynamic value) => EEW.fromJson(value)).toList(growable: true == growable);
 
-  static Map<String, EEW> mapFromJson(Map<String, dynamic> json) {
-    final map = <String, EEW>{};
+  static Map<String, EEW?> mapFromJson(Map<String, dynamic>? json) {
+    final map = <String, EEW?>{};
     if (json?.isNotEmpty == true) {
-      json.forEach((key, value) => map[key] = EEW.fromJson(value));
+      json!.forEach((key, value) => map[key] = EEW.fromJson(value));
     }
     return map;
   }
 
   // maps a json object with a list of EEW-objects as value to a dart map
-  static Map<String, List<EEW>> mapListFromJson(
-    Map<String, dynamic> json, {
-    bool emptyIsNull,
-    bool growable,
+  static Map<String, List<EEW?>?> mapListFromJson(
+    Map<String, dynamic>? json, {
+    bool? emptyIsNull,
+    bool? growable,
   }) {
-    final map = <String, List<EEW>>{};
+    final Map<String, List<EEW?>?> map = <String, List<EEW>?>{};
     if (json?.isNotEmpty == true) {
-      json.forEach((key, value) {
+      json!.forEach((key, value) {
         map[key] = EEW.listFromJson(
           value,
           emptyIsNull: emptyIsNull,

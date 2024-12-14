@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
+
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -12,14 +12,14 @@ part of p2pquake_v2_api.api;
 class JMATsunamiAllOfIssue {
   /// Returns a new [JMATsunamiAllOfIssue] instance.
   JMATsunamiAllOfIssue({
-    @required this.source_,
-    @required this.time,
-    @required this.type,
+    required this.source_,
+    required this.time,
+    required this.type,
   });
 
   /// Returns a new [JMATsunamiAllOfIssue] instance and optionally import its values from
   /// [json] if it's non-null.
-  JMATsunamiAllOfIssue.fromJson(Map<String, dynamic> json) {
+  JMATsunamiAllOfIssue.fromJson(Map<String, dynamic>? json) {
     if (json != null) {
       source_ = json['source'];
       time = json['time'];
@@ -28,13 +28,13 @@ class JMATsunamiAllOfIssue {
   }
 
   /// 発表元
-  String source_;
+  String? source_;
 
   /// 発表日時
-  String time;
+  String? time;
 
   /// 発表種類。現在は Focus (津波予報) のみです。
-  String type;
+  String? type;
 
   @override
   bool operator ==(Object other) =>
@@ -65,10 +65,10 @@ class JMATsunamiAllOfIssue {
     return json;
   }
 
-  static List<JMATsunamiAllOfIssue> listFromJson(
+  static List<JMATsunamiAllOfIssue>? listFromJson(
     List<dynamic> json, {
-    bool emptyIsNull,
-    bool growable,
+    bool? emptyIsNull,
+    bool? growable,
   }) =>
       json == null || json.isEmpty
           ? true == emptyIsNull
@@ -89,12 +89,12 @@ class JMATsunamiAllOfIssue {
   }
 
   // maps a json object with a list of JMATsunamiAllOfIssue-objects as value to a dart map
-  static Map<String, List<JMATsunamiAllOfIssue>> mapListFromJson(
+  static Map<String, List<JMATsunamiAllOfIssue>?> mapListFromJson(
     Map<String, dynamic> json, {
-    bool emptyIsNull,
-    bool growable,
+    bool? emptyIsNull,
+    bool? growable,
   }) {
-    final map = <String, List<JMATsunamiAllOfIssue>>{};
+    final map = <String, List<JMATsunamiAllOfIssue>?>{};
     if (json != null && json.isNotEmpty) {
       json.forEach((String key, dynamic v) {
         map[key] = JMATsunamiAllOfIssue.listFromJson(v,

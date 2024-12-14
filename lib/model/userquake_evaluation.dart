@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -12,58 +11,56 @@ part of p2pquake_v2_api.api;
 class UserquakeEvaluation extends BasicData {
   /// Returns a new [UserquakeEvaluation] instance.
   UserquakeEvaluation({
-    @required this.id,
-    @required this.code,
-    @required this.time,
-    @required this.count,
-    @required this.confidence,
+    required this.id,
+    required this.code,
+    required this.time,
+    required this.count,
+    required this.confidence,
     this.startedAt,
     this.updatedAt,
     this.areaConfidences = const {},
-  });
+  }) : super(id: id, code: code, time: time);
 
   /// Returns a new [UserquakeEvaluation] instance and optionally import its values from
   /// [json] if it's non-null.
-  UserquakeEvaluation.fromJson(Map<String, dynamic> json) {
+  UserquakeEvaluation.fromJson(Map<String, dynamic>? json) : super.fromJson(json) {
     if (json != null) {
       id = json['id'];
       code = json['code'];
       time = json['time'];
       count = json['count'];
-      confidence =
-          json['confidence'] == null ? null : json['confidence'].toDouble();
+      confidence = json['confidence'] == null ? null : json['confidence'].toDouble();
       startedAt = json['started_at'];
       updatedAt = json['updated_at'];
       areaConfidences = json['area_confidences'] == null
           ? null
-          : UserquakeEvaluationAllOfAreaConfidences.mapFromJson(
-              json['area_confidences']);
+          : UserquakeEvaluationAllOfAreaConfidences.mapFromJson(json['area_confidences']);
     }
   }
 
   /// 情報を一意に識別するID
-  String id;
+  String? id;
 
   /// 情報コード。常に9611です。
-  int code;
+  int? code;
 
   /// 評価日時。形式は `2006/01/02 15:04:05.999` です。
-  String time;
+  String? time;
 
   /// 件数
-  int count;
+  int? count;
 
   /// P2P地震情報 Beta3 における信頼度（0～1）   0: 非表示、0.97015: レベル1、0.96774: レベル2、0.97024: レベル3、0.98052: レベル4。   値は適合率 (precision) です。
-  num confidence;
+  num? confidence;
 
   /// 開始日時。地震感知情報のイベントを一意に識別するキーとなります。 形式は `2006/01/02 15:04:05.999` です。
-  String startedAt;
+  String? startedAt;
 
   /// 更新日時。形式は `2006/01/02 15:04:05.999` です。
-  String updatedAt;
+  String? updatedAt;
 
   /// 地域ごとの信頼度情報
-  Map<String, UserquakeEvaluationAllOfAreaConfidences> areaConfidences;
+  Map<String, UserquakeEvaluationAllOfAreaConfidences>? areaConfidences;
 
   @override
   bool operator ==(Object other) =>
@@ -122,40 +119,36 @@ class UserquakeEvaluation extends BasicData {
     return json;
   }
 
-  static List<UserquakeEvaluation> listFromJson(
+  static List<UserquakeEvaluation>? listFromJson(
     List<dynamic> json, {
-    bool emptyIsNull,
-    bool growable,
+    bool? emptyIsNull,
+    bool? growable,
   }) =>
       json == null || json.isEmpty
           ? true == emptyIsNull
               ? null
               : <UserquakeEvaluation>[]
-          : json
-              .map((v) => UserquakeEvaluation.fromJson(v))
-              .toList(growable: true == growable);
+          : json.map((v) => UserquakeEvaluation.fromJson(v)).toList(growable: true == growable);
 
-  static Map<String, UserquakeEvaluation> mapFromJson(
-      Map<String, dynamic> json) {
+  static Map<String, UserquakeEvaluation> mapFromJson(Map<String, dynamic> json) {
     final map = <String, UserquakeEvaluation>{};
     if (json != null && json.isNotEmpty) {
-      json.forEach((String key, dynamic v) =>
-          map[key] = UserquakeEvaluation.fromJson(v));
+      json.forEach((String key, dynamic v) => map[key] = UserquakeEvaluation.fromJson(v));
     }
     return map;
   }
 
   // maps a json object with a list of UserquakeEvaluation-objects as value to a dart map
-  static Map<String, List<UserquakeEvaluation>> mapListFromJson(
+  static Map<String, List<UserquakeEvaluation>?> mapListFromJson(
     Map<String, dynamic> json, {
-    bool emptyIsNull,
-    bool growable,
+    bool? emptyIsNull,
+    bool? growable,
   }) {
-    final map = <String, List<UserquakeEvaluation>>{};
+    final map = <String, List<UserquakeEvaluation>?>{};
     if (json != null && json.isNotEmpty) {
       json.forEach((String key, dynamic v) {
-        map[key] = UserquakeEvaluation.listFromJson(v,
-            emptyIsNull: emptyIsNull, growable: growable);
+        map[key] =
+            UserquakeEvaluation.listFromJson(v, emptyIsNull: emptyIsNull, growable: growable);
       });
     }
     return map;
